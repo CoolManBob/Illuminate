@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Packet System">
+      <UniqueIdentifier>{78405bf1-7e84-4329-a181-4fc43f9d4808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Crypto">
+      <UniqueIdentifier>{55f6a0e4-2cf6-4e00-abbf-4cd0f2332b64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet System">
+      <UniqueIdentifier>{1bcfccca-f10b-46b7-a1cd-5b53e189d19b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Memory">
+      <UniqueIdentifier>{c8b7874c-c516-43fb-9c40-84046002e71c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Memory">
+      <UniqueIdentifier>{399414ba-047c-431c-b1e0-0db83d664fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Database">
+      <UniqueIdentifier>{25c9205b-9c19-414a-a7a3-609354d3ab8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Database">
+      <UniqueIdentifier>{8e42a9f3-623f-4fe2-9e86-d599ecef312a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared Types">
+      <UniqueIdentifier>{9bd8874b-3321-4a68-bff1-ca9c21e4d22f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared Types\Server">
+      <UniqueIdentifier>{f43fc234-6237-4f00-9d14-7780d0b01b28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared Types">
+      <UniqueIdentifier>{b9872f16-da65-43e7-ad66-66fd2acbb9a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared Types\Server">
+      <UniqueIdentifier>{acd0679d-9317-4fcf-b46d-bd5a4029782c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Local">
+      <UniqueIdentifier>{884087cd-90ba-4ab0-90bf-18e1579c6d75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Local">
+      <UniqueIdentifier>{10849535-4810-4d1f-bd69-1ca64bddf975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Local\Client">
+      <UniqueIdentifier>{27e1c54a-43dc-4d45-b7a5-88fd7bf7ee4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Networking">
+      <UniqueIdentifier>{988a3563-d167-46fb-b210-ae2ad953c0c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared Types\Client">
+      <UniqueIdentifier>{11f82e21-3de8-417f-9205-246fa09f4624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Local\Client">
+      <UniqueIdentifier>{599ba670-39c4-4fc5-a110-122145934215}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IlluminateLog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminatePacket.h">
+      <Filter>Header Files\Packet System</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminatePacketHandler.h">
+      <Filter>Header Files\Packet System</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminatePacketInterface.h">
+      <Filter>Header Files\Packet System</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminatePacketProcessor.h">
+      <Filter>Header Files\Packet System</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateFlagLengthLookup.h">
+      <Filter>Header Files\Packet System</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateConnectionFactory.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateServer.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateServerConnection.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateSocket.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateSocketImpl.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateCrypto.h">
+      <Filter>Header Files\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateFieldLookup.h">
+      <Filter>Header Files\Packet System</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminatePacketPool.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminatePoolStrategy.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminatePool.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateDatabase.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateDBInterface.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateClientAccount.h">
+      <Filter>Header Files\Local\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateClientCharacter.h">
+      <Filter>Header Files\Local\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateServerWorldListTypes.h">
+      <Filter>Header Files\Shared Types\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateLocalSys.h">
+      <Filter>Header Files\Local</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateLocalTypes.h">
+      <Filter>Header Files\Local</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateLocalInfo.h">
+      <Filter>Header Files\Local</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateServerDataTypes.h">
+      <Filter>Header Files\Shared Types\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateHash.h">
+      <Filter>Header Files\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateClientCharacterTypes.h">
+      <Filter>Header Files\Shared Types\Client</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IlluminateLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateFlagLengthLookup.cpp">
+      <Filter>Source Files\Packet System</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminatePacket.cpp">
+      <Filter>Source Files\Packet System</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminatePacketInterface.cpp">
+      <Filter>Source Files\Packet System</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateFieldLookup.cpp">
+      <Filter>Source Files\Packet System</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminatePacketPool.cpp">
+      <Filter>Source Files\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateDatabase.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateDBInterface.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateClientAccount.cpp">
+      <Filter>Source Files\Local\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateLocalSys.cpp">
+      <Filter>Source Files\Local</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateClientCharacter.cpp">
+      <Filter>Source Files\Local\Client</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

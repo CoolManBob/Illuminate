@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1919BF1D-7D4B-4AAF-BCC5-138E8912EC19}</ProjectGuid>
+    <RootNamespace>IlluminateCommon</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>$(ProjectName)_$(Platform)</TargetName>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)$(Configuration)_$(Platform)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)$(Configuration)_$(Platform)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../IlluminateDependencies/Include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Lib>
+      <OutputFile>../out/$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../IlluminateDependencies/Include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Lib>
+      <OutputFile>../out/$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\CppUnit64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoEncodings64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoFoundation64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoJSON64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoNet64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoUtil64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoXML64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoData64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoDataMySQL64d.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\libmysql.dll" "$(SolutionDir)out"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../IlluminateDependencies/Include</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>../out/$(ProjectName)_$(Platform).pdb</ProgramDataBaseFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>../out/$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\CppUnit64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoEncodings64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoFoundation64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoJSON64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoNet64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoUtil64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoXML64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoData64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\PocoDataMySQL64.dll" "$(SolutionDir)out"
+copy "$(SolutionDir)IlluminateDependencies\Bin\libmysql.dll" "$(SolutionDir)out"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="IlluminateClientAccount.h" />
+    <ClInclude Include="IlluminateClientCharacter.h" />
+    <ClInclude Include="IlluminateConfig.h" />
+    <ClInclude Include="IlluminateConnectionFactory.h" />
+    <ClInclude Include="IlluminateCrypto.h" />
+    <ClInclude Include="IlluminateDatabase.h" />
+    <ClInclude Include="IlluminateDBInterface.h" />
+    <ClInclude Include="IlluminateFieldLookup.h" />
+    <ClInclude Include="IlluminateFlagLengthLookup.h" />
+    <ClInclude Include="IlluminateHash.h" />
+    <ClInclude Include="IlluminateLocalInfo.h" />
+    <ClInclude Include="IlluminateLocalSys.h" />
+    <ClInclude Include="IlluminateLocalTypes.h" />
+    <ClInclude Include="IlluminateLog.h" />
+    <ClInclude Include="IlluminatePacket.h" />
+    <ClInclude Include="IlluminatePacketHandler.h" />
+    <ClInclude Include="IlluminatePacketPool.h" />
+    <ClInclude Include="IlluminatePacketProcessor.h" />
+    <ClInclude Include="IlluminatePacketInterface.h" />
+    <ClInclude Include="IlluminatePool.h" />
+    <ClInclude Include="IlluminatePoolStrategy.h" />
+    <ClInclude Include="IlluminateServer.h" />
+    <ClInclude Include="IlluminateClientCharacterTypes.h" />
+    <ClInclude Include="IlluminateServerConnection.h" />
+    <ClInclude Include="IlluminateServerDataTypes.h" />
+    <ClInclude Include="IlluminateServerWorldListTypes.h" />
+    <ClInclude Include="IlluminateSocket.h" />
+    <ClInclude Include="IlluminateSocketImpl.h" />
+    <ClInclude Include="IlluminateTypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IlluminateClientAccount.cpp" />
+    <ClCompile Include="IlluminateClientCharacter.cpp" />
+    <ClCompile Include="IlluminateDatabase.cpp" />
+    <ClCompile Include="IlluminateDBInterface.cpp" />
+    <ClCompile Include="IlluminateFieldLookup.cpp" />
+    <ClCompile Include="IlluminateFlagLengthLookup.cpp" />
+    <ClCompile Include="IlluminateLocalSys.cpp" />
+    <ClCompile Include="IlluminateLog.cpp" />
+    <ClCompile Include="IlluminatePacket.cpp" />
+    <ClCompile Include="IlluminatePacketInterface.cpp" />
+    <ClCompile Include="IlluminatePacketPool.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

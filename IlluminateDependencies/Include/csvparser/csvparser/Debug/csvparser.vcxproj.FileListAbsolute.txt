@@ -1,0 +1,2 @@
+C:\Programming\Archlord\SVN\trunk\Tools\ToolSuite\AlefToolSuite\Debug\csvparser.pdb
+C:\Programming\Archlord\SVN\trunk\ALEmu\AlefDependencies\Include\csvparser\csvparser\Debug\csvparser.pdb

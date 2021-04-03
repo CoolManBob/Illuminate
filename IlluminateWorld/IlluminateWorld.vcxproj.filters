@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Networking">
+      <UniqueIdentifier>{a8cc113d-167b-4adb-ac47-3fa35268e686}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Packet Handlers">
+      <UniqueIdentifier>{5405bc34-0080-4561-a273-e73d30769c48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Networking">
+      <UniqueIdentifier>{f105677d-e28c-4c3a-b2ed-8f53ba996fd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers">
+      <UniqueIdentifier>{e50194a8-bf98-459b-94a7-94fc137957da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Map System">
+      <UniqueIdentifier>{1d8c8f86-180d-468a-b5e9-f53baf64bc7d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateWorldApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateWorldServer.cpp">
+      <Filter>Source Files\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateWorldStartupEncryption.cpp">
+      <Filter>Source Files\Packet Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateWorldAGSMCharMgr.cpp">
+      <Filter>Source Files\Packet Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateWorldCharacter.cpp">
+      <Filter>Source Files\Packet Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateWorldUIStatus.cpp">
+      <Filter>Source Files\Packet Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateWorldOptimizedCharMove.cpp">
+      <Filter>Source Files\Packet Handlers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IlluminateWorldApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldGlobal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldClientConnection.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldClientFactory.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldServer.h">
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldStartupEncryption.h">
+      <Filter>Header Files\Packet Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldPacketHandler.h">
+      <Filter>Header Files\Packet Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldAGSMCharMgr.h">
+      <Filter>Header Files\Packet Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldCharacter.h">
+      <Filter>Header Files\Packet Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldUIStatus.h">
+      <Filter>Header Files\Packet Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldOptimizedCharMove.h">
+      <Filter>Header Files\Packet Handlers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

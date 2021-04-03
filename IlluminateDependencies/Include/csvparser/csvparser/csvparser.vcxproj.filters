@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="internal">
+      <UniqueIdentifier>{1459a757-d084-4b22-ae7d-2096be312701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{3b25f9b6-7aa6-4519-9aa2-8c7a7ac45751}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\include\internal\basic_csv_parser.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\internal\col_names.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\internal\csv_format.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\internal\csv_reader.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\internal\csv_reader_iterator.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\internal\csv_row.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\internal\csv_row_json.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\internal\csv_stat.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\internal\csv_utility.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\internal\basic_csv_parser.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\col_names.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\common.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\csv_format.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\csv_reader.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\csv_row.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\csv_stat.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\csv_utility.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\csv_writer.hpp">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\internal\data_type.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\external\hedley.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\external\mio.hpp">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\external\string_view.hpp">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\csv.hpp" />
+  </ItemGroup>
+</Project>
