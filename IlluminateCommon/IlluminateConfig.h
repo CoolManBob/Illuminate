@@ -6,12 +6,12 @@
 using Poco::AutoPtr;
 using Poco::Util::IniFileConfiguration;
 
-class AlefConfig
+class IlluminateConfig
 {
 public:
-	AlefConfig() {}
-	AlefConfig(std::string fileName) { iniFile = new IniFileConfiguration(fileName); }
-	virtual ~AlefConfig() {}
+	IlluminateConfig() {}
+	IlluminateConfig(std::string fileName) { iniFile = new IniFileConfiguration(fileName); }
+	virtual ~IlluminateConfig() {}
 
 	bool getBool(std::string key) { return iniFile->getBool(key, false); }
 	double getDouble(std::string key) { return iniFile->getDouble(key, 0); }

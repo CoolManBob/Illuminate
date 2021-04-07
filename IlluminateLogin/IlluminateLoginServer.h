@@ -12,15 +12,15 @@ using namespace Poco::Net;
 #define UPDATETIMESECONDS 60 //60 seconds
 #define UPDATETIMER UPDATETIMESECONDS*UPDATETIMEFACTOR
 
-#include "AlefServer.h"
-#include "AlefLoginClientFactory.h"
-#include "AlefLoginPacketHandler.h"
+#include "IlluminateServer.h"
+#include "IlluminateLoginClientFactory.h"
+#include "IlluminateLoginPacketHandler.h"
 
-class AlefLoginServer : public AlefServer
+class IlluminateLoginServer : public IlluminateServer
 {
 public:
-	AlefLoginServer();
-	virtual ~AlefLoginServer();
+	IlluminateLoginServer();
+	virtual ~IlluminateLoginServer();
 
 	virtual void runServer();
 	void stopServer();
@@ -31,9 +31,9 @@ private:
 	bool initServerSystems();
 
 	Timestamp timeStamp;
-	AlefLoginClientFactory * clientFactory;
+	IlluminateLoginClientFactory * clientFactory;
 	TCPServer * loginServer;
-	AlefLoginPacketHandler * handler;
+	IlluminateLoginPacketHandler * handler;
 	TCPServerParams * params;
 
 };

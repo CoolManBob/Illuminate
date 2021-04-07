@@ -1,22 +1,22 @@
-#include "AlefDBInterface.h"
+#include "IlluminateDBInterface.h"
 
 #include <iostream>
 
-AlefDBInterface::AlefDBInterface()
+IlluminateDBInterface::IlluminateDBInterface()
 {
 	Poco::Data::MySQL::Connector::registerConnector();
 
-	database[	dbType::loginDB	] = new AlefDatabase();
-	database[	dbType::worldDB	] = new AlefDatabase();
-	database[	dbType::dataDB	] = new AlefDatabase();
+	database[	dbType::loginDB	] = new IlluminateDatabase();
+	database[	dbType::worldDB	] = new IlluminateDatabase();
+	database[	dbType::dataDB	] = new IlluminateDatabase();
 }
 
-AlefDBInterface::~AlefDBInterface()
+IlluminateDBInterface::~IlluminateDBInterface()
 {
 	delete[] &database;
 }
 
-bool AlefDBInterface::createDatabaseConnection(dbType type, std::string connectionString)
+bool IlluminateDBInterface::createDatabaseConnection(dbType type, std::string connectionString)
 {
 	if (type > 2 || type < 0)
 		return false;
@@ -28,12 +28,12 @@ bool AlefDBInterface::createDatabaseConnection(dbType type, std::string connecti
 	return true;
 }
 
-Session AlefDBInterface::acquireDatabaseSession(dbType type)
+Session IlluminateDBInterface::acquireDatabaseSession(dbType type)
 {
 	return database[type]->getDBSession(sessionNames[type]);
 }
 
-void AlefDBInterface::test()
+void IlluminateDBInterface::test()
 {
 	try {
 		Session sess = database[0]->getDBSession(sessionNames[0]);

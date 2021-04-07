@@ -4,28 +4,28 @@
 
 using namespace Poco::Net;
 
-#include "AlefSocketImpl.h"
-#include "AlefPacket.h"
-#include "AlefCrypto.h"
+#include "IlluminateSocketImpl.h"
+#include "IlluminatePacket.h"
+#include "IlluminateCrypto.h"
 
-class AlefSocket : public StreamSocket
+class IlluminateSocket : public StreamSocket
 {
 public:
-	AlefSocket() { cryptoSession = nullptr; };
-	AlefSocket(const Socket& sock) : StreamSocket(sock) { cryptoSession = nullptr; };
-	virtual ~AlefSocket() {};
+	IlluminateSocket() { /*cryptoSession = nullptr;*/ };
+	IlluminateSocket(const Socket& sock) : StreamSocket(sock) { /*cryptoSession = nullptr;*/ };
+	virtual ~IlluminateSocket() {};
 
-	AlefSocket& operator = (const Socket& sock) 
+	IlluminateSocket& operator = (const Socket& sock) 
 	{ 
-		if (dynamic_cast<AlefSocketImpl*>(sock.impl()))
+		if (dynamic_cast<IlluminateSocketImpl*>(sock.impl()))
 			Socket::operator = (sock);
 	}
 
-	void setCryptoSession(blowfish_session* session) { cryptoSession = session; }
-	blowfish_session* getCryptoSession() { return cryptoSession; }
-	int sendPacket(AlefPacket* packet, bool encrypt = true) 
+	/*void setCryptoSession(blowfish_session* session) { cryptoSession = session; }
+	blowfish_session* getCryptoSession() { return cryptoSession; }*/
+	int sendPacket(IlluminatePacket* packet, bool encrypt = true) 
 	{
-		if (encrypt)
+		/*if (encrypt)
 		{
 			UInt8 header[] = { 0xA1, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 			UInt8 * packetData = packet->getBuffer();
@@ -50,11 +50,11 @@ public:
 			packet->getBuffer()[packetSize + 7] = 0xAF; //Guard Footer Byte
 			*(UInt16*)(packet->getBuffer() + 1) = ((UInt16)packet->getSize()); //Encrypted Size
 			*(UInt32*)(packet->getBuffer() + 3) = ++cryptoSession->packetCounter;
-		}
+		}*/
 		
 		return this->sendBytes(packet->getBuffer(), packet->getSize());
 	}
-	int receivePacket(AlefPacket * packet) 
+	int receivePacket(IlluminatePacket * packet) 
 	{
 		/*unsigned char tempBuf[maxReceiveBytes + 1] = { 0 };
 
@@ -63,7 +63,7 @@ public:
 		if (readBytes <= 0)
 			return 0;
 
-		packet = new AlefPacket(tempBuf, readBytes);
+		packet = new IlluminatePacket(tempBuf, readBytes);
 
 		UInt32 realSize = 0;
 		UInt8* packetData = packet->getBuffer();
@@ -90,5 +90,5 @@ public:
 
 
 private:
-	blowfish_session * cryptoSession;
+	//blowfish_session * cryptoSession;
 };

@@ -2,31 +2,31 @@
 using std::cout;
 using std::endl;
 
-#include "AlefLoginGlobal.h"
-#include "AlefLoginApp.h"
-#include "AlefLoginServer.h"
+#include "IlluminateLoginGlobal.h"
+#include "IlluminateLoginApp.h"
+#include "IlluminateLoginServer.h"
 
-AlefLog* AlefLogger;
-AlefLoginConfig* loginConfig;
-AlefPacketInterface* pktInterface;
-AlefDBInterface* dbInterface;
+IlluminateLog* IlluminateLogger;
+IlluminateLoginConfig* loginConfig;
+IlluminatePacketInterface* pktInterface;
+IlluminateDBInterface* dbInterface;
 
-int AlefLoginApp::main(const vector<string>& args)
+int IlluminateLoginApp::main(const vector<string>& args)
 {
 	/*cout << "|----------------------------------------------------------------|" << endl
 		 <<  "|							ALEmu                                 |" << endl
-		 <<  "|						  AlefLogin							      |" << endl
+		 <<  "|						  IlluminateLogin							      |" << endl
 		 <<  "|                          v0.1								  |" << endl
 		 <<  "|----------------------------------------------------------------|" << endl;*/
 
-	AlefLogger = new AlefLog("AlefLogin.log", "AlefLogin");
-	loginConfig = new AlefLoginConfig("AlefLogin.ini");
-	pktInterface = new AlefPacketInterface();
-	dbInterface = new AlefDBInterface();
+	IlluminateLogger = new IlluminateLog("IlluminateLogin.log", "IlluminateLogin");
+	loginConfig = new IlluminateLoginConfig("IlluminateLogin.ini");
+	pktInterface = new IlluminatePacketInterface();
+	dbInterface = new IlluminateDBInterface();
 
-	cout << "ALEmu - AlefLogin v0.1" << endl;
+	cout << "ALEmu - IlluminateLogin v0.1" << endl;
 	
-	AlefLoginServer * loginServer = new AlefLoginServer();
+	IlluminateLoginServer * loginServer = new IlluminateLoginServer();
 	loginServer->runServer();
 	
 	LOG("HALT!", FATAL);

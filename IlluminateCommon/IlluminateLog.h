@@ -20,16 +20,15 @@ using Poco::ColorConsoleChannel;
 using Poco::WindowsColorConsoleChannel;
 using Poco::Message;
 
-//TODO: Further extend the logging framework to be able to log to both file and console
-class AlefLog
+class IlluminateLog
 {
 
 public:
-	AlefLog();
-	AlefLog(string logName, string channelName);
-	AlefLog(string logName, int logChannel);
-	AlefLog(string logName, int logChannel, int logPrio);
-	~AlefLog() {};
+	IlluminateLog();
+	IlluminateLog(string logName, string channelName);
+	IlluminateLog(string logName, int logChannel);
+	IlluminateLog(string logName, int logChannel, int logPrio);
+	~IlluminateLog() {};
 
 	enum class LogPrio : int
 	{

@@ -3,19 +3,19 @@
 
 using Poco::RandomInputStream;
 
-#include "AlefServerEncryptionSys.h"
+#include "IlluminateServerEncryptionSys.h"
 
-AlefServerEncryptionSys::AlefServerEncryptionSys()
+IlluminateServerEncryptionSys::IlluminateServerEncryptionSys()
 {
 
 }
 
-AlefServerEncryptionSys::~AlefServerEncryptionSys()
+IlluminateServerEncryptionSys::~IlluminateServerEncryptionSys()
 {
 
 }
 
-std::string AlefServerEncryptionSys::getCryptKey()
+std::string IlluminateServerEncryptionSys::getCryptKey()
 {
 	//KeyGen
 	RandomInputStream ri;

@@ -1,11 +1,11 @@
-#include "AlefLoginServerSystems.h"
-#include "AlefLoginServerList.h"
+#include "IlluminateLoginServerSystems.h"
+#include "IlluminateLoginServerList.h"
 
-bool AlefLoginServerList::processPacket(const localInfo& local)
+bool IlluminateLoginServerList::processPacket(const localInfo& local)
 {
 	//AuPacket::GetField(&this->m_csPacket, 1, v8, v7, &pvPacket, &nSize, &Src, &nStatus, &pszEncodedWorld);
 	localInfo& localObj = const_cast<localInfo&>(local);
-	AlefPacket* packet = localObj.packet;
+	IlluminatePacket* packet = localObj.packet;
 	Int8 i8Operation = 0;
 	char unkChar[32] = { 0 }, unkChar2[32] = { 0 };
 	Int16 i16EncodedSize = 0;
@@ -15,7 +15,7 @@ bool AlefLoginServerList::processPacket(const localInfo& local)
 	//int Src = 0;
 	//int nStatus;
 	
-	//{	Alef::INT8, Alef::CHAR, Alef::INT16, Alef::MEMORY_BLOCK, Alef::CHAR }
+	//{	Illuminate::INT8, Illuminate::CHAR, Illuminate::INT16, Illuminate::MEMORY_BLOCK, Illuminate::CHAR }
 	//{	1, 32, 1, 1, 32 }
 	pktInterface->processPacket(packet, &i8Operation, unkChar, &i16EncodedSize, &i32Size, encodedWorld, unkChar2);
 
@@ -36,7 +36,7 @@ bool AlefLoginServerList::processPacket(const localInfo& local)
 	return false;
 }
 
-bool AlefLoginServerList::processServerList(localInfo& local)
+bool IlluminateLoginServerList::processServerList(localInfo& local)
 {
 	Int8 i8Operation = SERVERLIST_ANS;
 
@@ -48,14 +48,14 @@ bool AlefLoginServerList::processServerList(localInfo& local)
 	}
 	UInt32 worldListLen = worldListStr.length()+1;
 	
-	SharedPtr<AlefPacket> serverList = pktInterface->buildPacket(Alef::AGPMWORLD_PACKET_TYPE, &i8Operation, 0, 0, &worldListLen, worldListStr.c_str(), 0);
+	SharedPtr<IlluminatePacket> serverList = pktInterface->buildPacket(Illuminate::AGPMWORLD_PACKET_TYPE, &i8Operation, 0, 0, &worldListLen, worldListStr.c_str(), 0);
 
 	_localSock.sendPacket(serverList);
 
 	return true;
 }
 
-bool AlefLoginServerList::processServerExtra(localInfo& local)
+bool IlluminateLoginServerList::processServerExtra(localInfo& local)
 {
 	return true;
 }

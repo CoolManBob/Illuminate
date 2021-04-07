@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+/*#include <vector>
 #include <map>
 #include <string>
 using std::vector;
@@ -150,4 +150,4 @@ struct CharDataInfo
 	UInt32 heroicMaxDmg;
 	UInt32 heroicDefPt;
 };
-typedef vector<SharedPtr<CharDataInfo>> charDataVec;
+typedef vector<SharedPtr<CharDataInfo>> charDataVec;*/

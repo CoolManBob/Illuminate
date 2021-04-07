@@ -39,21 +39,6 @@
     <ClCompile Include="IlluminateWorldServer.cpp">
       <Filter>Source Files\Networking</Filter>
     </ClCompile>
-    <ClCompile Include="IlluminateWorldStartupEncryption.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateWorldAGSMCharMgr.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateWorldCharacter.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateWorldUIStatus.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateWorldOptimizedCharMove.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IlluminateWorldApp.h">
@@ -71,22 +56,7 @@
     <ClInclude Include="IlluminateWorldServer.h">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
-    <ClInclude Include="IlluminateWorldStartupEncryption.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
     <ClInclude Include="IlluminateWorldPacketHandler.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateWorldAGSMCharMgr.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateWorldCharacter.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateWorldUIStatus.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateWorldOptimizedCharMove.h">
       <Filter>Header Files\Packet Handlers</Filter>
     </ClInclude>
   </ItemGroup>

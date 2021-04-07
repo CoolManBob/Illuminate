@@ -11,33 +11,32 @@ using std::stringstream;
 #include "Poco/Exception.h"
 using Poco::Exception;
 
-#include "AlefWorldGlobal.h"
-#include "AlefServerConnection.h"
-#include "AlefWorldPacketHandler.h"
-#include "AlefSocket.h"
-#include "AlefCrypto.h"
-#include "AlefFlagLengthLookup.h"
+#include "IlluminateChannelGlobal.h"
+#include "IlluminateServerConnection.h"
+#include "IlluminateChannelPacketHandler.h"
+#include "IlluminateSocket.h"
+#include "IlluminateCrypto.h"
 
 const int maxReceiveBytes = 4096;
 
-class AlefWorldClientConnection : public AlefServerConnection
+class IlluminateChannelClientConnection : public IlluminateServerConnection
 {
 public:
-	AlefWorldClientConnection(const AlefSocket& socket, AlefWorldPacketHandler* packetHandler) : AlefServerConnection(socket, handler), handler(packetHandler), sock(socket)
+	IlluminateChannelClientConnection(const IlluminateSocket& socket, IlluminateChannelPacketHandler* packetHandler) : IlluminateServerConnection(socket, handler), handler(packetHandler), sock(socket)
 	{
-		cryptSession = new blowfish_session;
+		/*cryptSession = new blowfish_session;
 		cryptSession->serverCtx = new blowfish_context;
 		cryptSession->clientCtx = new blowfish_context;
 		cryptSession->packetCounter = 0;
 		blowfish_init(cryptSession->serverCtx);
 		blowfish_init(cryptSession->clientCtx);
-		sock.setCryptoSession(cryptSession);
+		sock.setCryptoSession(cryptSession);*/
 	};
-	virtual ~AlefWorldClientConnection()
+	virtual ~IlluminateChannelClientConnection()
 	{
-		delete cryptSession->serverCtx;
+		/*delete cryptSession->serverCtx;
 		delete cryptSession->clientCtx;
-		delete cryptSession;
+		delete cryptSession;*/
 		LOG("Client disconnected");
 	};
 
@@ -52,7 +51,7 @@ public:
 				numBytesRead = sock.receiveBytes(tempBuf, maxReceiveBytes);
 				if (numBytesRead)
 				{
-					AlefPacket* packet = new AlefPacket(tempBuf, numBytesRead);
+					IlluminatePacket* packet = new IlluminatePacket(tempBuf, numBytesRead);
 					bool decryptRes = decryptPacket(packet);
 					if (!decryptRes)
 					{
@@ -103,7 +102,7 @@ public:
 		}
 	}
 private:
-	bool decryptPacket(AlefPacket * packet)
+	bool decryptPacket(IlluminatePacket * packet)
 	{
 		UInt32 realSize = 0;
 		UInt8* packetData = packet->getBuffer();
@@ -129,7 +128,7 @@ private:
 
 		return true;
 	}
-	AlefWorldPacketHandler * handler;
-	AlefSocket sock;
+	IlluminateChannelPacketHandler * handler;
+	IlluminateSocket sock;
 	blowfish_session * cryptSession;
 };

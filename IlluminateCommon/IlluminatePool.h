@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Poco/AbstractCache.h>
-#include "AlefPoolStrategy.h"
+#include "IlluminatePoolStrategy.h"
 
 using Poco::AbstractCache;
 using Poco::FastMutex;
@@ -13,19 +13,19 @@ template <
 	class TMutex = FastMutex,
 	class TEventMutex = FastMutex
 >
-class AlefPool : public AbstractCache<TKey, TValue, AlefPoolStrategy<TKey, TValue>, TMutex, TEventMutex>
+class IlluminatePool : public AbstractCache<TKey, TValue, IlluminatePoolStrategy<TKey, TValue>, TMutex, TEventMutex>
 {
 public:
-	AlefPool(Timestamp::TimeDiff expire = 600000) :
-		AbstractCache<TKey, TValue, AlefPoolStrategy<TKey, TValue>, TMutex, TEventMutex>(AlefPoolStrategy<TKey, TValue>(expire))
+	IlluminatePool(Timestamp::TimeDiff expire = 600000) :
+		AbstractCache<TKey, TValue, IlluminatePoolStrategy<TKey, TValue>, TMutex, TEventMutex>(IlluminatePoolStrategy<TKey, TValue>(expire))
 	{
 	}
 
-	~AlefPool()
+	~IlluminatePool()
 	{
 	}
 
 private:
-	AlefPool(const AlefPool& aCache);
-	AlefPool& operator = (const AlefPool& aCache);
+	IlluminatePool(const IlluminatePool& aCache);
+	IlluminatePool& operator = (const IlluminatePool& aCache);
 };

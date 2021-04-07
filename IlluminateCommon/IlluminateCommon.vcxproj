@@ -161,15 +161,11 @@ copy "$(SolutionDir)IlluminateDependencies\Bin\libmysql.dll" "$(SolutionDir)out"
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="IlluminateClientAccount.h" />
-    <ClInclude Include="IlluminateClientCharacter.h" />
     <ClInclude Include="IlluminateConfig.h" />
     <ClInclude Include="IlluminateConnectionFactory.h" />
     <ClInclude Include="IlluminateCrypto.h" />
     <ClInclude Include="IlluminateDatabase.h" />
     <ClInclude Include="IlluminateDBInterface.h" />
-    <ClInclude Include="IlluminateFieldLookup.h" />
-    <ClInclude Include="IlluminateFlagLengthLookup.h" />
     <ClInclude Include="IlluminateHash.h" />
     <ClInclude Include="IlluminateLocalInfo.h" />
     <ClInclude Include="IlluminateLocalSys.h" />
@@ -183,7 +179,6 @@ copy "$(SolutionDir)IlluminateDependencies\Bin\libmysql.dll" "$(SolutionDir)out"
     <ClInclude Include="IlluminatePool.h" />
     <ClInclude Include="IlluminatePoolStrategy.h" />
     <ClInclude Include="IlluminateServer.h" />
-    <ClInclude Include="IlluminateClientCharacterTypes.h" />
     <ClInclude Include="IlluminateServerConnection.h" />
     <ClInclude Include="IlluminateServerDataTypes.h" />
     <ClInclude Include="IlluminateServerWorldListTypes.h" />
@@ -192,12 +187,8 @@ copy "$(SolutionDir)IlluminateDependencies\Bin\libmysql.dll" "$(SolutionDir)out"
     <ClInclude Include="IlluminateTypes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IlluminateClientAccount.cpp" />
-    <ClCompile Include="IlluminateClientCharacter.cpp" />
     <ClCompile Include="IlluminateDatabase.cpp" />
     <ClCompile Include="IlluminateDBInterface.cpp" />
-    <ClCompile Include="IlluminateFieldLookup.cpp" />
-    <ClCompile Include="IlluminateFlagLengthLookup.cpp" />
     <ClCompile Include="IlluminateLocalSys.cpp" />
     <ClCompile Include="IlluminateLog.cpp" />
     <ClCompile Include="IlluminatePacket.cpp" />

@@ -1,27 +1,27 @@
-#include "AlefLoginGlobal.h"
-#include "AlefLoginServer.h"
-#include "AlefLoginServerSystems.h"
+#include "IlluminateLoginGlobal.h"
+#include "IlluminateLoginServer.h"
+#include "IlluminateLoginServerSystems.h"
 
-AlefServerLoginSys* serverLoginSys;
-AlefServerWorldListSys* serverListSys;
-AlefServerEncryptionSys* serverEncryptionSys;
-AlefServerDataSys* serverDataSys;
+IlluminateServerLoginSys* serverLoginSys;
+IlluminateServerWorldListSys* serverListSys;
+IlluminateServerEncryptionSys* serverEncryptionSys;
+IlluminateServerDataSys* serverDataSys;
 
-AlefLoginServer::AlefLoginServer()
+IlluminateLoginServer::IlluminateLoginServer()
 {
-	handler = new AlefLoginPacketHandler();
-	clientFactory = new AlefLoginClientFactory(handler);
+	handler = new IlluminateLoginPacketHandler();
+	clientFactory = new IlluminateLoginClientFactory(handler);
 	params = new TCPServerParams();
 }
 
-AlefLoginServer::~AlefLoginServer()
+IlluminateLoginServer::~IlluminateLoginServer()
 {
 	delete handler;
 	delete clientFactory;
 	delete loginServer;
 }
 
-void AlefLoginServer::runServer()
+void IlluminateLoginServer::runServer()
 {
 	std::string configLoad = loginConfig->loadConfig();
 	LOG(configLoad);
@@ -43,13 +43,13 @@ void AlefLoginServer::runServer()
 	updateServer();
 }
 
-void AlefLoginServer::stopServer()
+void IlluminateLoginServer::stopServer()
 {
 	loginServer->stop();
 	LOG("Success: Server Stop");
 }
 
-void AlefLoginServer::updateServer()
+void IlluminateLoginServer::updateServer()
 {
 	while (true)
 	{
@@ -65,28 +65,28 @@ void AlefLoginServer::updateServer()
 	}
 }
 
-void AlefLoginServer::initDatabase()
+void IlluminateLoginServer::initDatabase()
 {
 	//"host=localhost;port=3306;db=mydb;user=alice;password=s3cr3t;compress=true;auto-reconnect=true"
 	std::string connectionStr;
 	connectionStr = "host=" + loginConfig->getLoginDBAddress() + ";port=" + loginConfig->getLoginDBPort() + ";db=" + loginConfig->getLoginDB() + ";user=" + loginConfig->getLoginDBUser() + ";password=" + loginConfig->getLoginDBPass();
 
-	dbInterface->createDatabaseConnection(AlefDBInterface::dbType::loginDB, connectionStr);
+	dbInterface->createDatabaseConnection(IlluminateDBInterface::dbType::loginDB, connectionStr);
 
 	connectionStr = "host=" + loginConfig->getWorldDBAddress() + ";port=" + loginConfig->getWorldDBPort() + ";db=" + loginConfig->getWorldDB() + ";user=" + loginConfig->getWorldDBUser() + ";password=" + loginConfig->getWorldDBPass();
 
-	dbInterface->createDatabaseConnection(AlefDBInterface::dbType::worldDB, connectionStr);
+	dbInterface->createDatabaseConnection(IlluminateDBInterface::dbType::worldDB, connectionStr);
 
 	connectionStr = "host=" + loginConfig->getDataDBAddress() + ";port=" + loginConfig->getDataDBPort() + ";db=" + loginConfig->getDataDB() + ";user=" + loginConfig->getDataDBUser() + ";password=" + loginConfig->getDataDBPass();
 
-	dbInterface->createDatabaseConnection(AlefDBInterface::dbType::dataDB, connectionStr);
+	dbInterface->createDatabaseConnection(IlluminateDBInterface::dbType::dataDB, connectionStr);
 }
 
-bool AlefLoginServer::initServerSystems()
+bool IlluminateLoginServer::initServerSystems()
 {
-	serverLoginSys = new AlefServerLoginSys();
-	serverListSys = new AlefServerWorldListSys();
-	serverEncryptionSys = new AlefServerEncryptionSys();
+	serverLoginSys = new IlluminateServerLoginSys();
+	serverListSys = new IlluminateServerWorldListSys();
+	serverEncryptionSys = new IlluminateServerEncryptionSys();
 
 	if (!serverListSys->initWorldList())
 	{
@@ -94,7 +94,7 @@ bool AlefLoginServer::initServerSystems()
 		return false;
 	}
 
-	serverDataSys = new AlefServerDataSys();
+	serverDataSys = new IlluminateServerDataSys();
 
 	if (!serverDataSys->initData())
 	{

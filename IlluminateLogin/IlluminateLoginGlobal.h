@@ -26,20 +26,20 @@ using Poco::HMACEngine;
 using Poco::SHA2Engine;
 
 
-#include "AlefLog.h"
-#include "AlefLoginConfig.h"
-#include "AlefPacketInterface.h"
-#include "AlefDBInterface.h"
+#include "IlluminateLog.h"
+#include "IlluminateLoginConfig.h"
+#include "IlluminatePacketInterface.h"
+#include "IlluminateDBInterface.h"
 
-#define LOG AlefLogger->Log
-#define FATAL AlefLog::LogPrio::LOG_FATAL
-#define WARNING AlefLog::LogPrio::LOG_WARNING
-#define INFO AlefLog::LogPrio::LOG_INFO
+#define LOG IlluminateLogger->Log
+#define FATAL IlluminateLog::LogPrio::LOG_FATAL
+#define WARNING IlluminateLog::LogPrio::LOG_WARNING
+#define INFO IlluminateLog::LogPrio::LOG_INFO
 
 #define COLIDX(x) static_cast<int>(x)
 
 //Global Interfaces
-extern AlefLog* AlefLogger;
-extern AlefLoginConfig* loginConfig;
-extern AlefPacketInterface* pktInterface;
-extern AlefDBInterface* dbInterface;
+extern IlluminateLog* IlluminateLogger;
+extern IlluminateLoginConfig* loginConfig;
+extern IlluminatePacketInterface* pktInterface;
+extern IlluminateDBInterface* dbInterface;

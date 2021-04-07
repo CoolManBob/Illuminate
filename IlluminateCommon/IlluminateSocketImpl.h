@@ -4,11 +4,11 @@
 
 using namespace Poco::Net;
 
-#include "AlefSocket.h"
+#include "IlluminateSocket.h"
 
-class AlefSocketImpl : public StreamSocketImpl
+class IlluminateSocketImpl : public StreamSocketImpl
 {
 public:
-	AlefSocketImpl() {};
-	virtual ~AlefSocketImpl() {};
+	IlluminateSocketImpl() {};
+	virtual ~IlluminateSocketImpl() {};
 };

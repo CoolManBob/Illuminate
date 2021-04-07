@@ -1,42 +1,42 @@
-#include "AlefPacketInterface.h"
+#include "IlluminatePacketInterface.h"
 
-AlefPacketInterface::AlefPacketInterface()
+IlluminatePacketInterface::IlluminatePacketInterface()
 {
 }
 
-AlefPacketInterface::~AlefPacketInterface()
+IlluminatePacketInterface::~IlluminatePacketInterface()
 {
 }
 
-AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
+IlluminatePacket * IlluminatePacketInterface::buildPacket(UInt16 packetType, ...)
 {
 	va_list args;
 	va_start(args, packetType);
 	int dwMask = 1;
-	//Using the packetType we get the field data for this packet. Then we create a new AlefPacket, and build it using the variadic arugment list.
+	//Using the packetType we get the field data for this packet. Then we create a new IlluminatePacket, and build it using the variadic arugment list.
 	
 	UInt8 flagLen = flagLookup.lookUp(packetType);
 	if (flagLen == 0xFF)
 		return nullptr;
 
-	AlefPacket * response = new AlefPacket(packetType, flagLen);
+	IlluminatePacket * response = new IlluminatePacket(packetType, flagLen);
 
 	bool fieldsOkay = fieldLookup.getFieldInfo(response->GetFieldVec(), packetType);
 
 	if (!fieldsOkay)
 		return nullptr;
 
-	for (vector<Alef::AlefPktField>::iterator itr = response->GetFieldVec().begin(); itr != response->GetFieldVec().end(); itr++) //iterate through our fields
+	for (vector<Illuminate::IlluminatePktField>::iterator itr = response->GetFieldVec().begin(); itr != response->GetFieldVec().end(); itr++) //iterate through our fields
 	{
 		switch (itr->FieldType)
 		{
-			case Alef::AlefType::CHAR: //Assumes character data is already setup with proper sizing before passing into buildPacket
+			case Illuminate::IlluminateType::CHAR: //Assumes character data is already setup with proper sizing before passing into buildPacket
 			{
 				unsigned char* arg = va_arg(args, unsigned char*);
 				if (arg)
 					response->WriteArbitraryData(arg, itr->FieldSize);
 			} break;
-			case Alef::AlefType::INT8:
+			case Illuminate::IlluminateType::INT8:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -45,7 +45,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteInt8(*arg);
 				}
 			} break;
-			case Alef::AlefType::UINT8:
+			case Illuminate::IlluminateType::UINT8:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -54,7 +54,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteUInt8(*arg);
 				}
 			} break;
-			case Alef::AlefType::INT16:
+			case Illuminate::IlluminateType::INT16:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -63,7 +63,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteInt16(*arg);
 				}
 			} break;
-			case Alef::AlefType::UINT16:
+			case Illuminate::IlluminateType::UINT16:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -72,7 +72,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteUInt16(*arg);
 				}
 			} break;
-			case Alef::AlefType::INT32:
+			case Illuminate::IlluminateType::INT32:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -81,7 +81,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteInt32(*arg);
 				}
 			} break;
-			case Alef::AlefType::UINT32:
+			case Illuminate::IlluminateType::UINT32:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -90,7 +90,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteUInt32(*arg);
 				}
 			} break;
-			case Alef::AlefType::INT64:
+			case Illuminate::IlluminateType::INT64:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -99,7 +99,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteInt64(*arg);
 				}
 			} break;
-			case Alef::AlefType::UINT64:
+			case Illuminate::IlluminateType::UINT64:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -108,7 +108,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteUInt64(*arg);
 				}
 			} break;
-			case Alef::AlefType::FLOAT:
+			case Illuminate::IlluminateType::FLOAT:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -117,20 +117,20 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						response->WriteFloat(*arg);
 				}
 			} break;
-			case Alef::AlefType::VEC3F:
+			case Illuminate::IlluminateType::VEC3F:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
-					Alef::AlefVec3F* arg = va_arg(args, Alef::AlefVec3F*);
+					Illuminate::IlluminateVec3F* arg = va_arg(args, Illuminate::IlluminateVec3F*);
 					if(arg)
 						response->WriteVec3F(*arg);
 				}
 			} break;
-			case Alef::AlefType::MATRIX:
+			case Illuminate::IlluminateType::MATRIX:
 			{
 
 			} break;
-			case Alef::AlefType::PACKET:
+			case Illuminate::IlluminateType::PACKET:
 			{
 				if (itr->FieldSize > 1) //&numOfPkts, &Packet1, &Packet2
 				{
@@ -143,7 +143,7 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 						for (int i = 0; i < numOfPkts; i++)
 						{
 							//write our packets.
-							SharedPtr<AlefPacket>* arg = va_arg(args, SharedPtr<AlefPacket>*);
+							SharedPtr<IlluminatePacket>* arg = va_arg(args, SharedPtr<IlluminatePacket>*);
 							if (arg)
 								response->WritePacket(arg->get());
 						}
@@ -151,13 +151,13 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 				}
 				else
 				{
-					SharedPtr<AlefPacket>* arg = va_arg(args, SharedPtr<AlefPacket>*);
+					SharedPtr<IlluminatePacket>* arg = va_arg(args, SharedPtr<IlluminatePacket>*);
 
 					if (arg)
 						response->WritePacket(arg->get());
 				}
 			} break;
-			case Alef::AlefType::MEMORY_BLOCK:
+			case Illuminate::IlluminateType::MEMORY_BLOCK:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -174,11 +174,11 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 					}
 				}
 			} break;
-			case Alef::AlefType::POS_BASEMETER:
+			case Illuminate::IlluminateType::POS_BASEMETER:
 			{
 
 			} break;
-			case Alef::AlefType::WCHAR:
+			case Illuminate::IlluminateType::WCHAR:
 			{
 
 			} break;
@@ -193,35 +193,35 @@ AlefPacket * AlefPacketInterface::buildPacket(UInt16 packetType, ...)
 	return response;
 }
 
-AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
+IlluminatePacket * IlluminatePacketInterface::buildMiniPacket(UInt16 miniType, ...)
 {
 	va_list args;
 	va_start(args, miniType);
 	int dwMask = 1;
-	//Using the packetType we get the field data for this packet. Then we create a new AlefPacket, and build it using the variadic arugment list.
+	//Using the packetType we get the field data for this packet. Then we create a new IlluminatePacket, and build it using the variadic arugment list.
 	
 	UInt8 flagLen = flagLookup.lookUp(miniType);
 	if (flagLen == 0xFF)
 		return nullptr;
 
-	AlefPacket * response = new AlefPacket(flagLen);
+	IlluminatePacket * response = new IlluminatePacket(flagLen);
 
 	bool fieldsOkay = fieldLookup.getFieldInfo(response->GetFieldVec(), miniType);
 
 	if (!fieldsOkay)
 		return nullptr;
 
-	for (vector<Alef::AlefPktField>::iterator itr = response->GetFieldVec().begin(); itr != response->GetFieldVec().end(); itr++) //iterate through our fields
+	for (vector<Illuminate::IlluminatePktField>::iterator itr = response->GetFieldVec().begin(); itr != response->GetFieldVec().end(); itr++) //iterate through our fields
 	{
 		switch (itr->FieldType)
 		{
-			case Alef::AlefType::CHAR: //Assumes character data is already setup with proper sizing before passing into buildPacket
+			case Illuminate::IlluminateType::CHAR: //Assumes character data is already setup with proper sizing before passing into buildPacket
 			{
 				char* arg = va_arg(args, char*);
 				if (arg)
 					response->WriteArbitraryData(arg, itr->FieldSize);
 			} break;
-			case Alef::AlefType::INT8:
+			case Illuminate::IlluminateType::INT8:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -230,7 +230,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteInt8(*arg);
 				}
 			} break;
-			case Alef::AlefType::UINT8:
+			case Illuminate::IlluminateType::UINT8:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -239,7 +239,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteUInt8(*arg);
 				}
 			} break;
-			case Alef::AlefType::INT16:
+			case Illuminate::IlluminateType::INT16:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -248,7 +248,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteInt16(*arg);
 				}
 			} break;
-			case Alef::AlefType::UINT16:
+			case Illuminate::IlluminateType::UINT16:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -257,7 +257,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteUInt16(*arg);
 				}
 			} break;
-			case Alef::AlefType::INT32:
+			case Illuminate::IlluminateType::INT32:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -266,7 +266,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteInt32(*arg);
 				}
 			} break;
-			case Alef::AlefType::UINT32:
+			case Illuminate::IlluminateType::UINT32:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -275,7 +275,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteUInt32(*arg);
 				}
 			} break;
-			case Alef::AlefType::INT64:
+			case Illuminate::IlluminateType::INT64:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -284,7 +284,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteInt64(*arg);
 				}
 			} break;
-			case Alef::AlefType::UINT64:
+			case Illuminate::IlluminateType::UINT64:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -293,7 +293,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteUInt64(*arg);
 				}
 			} break;
-			case Alef::AlefType::FLOAT:
+			case Illuminate::IlluminateType::FLOAT:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -302,30 +302,30 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 						response->WriteFloat(*arg);
 				}
 			} break;
-			case Alef::AlefType::VEC3F:
+			case Illuminate::IlluminateType::VEC3F:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
-					Alef::AlefVec3F* arg = va_arg(args, Alef::AlefVec3F*);
+					Illuminate::IlluminateVec3F* arg = va_arg(args, Illuminate::IlluminateVec3F*);
 					if (arg)
 						response->WriteVec3F(*arg);
 				}
 			} break;
-			case Alef::AlefType::MATRIX:
+			case Illuminate::IlluminateType::MATRIX:
 			{
 
 			} break;
-			case Alef::AlefType::PACKET:
+			case Illuminate::IlluminateType::PACKET:
 			{
 				//for (int i = 0; i < itr->FieldSize; i++)
 				//{
-					SharedPtr<AlefPacket>* arg = va_arg(args, SharedPtr<AlefPacket>*);
+					SharedPtr<IlluminatePacket>* arg = va_arg(args, SharedPtr<IlluminatePacket>*);
 
 					if (arg)
 						response->WritePacket(arg->get());
 				//}
 			} break;
-			case Alef::AlefType::MEMORY_BLOCK:
+			case Illuminate::IlluminateType::MEMORY_BLOCK:
 			{
 				for (int i = 0; i < itr->FieldSize; i++)
 				{
@@ -342,11 +342,11 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 					}
 				}
 			} break;
-			case Alef::AlefType::POS_BASEMETER:
+			case Illuminate::IlluminateType::POS_BASEMETER:
 			{
 
 			} break;
-			case Alef::AlefType::WCHAR:
+			case Illuminate::IlluminateType::WCHAR:
 			{
 
 			} break;
@@ -361,7 +361,7 @@ AlefPacket * AlefPacketInterface::buildMiniPacket(UInt16 miniType, ...)
 	return response;
 }
 
-bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
+bool IlluminatePacketInterface::processPacket(IlluminatePacket * packet, ...)
 {
 	//Packet should've already been setup at this point. Retrieve data using already defined field type data, and place into variadic argument list
 	UInt32	pktFlag = 0;
@@ -381,7 +381,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 			pktFlag = 0; break;
 	}
 
-	for (vector<Alef::AlefPktField>::iterator itr = packet->GetFieldVec().begin(); itr != packet->GetFieldVec().end(); itr++, readFlag <<= 1) //iterate through our fields
+	for (vector<Illuminate::IlluminatePktField>::iterator itr = packet->GetFieldVec().begin(); itr != packet->GetFieldVec().end(); itr++, readFlag <<= 1) //iterate through our fields
 	{
 		if (readFlag > pktFlag)
 			break;
@@ -392,7 +392,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 		{
 			switch (itr->FieldType)
 			{
-				case Alef::AlefType::CHAR:
+				case Illuminate::IlluminateType::CHAR:
 				{
 					if (arg)
 					{
@@ -406,7 +406,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 						delete[] temp;
 					}	
 				} break;
-				case Alef::AlefType::INT8:
+				case Illuminate::IlluminateType::INT8:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -414,7 +414,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 							*(((Int8*)arg)) = packet->GetInt8();
 					}
 				} break;
-				case Alef::AlefType::UINT8:
+				case Illuminate::IlluminateType::UINT8:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -422,7 +422,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 							*(((UInt8*)arg)) = packet->GetUInt8();
 					}
 				} break;
-				case Alef::AlefType::INT16:
+				case Illuminate::IlluminateType::INT16:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -430,7 +430,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 							*(((Int16*)arg)) = packet->GetInt16();
 					}
 				} break;
-				case Alef::AlefType::UINT16:
+				case Illuminate::IlluminateType::UINT16:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -439,7 +439,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 
 					}
 				} break;
-				case Alef::AlefType::INT32:
+				case Illuminate::IlluminateType::INT32:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -447,7 +447,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 							*(((Int32*)arg)) = packet->GetInt32();
 					}
 				} break;
-				case Alef::AlefType::UINT32:
+				case Illuminate::IlluminateType::UINT32:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -455,7 +455,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 							*(((UInt32*)arg)) = packet->GetUInt32();
 					}
 				} break;
-				case Alef::AlefType::INT64:
+				case Illuminate::IlluminateType::INT64:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -463,7 +463,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 							*(((Int64*)arg)) = packet->GetInt64();
 					}
 				} break;
-				case Alef::AlefType::UINT64:
+				case Illuminate::IlluminateType::UINT64:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -471,7 +471,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 							*(((UInt64*)arg)) = packet->GetUInt64();
 					}
 				} break;
-				case Alef::AlefType::FLOAT:
+				case Illuminate::IlluminateType::FLOAT:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -479,27 +479,27 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 							*(((float*)arg)) = packet->GetFloat();
 					}
 				} break;
-				case Alef::AlefType::VEC3F:
+				case Illuminate::IlluminateType::VEC3F:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
 						if (arg)
 						{
-							Alef::AlefVec3F temp = packet->GetVec3F();
-							(*(((Alef::AlefVec3F*)arg))).x = temp.x;
-							(*(((Alef::AlefVec3F*)arg))).y = temp.y;
-							(*(((Alef::AlefVec3F*)arg))).z = temp.z;
+							Illuminate::IlluminateVec3F temp = packet->GetVec3F();
+							(*(((Illuminate::IlluminateVec3F*)arg))).x = temp.x;
+							(*(((Illuminate::IlluminateVec3F*)arg))).y = temp.y;
+							(*(((Illuminate::IlluminateVec3F*)arg))).z = temp.z;
 						}
 					}
 				} break;
-				case Alef::AlefType::MATRIX:
+				case Illuminate::IlluminateType::MATRIX:
 				{
 				} break;
 				//A potential issue exists in that the packet tells us there are X amount of packets, but the data just isn't there causing an overflow.
 				//The number of packets is read in first, then afterwards they can be treated as discrete memory blocks
 				//&numOfPkts, &Packet1, &Packet2, ...
-				//A potential improvement can be to read in a vector<AlefPacket*> instead of a bunch of individual packets
-				case Alef::AlefType::PACKET:
+				//A potential improvement can be to read in a vector<IlluminatePacket*> instead of a bunch of individual packets
+				case Illuminate::IlluminateType::PACKET:
 				{
 					if(arg)
 					{
@@ -518,12 +518,12 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 									UInt16 blockSize = 0;
 									packet->GetUInt16(blockSize);
 
-									SharedPtr<AlefPacket>* pkt = va_arg(args, SharedPtr<AlefPacket>*);
+									SharedPtr<IlluminatePacket>* pkt = va_arg(args, SharedPtr<IlluminatePacket>*);
 									char* pktData = new char[blockSize];
 
 									packet->GetDataBlock(blockSize, pktData);
 
-									AlefPacket* temp = new AlefPacket((unsigned char*)pktData, (int)blockSize);
+									IlluminatePacket* temp = new IlluminatePacket((unsigned char*)pktData, (int)blockSize);
 
 									pkt->get()->ResetFromPkt(temp);
 
@@ -542,16 +542,16 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 
 							packet->GetDataBlock(blockSize, pktData);
 
-							AlefPacket* temp = new AlefPacket((unsigned char*)pktData, (int)blockSize);
+							IlluminatePacket* temp = new IlluminatePacket((unsigned char*)pktData, (int)blockSize);
 
-							static_cast<SharedPtr<AlefPacket>*>(arg)->get()->ResetFromPkt(temp);
+							static_cast<SharedPtr<IlluminatePacket>*>(arg)->get()->ResetFromPkt(temp);
 
 							delete[] pktData;
 							delete temp;
 						}
 					}
 				} break;
-				case Alef::AlefType::MEMORY_BLOCK:
+				case Illuminate::IlluminateType::MEMORY_BLOCK:
 				{
 					for (int i = 0; i < itr->FieldSize; i++)
 					{
@@ -567,10 +567,10 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 						delete[] temp;
 					}
 				} break;
-				case Alef::AlefType::POS_BASEMETER:
+				case Illuminate::IlluminateType::POS_BASEMETER:
 				{
 				} break;
-				case Alef::AlefType::WCHAR:
+				case Illuminate::IlluminateType::WCHAR:
 				{
 				} break;
 			}
@@ -581,7 +581,7 @@ bool AlefPacketInterface::processPacket(AlefPacket * packet, ...)
 	return true;
 }
 
-bool AlefPacketInterface::setupPkt(AlefPacket * packet)
+bool IlluminatePacketInterface::setupPkt(IlluminatePacket * packet)
 {
 	//call acquireHeader() from packet pointer,then use packettype to set the flaglength, and field type data.
 	packet->acquirePacketHeader();

@@ -1,11 +1,11 @@
-#include "AlefServerDataSys.h"
+#include "IlluminateServerDataSys.h"
 
-AlefServerDataSys::AlefServerDataSys()
+IlluminateServerDataSys::IlluminateServerDataSys()
 {
-	dbDataSys = new AlefDBDataSys();
+	dbDataSys = new IlluminateDBDataSys();
 }
 
-AlefServerDataSys::~AlefServerDataSys()
+IlluminateServerDataSys::~IlluminateServerDataSys()
 {
 	delete dbDataSys;
 	templateFieldVec.clear();
@@ -13,7 +13,7 @@ AlefServerDataSys::~AlefServerDataSys()
 	charDataTableVec.clear();
 }
 
-bool AlefServerDataSys::initData()
+bool IlluminateServerDataSys::initData()
 {
 	if (!initTemplates())
 		return false;
@@ -24,7 +24,7 @@ bool AlefServerDataSys::initData()
 	return true;
 }
 
-bool AlefServerDataSys::initTemplates()
+bool IlluminateServerDataSys::initTemplates()
 {
 	LOG("Loading Entity Templates...", WARNING);
 	SharedPtr<RecordSet> rs = dbDataSys->dbGetTemplateFields();
@@ -97,7 +97,7 @@ bool AlefServerDataSys::initTemplates()
 	return true;
 }
 
-bool AlefServerDataSys::initCharDataTable()
+bool IlluminateServerDataSys::initCharDataTable()
 {
 	LOG("Loading Entity Data Table...", WARNING);
 
@@ -236,7 +236,7 @@ bool AlefServerDataSys::initCharDataTable()
 	return true;
 }
 
-SharedPtr<CharDataInfo> AlefServerDataSys::getCharDataFromDBID(UInt32 dbID)
+SharedPtr<CharDataInfo> IlluminateServerDataSys::getCharDataFromDBID(UInt32 dbID)
 {
 	for (charDataVec::iterator itr = charDataTableVec.begin(); itr != charDataTableVec.end(); itr++)
 	{
@@ -249,7 +249,7 @@ SharedPtr<CharDataInfo> AlefServerDataSys::getCharDataFromDBID(UInt32 dbID)
 	return nullptr;
 }
 
-SharedPtr<CharDataInfo> AlefServerDataSys::getCharDataFromTemplID(UInt32 templID)
+SharedPtr<CharDataInfo> IlluminateServerDataSys::getCharDataFromTemplID(UInt32 templID)
 {
 	for (charDataVec::iterator itr = charDataTableVec.begin(); itr != charDataTableVec.end(); itr++)
 	{

@@ -52,17 +52,11 @@
     <Filter Include="Header Files\Local">
       <UniqueIdentifier>{10849535-4810-4d1f-bd69-1ca64bddf975}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Local\Client">
-      <UniqueIdentifier>{27e1c54a-43dc-4d45-b7a5-88fd7bf7ee4d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Networking">
       <UniqueIdentifier>{988a3563-d167-46fb-b210-ae2ad953c0c6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Shared Types\Client">
       <UniqueIdentifier>{11f82e21-3de8-417f-9205-246fa09f4624}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Local\Client">
-      <UniqueIdentifier>{599ba670-39c4-4fc5-a110-122145934215}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +73,6 @@
       <Filter>Header Files\Packet System</Filter>
     </ClInclude>
     <ClInclude Include="IlluminatePacketProcessor.h">
-      <Filter>Header Files\Packet System</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateFlagLengthLookup.h">
       <Filter>Header Files\Packet System</Filter>
     </ClInclude>
     <ClInclude Include="IlluminateConnectionFactory.h">
@@ -101,9 +92,6 @@
     </ClInclude>
     <ClInclude Include="IlluminateCrypto.h">
       <Filter>Header Files\Crypto</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateFieldLookup.h">
-      <Filter>Header Files\Packet System</Filter>
     </ClInclude>
     <ClInclude Include="IlluminateTypes.h">
       <Filter>Header Files</Filter>
@@ -126,12 +114,6 @@
     <ClInclude Include="IlluminateConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IlluminateClientAccount.h">
-      <Filter>Header Files\Local\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateClientCharacter.h">
-      <Filter>Header Files\Local\Client</Filter>
-    </ClInclude>
     <ClInclude Include="IlluminateServerWorldListTypes.h">
       <Filter>Header Files\Shared Types\Server</Filter>
     </ClInclude>
@@ -144,13 +126,10 @@
     <ClInclude Include="IlluminateLocalInfo.h">
       <Filter>Header Files\Local</Filter>
     </ClInclude>
-    <ClInclude Include="IlluminateServerDataTypes.h">
-      <Filter>Header Files\Shared Types\Server</Filter>
-    </ClInclude>
     <ClInclude Include="IlluminateHash.h">
       <Filter>Header Files\Crypto</Filter>
     </ClInclude>
-    <ClInclude Include="IlluminateClientCharacterTypes.h">
+    <ClInclude Include="IlluminateServerDataTypes.h">
       <Filter>Header Files\Shared Types\Client</Filter>
     </ClInclude>
   </ItemGroup>
@@ -158,16 +137,10 @@
     <ClCompile Include="IlluminateLog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IlluminateFlagLengthLookup.cpp">
-      <Filter>Source Files\Packet System</Filter>
-    </ClCompile>
     <ClCompile Include="IlluminatePacket.cpp">
       <Filter>Source Files\Packet System</Filter>
     </ClCompile>
     <ClCompile Include="IlluminatePacketInterface.cpp">
-      <Filter>Source Files\Packet System</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateFieldLookup.cpp">
       <Filter>Source Files\Packet System</Filter>
     </ClCompile>
     <ClCompile Include="IlluminatePacketPool.cpp">
@@ -179,14 +152,8 @@
     <ClCompile Include="IlluminateDBInterface.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
-    <ClCompile Include="IlluminateClientAccount.cpp">
-      <Filter>Source Files\Local\Client</Filter>
-    </ClCompile>
     <ClCompile Include="IlluminateLocalSys.cpp">
       <Filter>Source Files\Local</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateClientCharacter.cpp">
-      <Filter>Source Files\Local\Client</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

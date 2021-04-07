@@ -1,18 +1,18 @@
-#include "AlefPacketPool.h"
+#include "IlluminatePacketPool.h"
 
-AlefPacketPool::AlefPacketPool()
+IlluminatePacketPool::IlluminatePacketPool()
 {
 	packetID = 0;
-	packetPool = new AlefPool<int, SharedPtr<AlefPacket>>();
+	packetPool = new IlluminatePool<int, SharedPtr<IlluminatePacket>>();
 }
 
-AlefPacketPool::AlefPacketPool(int accessThreshold)
+IlluminatePacketPool::IlluminatePacketPool(int accessThreshold)
 {
 	packetID = 0;
-	packetPool = new AlefPool<int, SharedPtr<AlefPacket>>(accessThreshold);
+	packetPool = new IlluminatePool<int, SharedPtr<IlluminatePacket>>(accessThreshold);
 }
 
-AlefPacketPool::~AlefPacketPool()
+IlluminatePacketPool::~IlluminatePacketPool()
 {
 	if (packetPool)
 	{
@@ -21,9 +21,9 @@ AlefPacketPool::~AlefPacketPool()
 	}
 }
 
-void AlefPacketPool::addPacketToPool(AlefPacket* pkt)
+void IlluminatePacketPool::addPacketToPool(IlluminatePacket* pkt)
 {
-	SharedPtr<AlefPacket> sharedPkt(pkt);
+	SharedPtr<IlluminatePacket> sharedPkt(pkt);
 	packetPool->add(packetID, sharedPkt);
 	packetID++; //Since this is unsigned it doesn't matter if we let this eventually roll over (pro tip: its 64bits so it realistically will not.)
 }

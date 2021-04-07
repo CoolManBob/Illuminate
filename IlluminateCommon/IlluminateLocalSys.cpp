@@ -1,13 +1,13 @@
-#include "AlefLocalSys.h"
+#include "IlluminateLocalSys.h"
 
-AlefLocalSys::AlefLocalSys()
+IlluminateLocalSys::IlluminateLocalSys()
 {
-	localAcct = new AlefClientAccount;
-	localChar = new AlefClientCharacter;
+	/*localAcct = new IlluminateClientAccount;
+	localChar = new IlluminateClientCharacter;*/
 }
 
-AlefLocalSys::~AlefLocalSys()
+IlluminateLocalSys::~IlluminateLocalSys()
 {
-	delete localAcct;
-	delete localChar;
+	/*delete localAcct;
+	delete localChar;*/
 }

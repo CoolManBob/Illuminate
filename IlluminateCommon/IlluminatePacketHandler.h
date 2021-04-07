@@ -7,24 +7,24 @@
 #include "Poco/HashMap.h"
 #include "Poco/Void.h"
 
-#include "AlefLocalInfo.h"
+#include "IlluminateLocalInfo.h"
 
-#include "AlefPacketProcessor.h"
-#include "AlefCrypto.h"
+#include "IlluminatePacketProcessor.h"
+#include "IlluminateCrypto.h"
 
 using namespace Poco;
 
-class AlefPacketHandler : public ActiveDispatcher
+class IlluminatePacketHandler : public ActiveDispatcher
 {
 public:
-	AlefPacketHandler() : packetHandler(this, &AlefPacketHandler::packetProcessor) {};
-	virtual ~AlefPacketHandler() {};
+	IlluminatePacketHandler() : packetHandler(this, &IlluminatePacketHandler::packetProcessor) {};
+	virtual ~IlluminatePacketHandler() {};
 
 private:
 
 	bool packetProcessor(const localInfo &local)
 	{
-		HashMap<Int16, AlefPacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
+		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
 		if (Itr != processorMap.end())
 		{
 			return Itr->second->processPacket(local);
@@ -34,6 +34,6 @@ private:
 			return false;
 	}
 
-	ActiveMethod<bool, localInfo, AlefPacketHandler, ActiveStarter<ActiveDispatcher>> packetHandler;
-	HashMap<Int16, AlefPacketProcessor*> processorMap;
+	ActiveMethod<bool, localInfo, IlluminatePacketHandler, ActiveStarter<ActiveDispatcher>> packetHandler;
+	HashMap<Int16, IlluminatePacketProcessor*> processorMap;
 };

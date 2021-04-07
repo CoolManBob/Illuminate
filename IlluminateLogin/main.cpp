@@ -1,8 +1,8 @@
-#include "AlefLoginApp.h"
+#include "IlluminateLoginApp.h"
 
 int main(int argc, char** argv)
 {
-	AlefLoginApp loginApplication;
+	IlluminateLoginApp loginApplication;
 
 	return loginApplication.run(argc, argv);
 }

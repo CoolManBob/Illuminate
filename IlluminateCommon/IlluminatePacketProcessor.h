@@ -1,15 +1,15 @@
 #pragma once
 
-#include "AlefLocalInfo.h"
-#include "AlefCrypto.h"
+#include "IlluminateLocalInfo.h"
+#include "IlluminateCrypto.h"
 
-class AlefPacketProcessor
+class IlluminatePacketProcessor
 {
 public:
-	AlefPacketProcessor() {};
-	AlefPacketProcessor(AlefPacket* packet) { /*processPacket(packet);*/ };
-	virtual ~AlefPacketProcessor() {};
+	IlluminatePacketProcessor() {};
+	IlluminatePacketProcessor(IlluminatePacket* packet) { /*processPacket(packet);*/ };
+	virtual ~IlluminatePacketProcessor() {};
 
-	//virtual bool processPacket(AlefSocket& sock, AlefPacket* packet) { return true; };
+	//virtual bool processPacket(IlluminateSocket& sock, IlluminatePacket* packet) { return true; };
 	virtual bool processPacket(const localInfo& info) { return true; };
 };

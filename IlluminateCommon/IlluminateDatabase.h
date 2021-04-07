@@ -21,12 +21,12 @@ using Poco::Data::SessionPoolContainer;
 using Poco::Data::Statement;
 using Poco::Data::RecordSet;
 
-class AlefDatabase
+class IlluminateDatabase
 {
 public:
-	AlefDatabase();
-	AlefDatabase(std::string connectionString);
-	~AlefDatabase();
+	IlluminateDatabase();
+	IlluminateDatabase(std::string connectionString);
+	~IlluminateDatabase();
 
 	void createDBSession(std::string connectionString); //Currently only MySQL is supported.
 	Session getDBSession(std::string sessionAlias);

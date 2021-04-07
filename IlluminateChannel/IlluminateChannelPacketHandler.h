@@ -1,34 +1,34 @@
 #pragma once
 
-#include "AlefPacketHandler.h"
+#include "IlluminatePacketHandler.h"
 
 //Packet Handlers
-#include "AlefWorldCharacter.h"
-#include "AlefWorldAGSMCharMgr.h"
-#include "AlefWorldUIStatus.h"
-#include "AlefWorldOptimizedCharMove.h"
-#include "AlefWorldStartupEncryption.h"
+/*#include "IlluminateChannelCharacter.h"
+#include "IlluminateChannelAGSMCharMgr.h"
+#include "IlluminateChannelUIStatus.h"
+#include "IlluminateChannelOptimizedCharMove.h"
+#include "IlluminateChannelStartupEncryption.h"*/
 
 
-class AlefWorldPacketHandler : public AlefPacketHandler
+class IlluminateChannelPacketHandler : public IlluminatePacketHandler
 {
 public:
-	AlefWorldPacketHandler() : packetHandler(this, &AlefWorldPacketHandler::packetProcessor)
+	IlluminateChannelPacketHandler() : packetHandler(this, &IlluminateChannelPacketHandler::packetProcessor)
 	{
-		processorMap[Alef::AGPMCHARACTER_PACKET_TYPE]			= new AlefWorldCharacter();
-		processorMap[Alef::AGSMCHARMANAGER_PACKET_TYPE]			= new AlefWorldAGSMCharMgr();
-		processorMap[Alef::AGPMUISTATUS_PACKET_TYPE]			= new AlefWorldUIStatus();
-		processorMap[Alef::AGPMOPTIMIZEDCHARMOVE_PACKET_TYPE]	= new AlefWorldOptimizedCharMove();
-		processorMap[Alef::AGPMSTARTUPENCRYPTION_PACKET_TYPE]	= new AlefWorldStartupEncryption();
+		/*processorMap[Illuminate::AGPMCHARACTER_PACKET_TYPE]			= new IlluminateChannelCharacter();
+		processorMap[Illuminate::AGSMCHARMANAGER_PACKET_TYPE]			= new IlluminateChannelAGSMCharMgr();
+		processorMap[Illuminate::AGPMUISTATUS_PACKET_TYPE]			= new IlluminateChannelUIStatus();
+		processorMap[Illuminate::AGPMOPTIMIZEDCHARMOVE_PACKET_TYPE]	= new IlluminateChannelOptimizedCharMove();
+		processorMap[Illuminate::AGPMSTARTUPENCRYPTION_PACKET_TYPE]	= new IlluminateChannelStartupEncryption();*/
 	}
-	virtual ~AlefWorldPacketHandler() {};
+	virtual ~IlluminateChannelPacketHandler() {};
 
-	ActiveMethod<bool, localInfo, AlefWorldPacketHandler, ActiveStarter<ActiveDispatcher>> packetHandler;
+	ActiveMethod<bool, localInfo, IlluminateChannelPacketHandler, ActiveStarter<ActiveDispatcher>> packetHandler;
 
 private:
 	bool packetProcessor(const localInfo &local)
 	{
-		HashMap<Int16, AlefPacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
+		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
 		if (Itr != processorMap.end())
 		{
 			return Itr->second->processPacket(local);
@@ -39,5 +39,5 @@ private:
 		}
 	}
 
-	HashMap<Int16, AlefPacketProcessor*> processorMap;
+	HashMap<Int16, IlluminatePacketProcessor*> processorMap;
 };

@@ -1,16 +1,16 @@
 #pragma once
 
-#include "AlefConfig.h"
+#include "IlluminateConfig.h"
 #include <sstream>
 #include <iostream>
 using std::endl;
 
-class AlefLoginConfig : AlefConfig
+class IlluminateLoginConfig : IlluminateConfig
 {
 public:
-	AlefLoginConfig();
-	AlefLoginConfig(std::string configPath);
-	~AlefLoginConfig();
+	IlluminateLoginConfig();
+	IlluminateLoginConfig(std::string configPath);
+	~IlluminateLoginConfig();
 
 	std::string loadConfig();
 

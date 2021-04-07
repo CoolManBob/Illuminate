@@ -134,27 +134,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="IlluminateWorldAGSMCharMgr.cpp" />
     <ClCompile Include="IlluminateWorldApp.cpp" />
-    <ClCompile Include="IlluminateWorldCharacter.cpp" />
-    <ClCompile Include="IlluminateWorldOptimizedCharMove.cpp" />
     <ClCompile Include="IlluminateWorldServer.cpp" />
-    <ClCompile Include="IlluminateWorldStartupEncryption.cpp" />
-    <ClCompile Include="IlluminateWorldUIStatus.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IlluminateWorldAGSMCharMgr.h" />
     <ClInclude Include="IlluminateWorldApp.h" />
-    <ClInclude Include="IlluminateWorldCharacter.h" />
     <ClInclude Include="IlluminateWorldClientConnection.h" />
     <ClInclude Include="IlluminateWorldClientFactory.h" />
     <ClInclude Include="IlluminateWorldGlobal.h" />
-    <ClInclude Include="IlluminateWorldOptimizedCharMove.h" />
     <ClInclude Include="IlluminateWorldPacketHandler.h" />
     <ClInclude Include="IlluminateWorldServer.h" />
-    <ClInclude Include="IlluminateWorldStartupEncryption.h" />
-    <ClInclude Include="IlluminateWorldUIStatus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

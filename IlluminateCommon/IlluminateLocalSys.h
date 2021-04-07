@@ -1,17 +1,17 @@
 #pragma once
 
-#include "AlefLocalTypes.h"
+#include "IlluminateLocalTypes.h"
 
-class AlefLocalSys
+class IlluminateLocalSys
 {
 public:
-	AlefLocalSys();
-	~AlefLocalSys();
+	IlluminateLocalSys();
+	~IlluminateLocalSys();
 
-	AlefClientAccount* _localAcct() { return localAcct; }
-	AlefClientCharacter* _localChar() { return localChar; }
+	/*IlluminateClientAccount* _localAcct() { return localAcct; }
+	IlluminateClientCharacter* _localChar() { return localChar; }*/
 
 private:
-	AlefClientAccount* localAcct;
-	AlefClientCharacter* localChar;
+	/*IlluminateClientAccount* localAcct;
+	IlluminateClientCharacter* localChar;*/
 };

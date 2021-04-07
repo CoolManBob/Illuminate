@@ -1,16 +1,16 @@
 #pragma once
 
-#include "AlefTypes.h"
+#include "IlluminateTypes.h"
 
-#include "AlefDatabase.h"
+#include "IlluminateDatabase.h"
 
 constexpr auto MAX_DB = 3;
 
-class AlefDBInterface
+class IlluminateDBInterface
 {
 public:
-	AlefDBInterface();
-	~AlefDBInterface();
+	IlluminateDBInterface();
+	~IlluminateDBInterface();
 
     enum dbType : Int32
     {
@@ -32,7 +32,7 @@ private:
 	//1 - WorldDB
 	//2 - DataDB
     Session acquireDatabaseSession(dbType type);
-    AlefDatabase* database[MAX_DB]; //this should probably just be a vector
+    IlluminateDatabase* database[MAX_DB]; //this should probably just be a vector
 	std::string sessionNames[MAX_DB]; //MySQL:///<connectionstring>
 	
 };
@@ -193,7 +193,7 @@ row.replaceSortField("Field0", "Field2");// now Field1 and Field2 are used for s
 		use(testacct.name),
 		use(testacct.pw);
 
-	AlefQuery query;
+	IlluminateQuery query;
 
 	query << "INSERT INTO account VALUES(?, ?, ?)",
 		use(testacct.id),
@@ -202,7 +202,7 @@ row.replaceSortField("Field0", "Field2");// now Field1 and Field2 are used for s
 
         //dbInterface->runLoginQuery(query);
 
-Session sess = dbInterface->acquireDatabaseSession(AlefDBInterface::dbType::loginDB);
+Session sess = dbInterface->acquireDatabaseSession(IlluminateDBInterface::dbType::loginDB);
 
 sess << "INSERT INTO account VALUES(?, ?, ?)",
 use(testacct.id),

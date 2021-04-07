@@ -3,14 +3,14 @@
 #include "Poco/Net/StreamSocket.h"
 using Poco::Net::StreamSocket;
 
-#include "AlefPacketProcessor.h"
-#include "AlefSocket.h"
+#include "IlluminatePacketProcessor.h"
+#include "IlluminateSocket.h"
 
-class AlefLoginClientLogin : public AlefPacketProcessor
+class IlluminateLoginClientLogin : public IlluminatePacketProcessor
 {
 public:
-	AlefLoginClientLogin();
-	virtual ~AlefLoginClientLogin();
+	IlluminateLoginClientLogin();
+	virtual ~IlluminateLoginClientLogin();
 
 	//virtual bool processPacket(localInfo& local);
 	virtual bool processPacket(const localInfo& local);
@@ -50,8 +50,8 @@ public:
 	};
 	
 private:
-	void sendDummyCharacter(AlefSocket& sock);
-	void sendLoginResult(AlefSocket& sock, int loginResult);
+	void sendDummyCharacter(IlluminateSocket& sock);
+	void sendLoginResult(IlluminateSocket& sock, int loginResult);
 
 	enum class BASECHAR : UInt32
 	{
@@ -69,11 +69,11 @@ private:
 		ORBITER,
 	};
 
-	bool sendBaseCharPackets(AlefSocket& sock);
-	SharedPtr<AlefPacket> getBaseCharPacket(BASECHAR baseChar);
-	SharedPtr<AlefPacket> buildCharPacket(CharacterData &data);
-	SharedPtr<AlefPacket> buildCharMovePacket(CharacterMove& move);
-	SharedPtr<AlefPacket> buildFactorPacket(CharacterFactors& factors);
-	SharedPtr<AlefPacket> buildFactorResultPacket(CharacterFactorResult& result);
+	bool sendBaseCharPackets(IlluminateSocket& sock);
+	SharedPtr<IlluminatePacket> getBaseCharPacket(BASECHAR baseChar);
+	SharedPtr<IlluminatePacket> buildCharPacket(CharacterData &data);
+	SharedPtr<IlluminatePacket> buildCharMovePacket(CharacterMove& move);
+	SharedPtr<IlluminatePacket> buildFactorPacket(CharacterFactors& factors);
+	SharedPtr<IlluminatePacket> buildFactorResultPacket(CharacterFactorResult& result);
 	clientCharDataVec baseChars;
 };

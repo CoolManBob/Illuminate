@@ -1,60 +1,60 @@
-#include "AlefLoginConfig.h"
+#include "IlluminateLoginConfig.h"
 
-AlefLoginConfig::AlefLoginConfig()
+IlluminateLoginConfig::IlluminateLoginConfig()
 {
 
 }
 
-AlefLoginConfig::AlefLoginConfig(std::string configPath)
+IlluminateLoginConfig::IlluminateLoginConfig(std::string configPath)
 {
 	iniFile = new IniFileConfiguration(configPath);
 }
 
-AlefLoginConfig::~AlefLoginConfig()
+IlluminateLoginConfig::~IlluminateLoginConfig()
 {
 
 }
 
-std::string AlefLoginConfig::loadConfig()
+std::string IlluminateLoginConfig::loadConfig()
 {
 	std::stringstream res("Success: Config Init");
 
 	//Networking
-	loginPort = getInt("AlefLogin.LoginServerPort");
+	loginPort = getInt("IlluminateLogin.LoginServerPort");
 
 	//Crypto
-	cryptoKey = getString("AlefLogin.PacketCryptKey");
+	cryptoKey = getString("IlluminateLogin.PacketCryptKey");
 	if (cryptoKey.size() != 32)
 	{
 		res.clear();
 		res << endl << "Wrong PacketCryptKey Size Got:" << cryptoKey.size() << " Expected: 32";
 	}
 
-	autogenCryptKey = getBool("AlefLogin.UseAutoGenCryptKey");
+	autogenCryptKey = getBool("IlluminateLogin.UseAutoGenCryptKey");
 
 	//Deprecated
-	worldAddress = getString("AlefLogin.WorldAddress");
+	worldAddress = getString("IlluminateLogin.WorldAddress");
 
 	//LoginDB
-	loginDBAddress = getString("AlefLogin.LoginDBAddress");
-	loginDBPort = getString("AlefLogin.LoginDBPort");
-	loginDBUser = getString("AlefLogin.LoginDBUser");
-	loginDBPass = getString("AlefLogin.LoginDBPass");
-	loginDB = getString("AlefLogin.LoginDB");
+	loginDBAddress = getString("IlluminateLogin.LoginDBAddress");
+	loginDBPort = getString("IlluminateLogin.LoginDBPort");
+	loginDBUser = getString("IlluminateLogin.LoginDBUser");
+	loginDBPass = getString("IlluminateLogin.LoginDBPass");
+	loginDB = getString("IlluminateLogin.LoginDB");
 
 	//WorldDB
-	worldDBAddress = getString("AlefLogin.WorldDBAddress");
-	worldDBPort = getString("AlefLogin.WorldDBPort");
-	worldDBUser = getString("AlefLogin.WorldDBUser");
-	worldDBPass = getString("AlefLogin.WorldDBPass");
-	worldDB = getString("AlefLogin.WorldDB");
+	worldDBAddress = getString("IlluminateLogin.WorldDBAddress");
+	worldDBPort = getString("IlluminateLogin.WorldDBPort");
+	worldDBUser = getString("IlluminateLogin.WorldDBUser");
+	worldDBPass = getString("IlluminateLogin.WorldDBPass");
+	worldDB = getString("IlluminateLogin.WorldDB");
 
 	//DataDB
-	dataDBAddress = getString("AlefLogin.DataDBAddress");
-	dataDBPort = getString("AlefLogin.DataDBPort");
-	dataDBUser = getString("AlefLogin.DataDBUser");
-	dataDBPass = getString("AlefLogin.DataDBPass");
-	dataDB = getString("AlefLogin.DataDB");
+	dataDBAddress = getString("IlluminateLogin.DataDBAddress");
+	dataDBPort = getString("IlluminateLogin.DataDBPort");
+	dataDBUser = getString("IlluminateLogin.DataDBUser");
+	dataDBPass = getString("IlluminateLogin.DataDBPass");
+	dataDB = getString("IlluminateLogin.DataDB");
 
 	return res.str();
 }

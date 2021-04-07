@@ -1,12 +1,12 @@
 #pragma once
 
-#include "AlefDBDataSys.h"
+#include "IlluminateDBDataSys.h"
 
-class AlefServerDataSys
+class IlluminateServerDataSys
 {
 public:
-	AlefServerDataSys();
-	~AlefServerDataSys();
+	IlluminateServerDataSys();
+	~IlluminateServerDataSys();
 
 	bool initData();
 
@@ -18,7 +18,7 @@ private:
 	bool initTemplates();
 	bool initCharDataTable();
 
-	AlefDBDataSys* dbDataSys;
+	IlluminateDBDataSys* dbDataSys;
 	charTemplateFieldVec templateFieldVec;
 	charTemplateVec templateDataVec;
 	charDataVec charDataTableVec;

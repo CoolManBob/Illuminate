@@ -16,7 +16,7 @@ template <
 	class TKey,
 	class TValue
 >
-	class AlefPoolStrategy : public AbstractStrategy<TKey, TValue>
+	class IlluminatePoolStrategy : public AbstractStrategy<TKey, TValue>
 	/// An ExpireStrategy implements time based expiration of cache entries
 {
 public:
@@ -27,14 +27,14 @@ public:
 	typedef typename Keys::iterator            Iterator;
 
 public:
-	AlefPoolStrategy(Timestamp::TimeDiff expireTimeInMilliSec) : _expireTime(expireTimeInMilliSec * 1000)
+	IlluminatePoolStrategy(Timestamp::TimeDiff expireTimeInMilliSec) : _expireTime(expireTimeInMilliSec * 1000)
 		/// Create an expire strategy. Note that the smallest allowed caching time is 25ms.
 		/// Anything lower than that is not useful with current operating systems.
 	{
 		if (_expireTime < 25000) throw InvalidArgumentException("expireTime must be at least 25 ms");
 	}
 
-	~AlefPoolStrategy()
+	~IlluminatePoolStrategy()
 	{
 	}
 

@@ -1,21 +1,21 @@
-#include "AlefWorldServer.h"
+#include "IlluminateChannelServer.h"
 
-AlefWorldServer::AlefWorldServer()
+IlluminateChannelServer::IlluminateChannelServer()
 {
-	handler = new AlefWorldPacketHandler();
-	clientFactory = new AlefWorldClientFactory(handler);
+	handler = new IlluminateChannelPacketHandler();
+	clientFactory = new IlluminateChannelClientFactory(handler);
 	params = new TCPServerParams();
-	worldServer = new TCPServer(clientFactory, 11008);
+	channelServer = new TCPServer(clientFactory, 11008);
 }
 
-AlefWorldServer::~AlefWorldServer()
+IlluminateChannelServer::~IlluminateChannelServer()
 {
 
 }
 
-void AlefWorldServer::runServer()
+void IlluminateChannelServer::runServer()
 {
-	worldServer->start();
+	channelServer->start();
 
 	/*int tickCount = 0;
 	while (true)
@@ -30,7 +30,7 @@ void AlefWorldServer::runServer()
 	}*/
 }
 
-void AlefWorldServer::stopServer()
+void IlluminateChannelServer::stopServer()
 {
-	worldServer->stop();
+	channelServer->stop();
 }

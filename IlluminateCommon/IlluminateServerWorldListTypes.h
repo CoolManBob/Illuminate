@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+/*#include <vector>
 #include <string>
 using std::vector;
 using std::string;
@@ -21,5 +21,5 @@ struct WorldListGroup
 	string groupName;
 	worldListWorldVec worldVec;
 };
-typedef vector<SharedPtr<WorldListGroup>> worldListGroupVec;
+typedef vector<SharedPtr<WorldListGroup>> worldListGroupVec;*/
 

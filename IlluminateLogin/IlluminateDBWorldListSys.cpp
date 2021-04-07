@@ -1,16 +1,16 @@
-#include "AlefDBWorldListSys.h"
+#include "IlluminateDBWorldListSys.h"
 
-AlefDBWorldListSys::AlefDBWorldListSys()
+IlluminateDBWorldListSys::IlluminateDBWorldListSys()
 {
 
 }
 
-AlefDBWorldListSys::~AlefDBWorldListSys()
+IlluminateDBWorldListSys::~IlluminateDBWorldListSys()
 {
 
 }
 
-SharedPtr<RecordSet> AlefDBWorldListSys::dbGetGroupInfo()
+SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetGroupInfo()
 {
 	try 
 	{
@@ -31,7 +31,7 @@ SharedPtr<RecordSet> AlefDBWorldListSys::dbGetGroupInfo()
 	}
 }
 
-SharedPtr<RecordSet> AlefDBWorldListSys::dbGetWorldInfo(int groupID)
+SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetWorldInfo(int groupID)
 {
 	try
 	{

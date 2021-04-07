@@ -5,21 +5,21 @@
 
 using Poco::SharedPtr;
 
-#include "AlefPool.h"
-#include "AlefPacket.h"
+#include "IlluminatePool.h"
+#include "IlluminatePacket.h"
 
 
-class AlefPacketPool
+class IlluminatePacketPool
 {
 public:
-	AlefPacketPool();
-	AlefPacketPool(int accessThreshold);
-	~AlefPacketPool();
+	IlluminatePacketPool();
+	IlluminatePacketPool(int accessThreshold);
+	~IlluminatePacketPool();
 
-	void addPacketToPool(AlefPacket* pkt);
+	void addPacketToPool(IlluminatePacket* pkt);
 	size_t	getSize() { return packetPool->size(); }
 
 private:
 	UInt64 packetID;
-	AlefPool<int, SharedPtr<AlefPacket>> * packetPool;
+	IlluminatePool<int, SharedPtr<IlluminatePacket>> * packetPool;
 };

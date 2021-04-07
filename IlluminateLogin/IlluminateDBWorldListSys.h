@@ -1,14 +1,14 @@
 #pragma once
 
-#include "AlefLoginGlobal.h"
-#include "AlefServerWorldListTypes.h"
+#include "IlluminateLoginGlobal.h"
+#include "IlluminateServerWorldListTypes.h"
 
-class AlefDBWorldListSys
+class IlluminateDBWorldListSys
 {
-	friend class AlefServerWorldListSys;
+	friend class IlluminateServerWorldListSys;
 protected:
-	AlefDBWorldListSys();
-	~AlefDBWorldListSys();
+	IlluminateDBWorldListSys();
+	~IlluminateDBWorldListSys();
 
 	SharedPtr<RecordSet> dbGetGroupInfo();
 	SharedPtr<RecordSet> dbGetWorldInfo(int groupID);

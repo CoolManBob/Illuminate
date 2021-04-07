@@ -1,14 +1,14 @@
 #pragma once
 
-#include "AlefLoginGlobal.h"
-#include "AlefLoginTypes.h"
+#include "IlluminateLoginGlobal.h"
+#include "IlluminateLoginTypes.h"
 
-class AlefDBDataSys
+class IlluminateDBDataSys
 {
-	friend class AlefServerDataSys;
+	friend class IlluminateServerDataSys;
 protected:
-	AlefDBDataSys();
-	~AlefDBDataSys();
+	IlluminateDBDataSys();
+	~IlluminateDBDataSys();
 
 	SharedPtr<RecordSet> dbGetTemplateFields();
 	SharedPtr<RecordSet> dbGetFullTemplateData();

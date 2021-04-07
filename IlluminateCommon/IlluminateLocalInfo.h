@@ -4,15 +4,15 @@
 #define _localPkt local.packet
 #define _localSys local.localSys
 
-#include "AlefPacket.h"
-#include "AlefSocket.h"
-#include "AlefLocalSys.h"
+#include "IlluminatePacket.h"
+#include "IlluminateSocket.h"
+#include "IlluminateLocalSys.h"
 
 struct localInfo
 {
-	localInfo(AlefSocket& socket) : sock(socket), packet(nullptr), localSys(nullptr) {};
-	localInfo(AlefLocalSys* local, AlefSocket& socket) : localSys(local), sock(socket), packet(nullptr) {};
-	AlefLocalSys* localSys;
-	AlefPacket* packet;
-	AlefSocket& sock;
+	localInfo(IlluminateSocket& socket) : sock(socket), packet(nullptr), localSys(nullptr) {};
+	localInfo(IlluminateLocalSys* local, IlluminateSocket& socket) : localSys(local), sock(socket), packet(nullptr) {};
+	IlluminateLocalSys* localSys;
+	IlluminatePacket* packet;
+	IlluminateSocket& sock;
 };

@@ -9,28 +9,21 @@ using Poco::SharedPtr;
 
 using std::vector;
 
-#include "AlefTypes.h"
+#include "IlluminateTypes.h"
 
-enum FlagLength
-{
-	FLAG_LEN1 = 1,
-	FLAG_LEN2 = 2,
-	FLAG_LEN4 = 4,
-};
-
-class AlefPacket
+class IlluminatePacket
 {
 public:
-	AlefPacket();
-	AlefPacket(int initialSize);
-	AlefPacket(unsigned char* buffer, int bufSize);
-	AlefPacket(UInt16 PacketType, UInt8 FlagLen);
-	AlefPacket(UInt8 FlagLen);
+	IlluminatePacket();
+	IlluminatePacket(int initialSize);
+	IlluminatePacket(unsigned char* buffer, int bufSize);
+	IlluminatePacket(UInt16 PacketType, UInt8 FlagLen);
+	IlluminatePacket(UInt8 FlagLen);
 	
-	~AlefPacket();
+	~IlluminatePacket();
 
 	void Resize(int newSize);
-	bool ResetFromPkt(AlefPacket* packet);
+	bool ResetFromPkt(IlluminatePacket* packet);
 
 	void WriteHeader();
 	void WriteMiniHeader();
@@ -55,16 +48,16 @@ public:
 	void WriteDouble(double data);
 
 	void WriteMemoryBlock(UInt16 size, const UInt8* data, bool zero = false);
-	void WriteVec3F(Alef::AlefVec3F vec3F);
-	//void WriteMiniPacket(AlefPacket* packet);
+	void WriteVec3F(Illuminate::IlluminateVec3F vec3F);
+	//void WriteMiniPacket(IlluminatePacket* packet);
 
 	void WriteByteArray(const char* array);
 	void WriteByteArray(const UInt8* array);
 
 	void WriteArbitraryData(const void *data, int len);
 
-	void WritePacket(AlefPacket* packet);
-	void WritePacket(SharedPtr<AlefPacket> packet);
+	void WritePacket(IlluminatePacket* packet);
+	void WritePacket(SharedPtr<IlluminatePacket> packet);
 
 	template<typename data>
 	void WriteGeneric(const data val);
@@ -83,11 +76,11 @@ public:
 	void setFlagLength(UInt8 flagLen) { flagLength = flagLen; };
 	bool setAndAcquireFlags(UInt8 flagLen);
 
-	vector<Alef::AlefPktField>& GetFieldVec() { return fields; }
+	vector<Illuminate::IlluminatePktField>& GetFieldVec() { return fields; }
 	/*End Public Header Operations*/
 
 	bool setFieldInfo(int types[], int typeSize, int sizes[], int sizeSz);
-	bool setFieldInfo(vector<Alef::AlefPktField> fieldVec);
+	bool setFieldInfo(vector<Illuminate::IlluminatePktField> fieldVec);
 	
 	Int8 GetInt8();
 	Int16 GetInt16();
@@ -128,8 +121,8 @@ public:
 
 	void GetDataBlock(UInt16 blocksize, char* data);
 	void GetDataBlock(UInt16 blocksize, unsigned char* data);
-	void GetVec3F(Alef::AlefVec3F& vec3F);
-	Alef::AlefVec3F GetVec3F();
+	void GetVec3F(Illuminate::IlluminateVec3F& vec3F);
+	Illuminate::IlluminateVec3F GetVec3F();
 	
 	template<typename data>
 	void GetGeneric(data& val);
@@ -176,7 +169,7 @@ private:
 
 	Int32 numFields;
 	UInt8 flagLength;
-	vector<Alef::AlefPktField> fields;
+	vector<Illuminate::IlluminatePktField> fields;
 
 	int ulFlag;
 	int dwMask;

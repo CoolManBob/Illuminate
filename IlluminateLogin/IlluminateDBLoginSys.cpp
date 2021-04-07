@@ -1,16 +1,16 @@
-#include "AlefDBLoginSys.h"
+#include "IlluminateDBLoginSys.h"
 
-AlefDBLoginSys::AlefDBLoginSys()
+IlluminateDBLoginSys::IlluminateDBLoginSys()
 {
 
 }
 
-AlefDBLoginSys::~AlefDBLoginSys()
+IlluminateDBLoginSys::~IlluminateDBLoginSys()
 {
 
 }
 
-SharedPtr<RecordSet> AlefDBLoginSys::dbGetAccount(string username, string password)
+SharedPtr<RecordSet> IlluminateDBLoginSys::dbGetAccount(string username, string password)
 {
 	try
 	{

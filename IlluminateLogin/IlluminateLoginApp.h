@@ -9,13 +9,13 @@ using std::string;
 
 using namespace Poco::Util;
 
-#include "AlefLoginServer.h"
+#include "IlluminateLoginServer.h"
 
-class AlefLoginApp : public ServerApplication
+class IlluminateLoginApp : public ServerApplication
 {
 public:
-	AlefLoginApp() {};
-	~AlefLoginApp() {};
+	IlluminateLoginApp() {};
+	~IlluminateLoginApp() {};
 
 protected:
 	int main(const vector<string>&);

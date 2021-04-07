@@ -1,17 +1,17 @@
 #pragma once
 
-#include "AlefDBLoginSys.h"
+#include "IlluminateDBLoginSys.h"
 
-class AlefServerLoginSys
+class IlluminateServerLoginSys
 {
 public:
-	AlefServerLoginSys();
-	~AlefServerLoginSys();
+	IlluminateServerLoginSys();
+	~IlluminateServerLoginSys();
 
 	bool checkLogin(string username, string password);
 
 private:
-	AlefDBLoginSys* dbLoginSys;
+	IlluminateDBLoginSys* dbLoginSys;
 
 	enum class ACCOUNTCOL
 	{

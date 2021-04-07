@@ -3,18 +3,18 @@
 #include "Poco/Net/TCPServer.h"
 #include "Poco/Net/ServerSocket.h"
 
-#include "AlefConnectionFactory.h"
+#include "IlluminateConnectionFactory.h"
 
 using namespace Poco::Net;
 
-class AlefServer
+class IlluminateServer
 {
 public:
-	AlefServer() {};
-	virtual ~AlefServer() {};
+	IlluminateServer() {};
+	virtual ~IlluminateServer() {};
 
 	virtual void runServer() {};
 
 private:
-	AlefConnectionFactory * connectFactory;
+	IlluminateConnectionFactory * connectFactory;
 };

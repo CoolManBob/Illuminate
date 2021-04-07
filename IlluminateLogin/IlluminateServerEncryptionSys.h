@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
 
-class AlefServerEncryptionSys
+class IlluminateServerEncryptionSys
 {
 public:
-	AlefServerEncryptionSys();
-	~AlefServerEncryptionSys();
+	IlluminateServerEncryptionSys();
+	~IlluminateServerEncryptionSys();
 
 	std::string getCryptKey();
 

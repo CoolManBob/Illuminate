@@ -11,19 +11,19 @@ using std::stringstream;
 #include "Poco/Exception.h"
 using Poco::Exception;
 
-#include "AlefWorldGlobal.h"
-#include "AlefServerConnection.h"
-#include "AlefWorldPacketHandler.h"
-#include "AlefSocket.h"
-#include "AlefCrypto.h"
-#include "AlefFlagLengthLookup.h"
+#include "IlluminateWorldGlobal.h"
+#include "IlluminateServerConnection.h"
+#include "IlluminateWorldPacketHandler.h"
+#include "IlluminateSocket.h"
+#include "IlluminateCrypto.h"
+#include "IlluminateFlagLengthLookup.h"
 
 const int maxReceiveBytes = 4096;
 
-class AlefWorldClientConnection : public AlefServerConnection
+class IlluminateWorldClientConnection : public IlluminateServerConnection
 {
 public:
-	AlefWorldClientConnection(const AlefSocket& socket, AlefWorldPacketHandler* packetHandler) : AlefServerConnection(socket, handler), handler(packetHandler), sock(socket)
+	IlluminateWorldClientConnection(const IlluminateSocket& socket, IlluminateWorldPacketHandler* packetHandler) : IlluminateServerConnection(socket, handler), handler(packetHandler), sock(socket)
 	{
 		cryptSession = new blowfish_session;
 		cryptSession->serverCtx = new blowfish_context;
@@ -33,7 +33,7 @@ public:
 		blowfish_init(cryptSession->clientCtx);
 		sock.setCryptoSession(cryptSession);
 	};
-	virtual ~AlefWorldClientConnection()
+	virtual ~IlluminateWorldClientConnection()
 	{
 		delete cryptSession->serverCtx;
 		delete cryptSession->clientCtx;
@@ -52,7 +52,7 @@ public:
 				numBytesRead = sock.receiveBytes(tempBuf, maxReceiveBytes);
 				if (numBytesRead)
 				{
-					AlefPacket* packet = new AlefPacket(tempBuf, numBytesRead);
+					IlluminatePacket* packet = new IlluminatePacket(tempBuf, numBytesRead);
 					bool decryptRes = decryptPacket(packet);
 					if (!decryptRes)
 					{
@@ -103,7 +103,7 @@ public:
 		}
 	}
 private:
-	bool decryptPacket(AlefPacket * packet)
+	bool decryptPacket(IlluminatePacket * packet)
 	{
 		UInt32 realSize = 0;
 		UInt8* packetData = packet->getBuffer();
@@ -129,7 +129,7 @@ private:
 
 		return true;
 	}
-	AlefWorldPacketHandler * handler;
-	AlefSocket sock;
+	IlluminateWorldPacketHandler * handler;
+	IlluminateSocket sock;
 	blowfish_session * cryptSession;
 };

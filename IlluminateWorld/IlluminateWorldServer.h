@@ -9,23 +9,23 @@ using namespace Poco;
 using namespace Poco::Net;
 
 
-#include "AlefServer.h"
-#include "AlefWorldClientFactory.h"
-#include "AlefWorldPacketHandler.h"
+#include "IlluminateServer.h"
+#include "IlluminateWorldClientFactory.h"
+#include "IlluminateWorldPacketHandler.h"
 
-class AlefWorldServer : public AlefServer
+class IlluminateWorldServer : public IlluminateServer
 {
 public:
-	AlefWorldServer();
-	virtual ~AlefWorldServer();
+	IlluminateWorldServer();
+	virtual ~IlluminateWorldServer();
 
 	virtual void runServer();
 	void stopServer();
 
 private:
-	AlefWorldClientFactory * clientFactory;
+	IlluminateWorldClientFactory * clientFactory;
 	TCPServer * worldServer;
-	AlefWorldPacketHandler * handler;
+	IlluminateWorldPacketHandler * handler;
 	TCPServerParams * params;
 
 };

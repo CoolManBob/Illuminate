@@ -143,17 +143,12 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IlluminateChannelAGSMCharMgr.h" />
     <ClInclude Include="IlluminateChannelApp.h" />
-    <ClInclude Include="IlluminateChannelCharacter.h" />
     <ClInclude Include="IlluminateChannelClientConnection.h" />
     <ClInclude Include="IlluminateChannelClientFactory.h" />
     <ClInclude Include="IlluminateChannelGlobal.h" />
-    <ClInclude Include="IlluminateChannelOptimizedCharMove.h" />
     <ClInclude Include="IlluminateChannelPacketHandler.h" />
     <ClInclude Include="IlluminateChannelServer.h" />
-    <ClInclude Include="IlluminateChannelStartupEncryption.h" />
-    <ClInclude Include="IlluminateChannelUIStatus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

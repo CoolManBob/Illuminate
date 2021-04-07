@@ -1,6 +1,6 @@
-#include "AlefLog.h"
+#include "IlluminateLog.h"
 
-AlefLog::AlefLog()
+IlluminateLog::IlluminateLog()
 {
 	internalConsoleLogger = nullptr;
 	internalFileLogger = nullptr;
@@ -10,17 +10,17 @@ AlefLog::AlefLog()
 	pFCConsole->open();
 
 	FormattingChannel* pFCFile = new FormattingChannel(new PatternFormatter("%Y-%m-%d %H:%M:%S %p: %t"));
-	pFCFile->setChannel(new FileChannel("Alef.log"));
+	pFCFile->setChannel(new FileChannel("Illuminate.log"));
 	pFCFile->open();
 
-	Logger& consoleLogger = Logger::create("AlefLogConsole", pFCConsole, Message::PRIO_TRACE);
-	Logger& fileLogger = Logger::create("AlefLogFile", pFCFile, Message::PRIO_TRACE);
+	Logger& consoleLogger = Logger::create("IlluminateLogConsole", pFCConsole, Message::PRIO_TRACE);
+	Logger& fileLogger = Logger::create("IlluminateLogFile", pFCFile, Message::PRIO_TRACE);
 
 	internalConsoleLogger = &consoleLogger;
 	internalFileLogger = &fileLogger;
 }
 
-AlefLog::AlefLog(string logName, string channelName)
+IlluminateLog::IlluminateLog(string logName, string channelName)
 {
 	internalConsoleLogger = nullptr;
 	internalFileLogger = nullptr;
@@ -40,19 +40,19 @@ AlefLog::AlefLog(string logName, string channelName)
 	internalFileLogger = &fileLogger;
 }
 
-AlefLog::AlefLog(string logName, int logChannel)
+IlluminateLog::IlluminateLog(string logName, int logChannel)
 {
 	internalConsoleLogger = nullptr;
 	internalFileLogger = nullptr;
 }
 
-AlefLog::AlefLog(string logName, int logChannel, int logPrio)
+IlluminateLog::IlluminateLog(string logName, int logChannel, int logPrio)
 {
 	internalConsoleLogger = nullptr;
 	internalFileLogger = nullptr;
 }
 
-void AlefLog::test()
+void IlluminateLog::test()
 {
 	internalConsoleLogger->trace("Trace Test Message");
 	internalConsoleLogger->debug("Debug Test Message");
@@ -72,7 +72,7 @@ void AlefLog::test()
 	internalFileLogger->fatal("Fatal Test Message");
 }
 
-void AlefLog::Log(string msg, LogPrio prio)
+void IlluminateLog::Log(string msg, LogPrio prio)
 {
 	switch (prio)
 	{
@@ -99,12 +99,12 @@ void AlefLog::Log(string msg, LogPrio prio)
 	}
 }
 
-void AlefLog::FLog(string msg)
+void IlluminateLog::FLog(string msg)
 {
 	internalFileLogger->information(msg);
 }
 
-void AlefLog::CLog(string msg, LogPrio prio)
+void IlluminateLog::CLog(string msg, LogPrio prio)
 {
 	switch (prio)
 	{

@@ -11,37 +11,37 @@ using std::stringstream;
 #include "Poco/Exception.h"
 using Poco::Exception;
 
-#include "AlefLoginGlobal.h"
-#include "AlefServerConnection.h"
-#include "AlefLoginPacketHandler.h"
-#include "AlefSocket.h"
-#include "AlefCrypto.h"
+#include "IlluminateLoginGlobal.h"
+#include "IlluminateServerConnection.h"
+#include "IlluminateLoginPacketHandler.h"
+#include "IlluminateSocket.h"
+#include "IlluminateCrypto.h"
 
-#include "AlefLocalSys.h"
+#include "IlluminateLocalSys.h"
 
 const int maxReceiveBytes = 8192;
 
-class AlefLoginClientConnection : public AlefServerConnection
+class IlluminateLoginClientConnection : public IlluminateServerConnection
 {
 public:
-	AlefLoginClientConnection(const AlefSocket& socket, AlefLoginPacketHandler* packetHandler) : AlefServerConnection(socket, handler), handler(packetHandler), sock(socket)
+	IlluminateLoginClientConnection(const IlluminateSocket& socket, IlluminateLoginPacketHandler* packetHandler) : IlluminateServerConnection(socket, handler), handler(packetHandler), sock(socket)
 	{
-		cryptSession = new blowfish_session;
+		/*cryptSession = new blowfish_session;
 		cryptSession->serverCtx = new blowfish_context;
 		cryptSession->clientCtx = new blowfish_context;
 		cryptSession->packetCounter = 0;
 		blowfish_init(cryptSession->serverCtx);
 		blowfish_init(cryptSession->clientCtx);
-		sock.setCryptoSession(cryptSession);
+		sock.setCryptoSession(cryptSession);*/
 
-		localSys = new AlefLocalSys();
+		localSys = new IlluminateLocalSys();
 	};
-	virtual ~AlefLoginClientConnection() 
+	virtual ~IlluminateLoginClientConnection() 
 	{
 		delete localSys;
-		delete cryptSession->serverCtx;
+		/*delete cryptSession->serverCtx;
 		delete cryptSession->clientCtx;
-		delete cryptSession;
+		delete cryptSession;*/
 		LOG("Client Disconnected!");
 	};
 
@@ -56,7 +56,7 @@ public:
 				numBytesRead = sock.receiveBytes(tempBuf, maxReceiveBytes);
 				if (numBytesRead)
 				{
-					AlefPacket * packet = new AlefPacket(tempBuf, numBytesRead);
+					IlluminatePacket * packet = new IlluminatePacket(tempBuf, numBytesRead);
 					bool decryptRes = decryptPacket(packet);
 					if (!decryptRes)
 					{
@@ -105,7 +105,7 @@ public:
 		}
 	}
 private:
-	bool decryptPacket(AlefPacket * packet)
+	bool decryptPacket(IlluminatePacket * packet)
 	{
 		UInt32 realSize = 0;
 		UInt8* packetData = packet->getBuffer();
@@ -131,10 +131,10 @@ private:
 
 		return true;
 	}
-	AlefLoginPacketHandler * handler;
-	AlefSocket sock;
+	IlluminateLoginPacketHandler * handler;
+	IlluminateSocket sock;
 	blowfish_session * cryptSession;
 
 	//Internal data system
-	AlefLocalSys * localSys;
+	IlluminateLocalSys * localSys;
 };

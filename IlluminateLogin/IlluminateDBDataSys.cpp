@@ -1,16 +1,16 @@
-#include "AlefDBDataSys.h"
+#include "IlluminateDBDataSys.h"
 
-AlefDBDataSys::AlefDBDataSys()
+IlluminateDBDataSys::IlluminateDBDataSys()
 {
 
 }
 
-AlefDBDataSys::~AlefDBDataSys()
+IlluminateDBDataSys::~IlluminateDBDataSys()
 {
 
 }
 
-SharedPtr<RecordSet> AlefDBDataSys::dbGetTemplateFields()
+SharedPtr<RecordSet> IlluminateDBDataSys::dbGetTemplateFields()
 {
 	try
 	{
@@ -31,7 +31,7 @@ SharedPtr<RecordSet> AlefDBDataSys::dbGetTemplateFields()
 	}
 }
 
-SharedPtr<RecordSet> AlefDBDataSys::dbGetFullTemplateData()
+SharedPtr<RecordSet> IlluminateDBDataSys::dbGetFullTemplateData()
 {
 	try
 	{
@@ -52,7 +52,7 @@ SharedPtr<RecordSet> AlefDBDataSys::dbGetFullTemplateData()
 	}
 }
 
-SharedPtr<RecordSet> AlefDBDataSys::dbGetTemplateData(int tID)
+SharedPtr<RecordSet> IlluminateDBDataSys::dbGetTemplateData(int tID)
 {
 	try
 	{
@@ -73,7 +73,7 @@ SharedPtr<RecordSet> AlefDBDataSys::dbGetTemplateData(int tID)
 	}
 }
 
-SharedPtr<RecordSet> AlefDBDataSys::dbGetCharDataTable()
+SharedPtr<RecordSet> IlluminateDBDataSys::dbGetCharDataTable()
 {
 	try
 	{

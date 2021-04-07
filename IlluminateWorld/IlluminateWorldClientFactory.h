@@ -3,23 +3,23 @@
 using std::cout;
 using std::endl;
 
-#include "AlefConnectionFactory.h"
-#include "AlefWorldPacketHandler.h"
-#include "AlefWorldClientConnection.h"
-#include "AlefSocket.h"
+#include "IlluminateConnectionFactory.h"
+#include "IlluminateWorldPacketHandler.h"
+#include "IlluminateWorldClientConnection.h"
+#include "IlluminateSocket.h"
 
-class AlefWorldClientFactory : public AlefConnectionFactory
+class IlluminateWorldClientFactory : public IlluminateConnectionFactory
 {
 public:
-	AlefWorldClientFactory(AlefWorldPacketHandler* handler) : packetHandler(handler) {};
-	virtual ~AlefWorldClientFactory() {};
+	IlluminateWorldClientFactory(IlluminateWorldPacketHandler* handler) : packetHandler(handler) {};
+	virtual ~IlluminateWorldClientFactory() {};
 
-	virtual AlefWorldClientConnection* createConnection(const StreamSocket& socket)
+	virtual IlluminateWorldClientConnection* createConnection(const StreamSocket& socket)
 	{
-		cout << "New connection recieved, spawning AlefWorldClientConnection" << endl;
-		return new AlefWorldClientConnection(socket, packetHandler);
+		cout << "New connection recieved, spawning IlluminateWorldClientConnection" << endl;
+		return new IlluminateWorldClientConnection(socket, packetHandler);
 	}
 
 private:
-	AlefWorldPacketHandler * packetHandler;
+	IlluminateWorldPacketHandler * packetHandler;
 };

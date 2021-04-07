@@ -1,12 +1,12 @@
 #pragma once
 
-#include "AlefServerLoginSys.h"
-#include "AlefServerEncryptionSys.h"
-#include "AlefServerWorldListSys.h"
-#include "AlefServerDataSys.h"
+#include "IlluminateServerLoginSys.h"
+#include "IlluminateServerEncryptionSys.h"
+#include "IlluminateServerWorldListSys.h"
+#include "IlluminateServerDataSys.h"
 
 //Server Systems
-extern AlefServerLoginSys*		serverLoginSys;
-extern AlefServerEncryptionSys* serverEncryptionSys;
-extern AlefServerWorldListSys*	serverListSys;
-extern AlefServerDataSys*		serverDataSys;
+extern IlluminateServerLoginSys*		serverLoginSys;
+extern IlluminateServerEncryptionSys* serverEncryptionSys;
+extern IlluminateServerWorldListSys*	serverListSys;
+extern IlluminateServerDataSys*		serverDataSys;

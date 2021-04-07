@@ -1,17 +1,17 @@
-#include "AlefServerWorldListSys.h"
+#include "IlluminateServerWorldListSys.h"
 
-AlefServerWorldListSys::AlefServerWorldListSys()
+IlluminateServerWorldListSys::IlluminateServerWorldListSys()
 {
-	dbWorldList = new AlefDBWorldListSys();
+	dbWorldList = new IlluminateDBWorldListSys();
 }
 
-AlefServerWorldListSys::~AlefServerWorldListSys()
+IlluminateServerWorldListSys::~IlluminateServerWorldListSys()
 {
 	delete dbWorldList;
 	worldList.clear();
 }
 
-bool AlefServerWorldListSys::initWorldList()
+bool IlluminateServerWorldListSys::initWorldList()
 {
 	LOG("Loading WorldList...", WARNING);
 
@@ -25,7 +25,7 @@ bool AlefServerWorldListSys::initWorldList()
 	return true;
 }
 
-bool AlefServerWorldListSys::updateWorldList()
+bool IlluminateServerWorldListSys::updateWorldList()
 {
 	worldList.clear();
 	if (!getGroupInfo())
@@ -37,7 +37,7 @@ bool AlefServerWorldListSys::updateWorldList()
 	//Is this the best way to do this?
 }
 
-string AlefServerWorldListSys::buildWorldInfoStr()
+string IlluminateServerWorldListSys::buildWorldInfoStr()
 {
 	stringstream worldListStr;
 	if (worldList.size() == 0)
@@ -63,7 +63,7 @@ string AlefServerWorldListSys::buildWorldInfoStr()
 	return worldListStr.str();
 }
 
-string AlefServerWorldListSys::getWorldAddress(string worldName)
+string IlluminateServerWorldListSys::getWorldAddress(string worldName)
 {
 	for (worldListGroupVec::iterator groupItr = worldList.begin(); groupItr != worldList.end(); groupItr++)
 	{
@@ -77,7 +77,7 @@ string AlefServerWorldListSys::getWorldAddress(string worldName)
 	return "ERROR";
 }
 
-bool AlefServerWorldListSys::getGroupInfo()
+bool IlluminateServerWorldListSys::getGroupInfo()
 {
 	SharedPtr<RecordSet> rs = dbWorldList->dbGetGroupInfo();
 
@@ -101,7 +101,7 @@ bool AlefServerWorldListSys::getGroupInfo()
 	return true;
 }
 
-bool AlefServerWorldListSys::getWorldInfo()
+bool IlluminateServerWorldListSys::getWorldInfo()
 {
 	for (worldListGroupVec::iterator groupItr = worldList.begin(); groupItr != worldList.end(); groupItr++)
 	{

@@ -1,16 +1,16 @@
-#include "AlefServerLoginSys.h"
+#include "IlluminateServerLoginSys.h"
 
-AlefServerLoginSys::AlefServerLoginSys()
+IlluminateServerLoginSys::IlluminateServerLoginSys()
 {
-	dbLoginSys = new AlefDBLoginSys();
+	dbLoginSys = new IlluminateDBLoginSys();
 }
 
-AlefServerLoginSys::~AlefServerLoginSys()
+IlluminateServerLoginSys::~IlluminateServerLoginSys()
 {
 	delete dbLoginSys;
 }
 
-bool AlefServerLoginSys::checkLogin(string username, string password)
+bool IlluminateServerLoginSys::checkLogin(string username, string password)
 {
 	SharedPtr<RecordSet> rs = dbLoginSys->dbGetAccount(username, password);
 

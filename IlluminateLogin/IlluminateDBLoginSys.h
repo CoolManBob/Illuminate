@@ -1,14 +1,14 @@
 #pragma once
 
-#include "AlefLoginGlobal.h"
-#include "AlefLoginTypes.h"
+#include "IlluminateLoginGlobal.h"
+#include "IlluminateLoginTypes.h"
 
-class AlefDBLoginSys
+class IlluminateDBLoginSys
 {
-	friend class AlefServerLoginSys;
+	friend class IlluminateServerLoginSys;
 protected:
-	AlefDBLoginSys();
-	~AlefDBLoginSys();
+	IlluminateDBLoginSys();
+	~IlluminateDBLoginSys();
 
 	SharedPtr<RecordSet> dbGetAccount(std::string username, std::string password);
 

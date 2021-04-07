@@ -11,16 +11,16 @@ using std::stringstream;
 #include <Poco/SharedPtr.h>
 using Poco::SharedPtr;
 
-#include "AlefPacketInterface.h"
-#include "AlefLog.h"
+#include "IlluminatePacketInterface.h"
+#include "IlluminateLog.h"
 
-#define LOG AlefLogger->Log
-#define FATAL AlefLog::LogPrio::LOG_FATAL
-#define WARNING AlefLog::LogPrio::LOG_WARNING
-#define INFO AlefLog::LogPrio::LOG_INFO
+#define LOG IlluminateLogger->Log
+#define FATAL IlluminateLog::LogPrio::LOG_FATAL
+#define WARNING IlluminateLog::LogPrio::LOG_WARNING
+#define INFO IlluminateLog::LogPrio::LOG_INFO
 
-//namespace AlefGlobal
+//namespace IlluminateGlobal
 //{
-extern AlefLog* AlefLogger;
-extern AlefPacketInterface* pktInterface;
+extern IlluminateLog* IlluminateLogger;
+extern IlluminatePacketInterface* pktInterface;
 //}

@@ -1,24 +1,24 @@
 #pragma once
-#include "AlefTypes.h"
-#include "AlefFlagLengthLookup.h"
-#include "AlefFieldLookup.h"
-#include "AlefPacketPool.h"
+#include "IlluminateTypes.h"
+//#include "IlluminateFlagLengthLookup.h"
+//#include "IlluminateFieldLookup.h"
+#include "IlluminatePacketPool.h"
 
 #include <cstdarg>
 
 //Main interface for interacting with incoming/outgoing packets
-class AlefPacketInterface 
+class IlluminatePacketInterface 
 {
 public:
-	AlefPacketInterface();
-	~AlefPacketInterface();
+	IlluminatePacketInterface();
+	~IlluminatePacketInterface();
 
-	AlefPacket * buildPacket(UInt16 packetType, ...);
-	AlefPacket * buildMiniPacket(UInt16 miniType, ...);
+	IlluminatePacket * buildPacket(UInt16 packetType, ...);
+	IlluminatePacket * buildMiniPacket(UInt16 miniType, ...);
 
-	bool processPacket(AlefPacket * packet, ...);
-	bool setupPkt(AlefPacket * packet); //Sets PacketType, FlagLength, and Field information for incoming packets.
+	bool processPacket(IlluminatePacket * packet, ...);
+	bool setupPkt(IlluminatePacket * packet); //Sets PacketType, FlagLength, and Field information for incoming packets.
 private:
-	AlefFlagLengthLookup flagLookup;
-	AlefFieldLookup fieldLookup;
+	/*IlluminateFlagLengthLookup flagLookup;
+	IlluminateFieldLookup fieldLookup;*/
 };

@@ -71,22 +71,7 @@
     <ClInclude Include="IlluminateChannelServer.h">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
-    <ClInclude Include="IlluminateChannelStartupEncryption.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
     <ClInclude Include="IlluminateChannelPacketHandler.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateChannelAGSMCharMgr.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateChannelCharacter.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateChannelUIStatus.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateChannelOptimizedCharMove.h">
       <Filter>Header Files\Packet Handlers</Filter>
     </ClInclude>
   </ItemGroup>

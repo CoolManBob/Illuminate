@@ -1,19 +1,19 @@
-#include "AlefWorldServer.h"
+#include "IlluminateWorldServer.h"
 
-AlefWorldServer::AlefWorldServer()
+IlluminateWorldServer::IlluminateWorldServer()
 {
-	handler = new AlefWorldPacketHandler();
-	clientFactory = new AlefWorldClientFactory(handler);
+	handler = new IlluminateWorldPacketHandler();
+	clientFactory = new IlluminateWorldClientFactory(handler);
 	params = new TCPServerParams();
 	worldServer = new TCPServer(clientFactory, 11008);
 }
 
-AlefWorldServer::~AlefWorldServer()
+IlluminateWorldServer::~IlluminateWorldServer()
 {
 
 }
 
-void AlefWorldServer::runServer()
+void IlluminateWorldServer::runServer()
 {
 	worldServer->start();
 
@@ -30,7 +30,7 @@ void AlefWorldServer::runServer()
 	}*/
 }
 
-void AlefWorldServer::stopServer()
+void IlluminateWorldServer::stopServer()
 {
 	worldServer->stop();
 }

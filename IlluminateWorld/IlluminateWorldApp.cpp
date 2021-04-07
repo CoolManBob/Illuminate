@@ -2,26 +2,26 @@
 using std::cout;
 using std::endl;
 
-#include "AlefWorldGlobal.h"
-#include "AlefWorldApp.h"
-#include "AlefWorldServer.h"
+#include "IlluminateWorldGlobal.h"
+#include "IlluminateWorldApp.h"
+#include "IlluminateWorldServer.h"
 
-AlefLog* AlefLogger;
-AlefPacketInterface* pktInterface;
+IlluminateLog* IlluminateLogger;
+IlluminatePacketInterface* pktInterface;
 
-int AlefWorldApp::main(const vector<string>& args)
+int IlluminateWorldApp::main(const vector<string>& args)
 {
 	/*cout << "|----------------------------------------------------------------|" << endl
-	<<  "|							ALEmu                                 |" << endl
-	<<  "|						  AlefWorld							      |" << endl
+	<<  "|						   IlluminateEmu                                 |" << endl
+	<<  "|						  IlluminateWorld							      |" << endl
 	<<  "|                          v0.1								  |" << endl
 	<<  "|----------------------------------------------------------------|" << endl;*/
 
-	AlefLogger = new AlefLog("AlefWorld.log", "AlefWorld");
-	pktInterface = new AlefPacketInterface();
+	IlluminateLogger = new IlluminateLog("IlluminateWorld.log", "IlluminateWorld");
+	pktInterface = new IlluminatePacketInterface();
 
-	cout << "ALEmu - AlefWorld v0.1" << endl;
-	AlefWorldServer * worldServer = new AlefWorldServer();
+	cout << "IlluminateEmu - IlluminateWorld v0.1" << endl;
+	IlluminateWorldServer * worldServer = new IlluminateWorldServer();
 	worldServer->runServer();
 
 	LOG("Server Start");

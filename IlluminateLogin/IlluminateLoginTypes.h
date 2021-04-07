@@ -1,6 +1,6 @@
 #pragma once
 
-#include "AlefClientCharacterTypes.h"
+#include "IlluminateClientCharacterTypes.h"
 
-#include "AlefServerWorldListTypes.h"
-#include "AlefServerDataTypes.h"
+#include "IlluminateServerWorldListTypes.h"
+#include "IlluminateServerDataTypes.h"

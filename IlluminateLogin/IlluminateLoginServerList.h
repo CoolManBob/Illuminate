@@ -3,15 +3,15 @@
 #include "Poco/Net/StreamSocket.h"
 using Poco::Net::StreamSocket;
 
-#include "AlefLoginGlobal.h"
-#include "AlefPacketProcessor.h"
-#include "AlefSocket.h"
+#include "IlluminateLoginGlobal.h"
+#include "IlluminatePacketProcessor.h"
+#include "IlluminateSocket.h"
 
-class AlefLoginServerList : public AlefPacketProcessor
+class IlluminateLoginServerList : public IlluminatePacketProcessor
 {
 public:
-	AlefLoginServerList() {};
-	virtual ~AlefLoginServerList() {};
+	IlluminateLoginServerList() {};
+	virtual ~IlluminateLoginServerList() {};
 
 	virtual bool processPacket(const localInfo& local);
 	bool processServerList(localInfo& local);

@@ -2,17 +2,17 @@
 using std::cout;
 using std::endl;
 
-#include "AlefLoginStartupEncryption.h"
+#include "IlluminateLoginStartupEncryption.h"
 
-bool AlefLoginStartupEncryption::processPacket(const localInfo& local)
+bool IlluminateLoginStartupEncryption::processPacket(const localInfo& local)
 {
 	//AuPacket::GetField(&v6->m_csPacket, 1, v7, v8, &pvPacket, &pCode, &nSize);
 	localInfo& localObj = const_cast<localInfo&>(local);
-	AlefPacket* packet = localObj.packet;
+	IlluminatePacket* packet = localObj.packet;
 	int operation = 0;
 	int nSize = 0;
 	char* data = nullptr;
-	/*Alef::INT8, Alef::MEMORY_BLOCK*/
+	/*Illuminate::INT8, Illuminate::MEMORY_BLOCK*/
 	/*1, 1*/
 	pktInterface->processPacket(packet, &operation, data);
 
@@ -34,14 +34,14 @@ bool AlefLoginStartupEncryption::processPacket(const localInfo& local)
 	return false;
 }
 
-bool AlefLoginStartupEncryption::processInitialPacket(localInfo& local)
+bool IlluminateLoginStartupEncryption::processInitialPacket(localInfo& local)
 {
 	LOG("processInitialPacket");
 
 	Int8 i8Operation = CRYPT_SETALGO;
 	UInt16 algoType = CRYPT_ALGO_BLOWFISH;
 
-	SharedPtr<AlefPacket> response = pktInterface->buildPacket(Alef::AGPMSTARTUPENCRYPTION_PACKET_TYPE, &i8Operation, &algoType, 0);
+	SharedPtr<IlluminatePacket> response = pktInterface->buildPacket(Illuminate::AGPMSTARTUPENCRYPTION_PACKET_TYPE, &i8Operation, &algoType, 0);
 
 	if(response)
 		_localSock.sendPacket(response, false);
@@ -56,7 +56,7 @@ bool AlefLoginStartupEncryption::processInitialPacket(localInfo& local)
 	i8Operation = CRYPT_PUBLICKEY;
 	UInt16 u16Sz = 32;
 
-	SharedPtr<AlefPacket> keyResponse = pktInterface->buildPacket(Alef::AGPMSTARTUPENCRYPTION_PACKET_TYPE, &i8Operation, &u16Sz, serverKey.c_str());
+	SharedPtr<IlluminatePacket> keyResponse = pktInterface->buildPacket(Illuminate::AGPMSTARTUPENCRYPTION_PACKET_TYPE, &i8Operation, &u16Sz, serverKey.c_str());
 
 	blowfish_setkey(_localSock.getCryptoSession()->serverCtx, (unsigned char*)serverKey.c_str(), (0x20 << 3));
 
@@ -65,7 +65,7 @@ bool AlefLoginStartupEncryption::processInitialPacket(localInfo& local)
 	return true;
 }
 
-bool AlefLoginStartupEncryption::processCryptoPacket(localInfo& local)
+bool IlluminateLoginStartupEncryption::processCryptoPacket(localInfo& local)
 {
 	LOG("processCryptoPacket");
 	
@@ -85,7 +85,7 @@ bool AlefLoginStartupEncryption::processCryptoPacket(localInfo& local)
 
 	Int8 i8Operation = CRYPT_COMPLETE;
 
-	SharedPtr<AlefPacket> startupCryptoComplete = pktInterface->buildPacket(Alef::AGPMSTARTUPENCRYPTION_PACKET_TYPE, &i8Operation, 0, 0);
+	SharedPtr<IlluminatePacket> startupCryptoComplete = pktInterface->buildPacket(Illuminate::AGPMSTARTUPENCRYPTION_PACKET_TYPE, &i8Operation, 0, 0);
 	_localSock.sendPacket(startupCryptoComplete);
 
 	return true;

@@ -1,30 +1,30 @@
 #pragma once
 
-#include "AlefPacketHandler.h"
+#include "IlluminatePacketHandler.h"
 
 //Packet Handlers
-#include "AlefLoginStartupEncryption.h"
-#include "AlefLoginClientLogin.h"
-#include "AlefLoginServerList.h"
+#include "IlluminateLoginStartupEncryption.h"
+#include "IlluminateLoginClientLogin.h"
+#include "IlluminateLoginServerList.h"
 
 
-class AlefLoginPacketHandler : public AlefPacketHandler
+class IlluminateLoginPacketHandler : public IlluminatePacketHandler
 {
 public:
-	AlefLoginPacketHandler() : packetHandler(this, &AlefLoginPacketHandler::packetProcessor) 
+	IlluminateLoginPacketHandler() : packetHandler(this, &IlluminateLoginPacketHandler::packetProcessor) 
 	{
-		processorMap[Alef::AGPMLOGIN_PACKET_TYPE]				= new AlefLoginClientLogin();
-		processorMap[Alef::AGPMWORLD_PACKET_TYPE]				= new AlefLoginServerList();
-		processorMap[Alef::AGPMSTARTUPENCRYPTION_PACKET_TYPE]	= new AlefLoginStartupEncryption();
+		processorMap[Illuminate::AGPMLOGIN_PACKET_TYPE]				= new IlluminateLoginClientLogin();
+		processorMap[Illuminate::AGPMWORLD_PACKET_TYPE]				= new IlluminateLoginServerList();
+		processorMap[Illuminate::AGPMSTARTUPENCRYPTION_PACKET_TYPE]	= new IlluminateLoginStartupEncryption();
 	}
-	virtual ~AlefLoginPacketHandler() { processorMap.clear(); };
+	virtual ~IlluminateLoginPacketHandler() { processorMap.clear(); };
 
-	ActiveMethod<bool, localInfo, AlefLoginPacketHandler, ActiveStarter<ActiveDispatcher>> packetHandler;
+	ActiveMethod<bool, localInfo, IlluminateLoginPacketHandler, ActiveStarter<ActiveDispatcher>> packetHandler;
 
 private:
 	bool packetProcessor(const localInfo &local)
 	{
-		HashMap<Int16, AlefPacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
+		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
 		if (Itr != processorMap.end())
 		{
 			return Itr->second->processPacket(local);
@@ -35,5 +35,5 @@ private:
 		}
 	}
 
-	HashMap<Int16, AlefPacketProcessor*> processorMap;
+	HashMap<Int16, IlluminatePacketProcessor*> processorMap;
 };

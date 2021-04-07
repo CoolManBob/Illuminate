@@ -3,21 +3,21 @@
 #include "Poco/Net/TCPServerConnectionFactory.h"
 #include "Poco/Net/StreamSocket.h"
 
-#include "AlefPacketHandler.h"
-#include "AlefServerConnection.h"
-#include "AlefSocket.h"
+#include "IlluminatePacketHandler.h"
+#include "IlluminateServerConnection.h"
+#include "IlluminateSocket.h"
 
 using namespace Poco::Net;
 
-class AlefConnectionFactory : public TCPServerConnectionFactory
+class IlluminateConnectionFactory : public TCPServerConnectionFactory
 {
 public:
-	AlefConnectionFactory() {};
-	AlefConnectionFactory(AlefPacketHandler* packetHandler) : handler(packetHandler) {};
-	virtual ~AlefConnectionFactory() {};
+	IlluminateConnectionFactory() {};
+	IlluminateConnectionFactory(IlluminatePacketHandler* packetHandler) : handler(packetHandler) {};
+	virtual ~IlluminateConnectionFactory() {};
 
-	virtual AlefServerConnection* createConnection(const StreamSocket& socket) { return new AlefServerConnection(socket, handler); };
+	virtual IlluminateServerConnection* createConnection(const StreamSocket& socket) { return new IlluminateServerConnection(socket, handler); };
 
 private:
-	AlefPacketHandler* handler;
+	IlluminatePacketHandler* handler;
 };

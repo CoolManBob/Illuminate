@@ -11,11 +11,11 @@ using Poco::UInt32;
 using Poco::Int64;
 using Poco::UInt64;
 
-namespace Alef
+namespace Illuminate
 {
-	const int AlefTypeSize[16] = { 1, 1, 1, 2, 2, 4, 4, 8, 8, 4, 12, 64, 8, 0, 6, 2 };
+	const int IlluminateTypeSize[16] = { 1, 1, 1, 2, 2, 4, 4, 8, 8, 4, 12, 64, 8, 0, 6, 2 };
 
-	enum AlefType
+	enum IlluminateType
 	{
 		CHAR, // 0
 		INT8, // 1
@@ -36,26 +36,26 @@ namespace Alef
 		MAX, // 0x10 (16)
 	};
 
-	struct AlefVec3F
+	struct IlluminateVec3F
 	{
-		AlefVec3F() { x = 0; y = 0; z = 0; }
-		AlefVec3F(float inX, float inY, float inZ) { x = inX; y = inY; z = inZ; }
+		IlluminateVec3F() { x = 0; y = 0; z = 0; }
+		IlluminateVec3F(float inX, float inY, float inZ) { x = inX; y = inY; z = inZ; }
 		float x;
 		float y;
 		float z;
 	};
 
-	struct AlefPktField
+	struct IlluminatePktField
 	{
-		AlefPktField() { FieldType = 0; FieldSize = 0; }
+		IlluminatePktField() { FieldType = 0; FieldSize = 0; }
 		UInt8 FieldType;
 		UInt32 FieldSize;
 	};
 
 	//Main Packet Types
-	enum AlefPacketType
+	enum IlluminatePacketType
 	{
-		ALEF_SYSTEM_PACKET_TYPE = 0,
+		Illuminate_SYSTEM_PACKET_TYPE = 0,
 		AGPMCONFIG_PACKET_TYPE = 1,
 		AGPMCHARACTER_PACKET_TYPE = 2,
 		AGSMCHARMANAGER_PACKET_TYPE = 3,
@@ -75,7 +75,7 @@ namespace Alef
 
 	//Naming Convention - SYSTEM_PACKETTYPE_2NDTYPE
 	//These are used to identify Mini Packets (Packet's within main packets)
-	enum AlefMiniPacketType
+	enum IlluminateMiniPacketType
 	{
 		AGPMLOGIN_SERVER_ADDR = 100,
 		AGPMLOGIN_CHAR_INFO,
@@ -103,7 +103,7 @@ namespace Alef
 
 	/*enum ePacketType
 	{
-		ALEF_SYSTEM_PACKET_TYPE = 0,
+		Illuminate_SYSTEM_PACKET_TYPE = 0,
 		AGPMCONFIG_PACKET_TYPE = 1,
 		AGPMCHARACTER_PACKET_TYPE = 2,
 		AGCMCHAR_PACKET_TYPE = 3,

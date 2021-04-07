@@ -1,23 +1,23 @@
-#include "AlefDatabase.h"
+#include "IlluminateDatabase.h"
 
-AlefDatabase::AlefDatabase()
+IlluminateDatabase::IlluminateDatabase()
 {
 	dbSessionPoolContainer = new SessionPoolContainer();
 }
 
-AlefDatabase::~AlefDatabase()
+IlluminateDatabase::~IlluminateDatabase()
 {
 	delete dbSessionPoolContainer;
 }
 
-void AlefDatabase::createDBSession(std::string connectionString)
+void IlluminateDatabase::createDBSession(std::string connectionString)
 {
 	//We currently only support MySQL sessions. POCO supports ODBC, and SQLite aswell, but it is unknown at this time if they will eventually be supported.
 	dbSessionPool = new SessionPool("MySQL", connectionString);
 	dbSessionPoolContainer->add(dbSessionPool);	
 }
 
-Session AlefDatabase::getDBSession(std::string sessionAlias)
+Session IlluminateDatabase::getDBSession(std::string sessionAlias)
 {
 	return dbSessionPoolContainer->get(sessionAlias);
 }

@@ -3,23 +3,23 @@
 using std::cout;
 using std::endl;
 
-#include "AlefConnectionFactory.h"
-#include "AlefLoginPacketHandler.h"
-#include "AlefLoginClientConnection.h"
-#include "AlefSocket.h"
+#include "IlluminateConnectionFactory.h"
+#include "IlluminateLoginPacketHandler.h"
+#include "IlluminateLoginClientConnection.h"
+#include "IlluminateSocket.h"
 
-class AlefLoginClientFactory : public AlefConnectionFactory
+class IlluminateLoginClientFactory : public IlluminateConnectionFactory
 {
 public:
-	AlefLoginClientFactory(AlefLoginPacketHandler* handler) : packetHandler(handler) {};
-	virtual ~AlefLoginClientFactory() {};
+	IlluminateLoginClientFactory(IlluminateLoginPacketHandler* handler) : packetHandler(handler) {};
+	virtual ~IlluminateLoginClientFactory() {};
 
-	virtual AlefLoginClientConnection* createConnection(const StreamSocket& socket) 
+	virtual IlluminateLoginClientConnection* createConnection(const StreamSocket& socket) 
 	{ 
-		LOG("New connection recieved, spawning AlefLoginClientConnection");
-		return new AlefLoginClientConnection(socket, packetHandler);
+		LOG("New connection recieved, spawning IlluminateLoginClientConnection");
+		return new IlluminateLoginClientConnection(socket, packetHandler);
 	}
 
 private:
-	AlefLoginPacketHandler * packetHandler;
+	IlluminateLoginPacketHandler * packetHandler;
 };

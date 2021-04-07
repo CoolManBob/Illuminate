@@ -1,9 +1,9 @@
-#include "AlefWorldApp.h"
+#include "IlluminateWorldApp.h"
 
 
 int main(int argc, char** argv)
 {
-	AlefWorldApp worldApplication;
+	IlluminateWorldApp worldApplication;
 
 	return worldApplication.run(argc, argv);
 }

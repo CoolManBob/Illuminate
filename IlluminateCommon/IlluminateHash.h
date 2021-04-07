@@ -10,11 +10,11 @@ using Poco::DigestOutputStream;
 using Poco::DigestEngine;
 using Poco::SHA2Engine;
 
-class AlefHash
+class IlluminateHash
 {
 public:
-	AlefHash() {};
-	~AlefHash() {};
+	IlluminateHash() {};
+	~IlluminateHash() {};
 
 	static string getHash(string input)
 	{

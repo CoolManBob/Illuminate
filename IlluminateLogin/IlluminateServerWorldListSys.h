@@ -1,14 +1,14 @@
 #pragma once
 
-#include "AlefLoginGlobal.h"
-#include "AlefLoginTypes.h"
-#include "AlefDBWorldListSys.h"
+#include "IlluminateLoginGlobal.h"
+#include "IlluminateLoginTypes.h"
+#include "IlluminateDBWorldListSys.h"
 
-class AlefServerWorldListSys
+class IlluminateServerWorldListSys
 {
 public:
-	AlefServerWorldListSys();
-	~AlefServerWorldListSys();
+	IlluminateServerWorldListSys();
+	~IlluminateServerWorldListSys();
 
 	bool initWorldList();
 
@@ -29,7 +29,7 @@ public:
 	};
 
 private:
-	AlefDBWorldListSys* dbWorldList;
+	IlluminateDBWorldListSys* dbWorldList;
 	worldListGroupVec worldList;
 
 	bool getGroupInfo();

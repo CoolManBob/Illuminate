@@ -2,27 +2,27 @@
 using std::cout;
 using std::endl;
 
-#include "AlefWorldGlobal.h"
-#include "AlefWorldApp.h"
-#include "AlefWorldServer.h"
+#include "IlluminateChannelGlobal.h"
+#include "IlluminateChannelApp.h"
+#include "IlluminateChannelServer.h"
 
-AlefLog* AlefLogger;
-AlefPacketInterface* pktInterface;
+IlluminateLog* IlluminateLogger;
+IlluminatePacketInterface* pktInterface;
 
-int AlefWorldApp::main(const vector<string>& args)
+int IlluminateChannelApp::main(const vector<string>& args)
 {
 	/*cout << "|----------------------------------------------------------------|" << endl
-	<<  "|							ALEmu                                 |" << endl
-	<<  "|						  AlefWorld							      |" << endl
+	<<  "|							Illuminate                                |" << endl
+	<<  "|						  IlluminateChannel							      |" << endl
 	<<  "|                          v0.1								  |" << endl
 	<<  "|----------------------------------------------------------------|" << endl;*/
 
-	AlefLogger = new AlefLog("AlefWorld.log", "AlefWorld");
-	pktInterface = new AlefPacketInterface();
+	IlluminateLogger = new IlluminateLog("IlluminateChannel.log", "IlluminateChannel");
+	pktInterface = new IlluminatePacketInterface();
 
-	cout << "ALEmu - AlefWorld v0.1" << endl;
-	AlefWorldServer * worldServer = new AlefWorldServer();
-	worldServer->runServer();
+	cout << "IlluminateEmu - IlluminateChannel v0.1" << endl;
+	IlluminateChannelServer * ChannelServer = new IlluminateChannelServer();
+	ChannelServer->runServer();
 
 	LOG("Server Start");
 
@@ -30,7 +30,7 @@ int AlefWorldApp::main(const vector<string>& args)
 
 	LOG("Server Stopped");
 
-	worldServer->stopServer();
+	ChannelServer->stopServer();
 
 	return Application::EXIT_OK;
 }
