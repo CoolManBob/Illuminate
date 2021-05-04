@@ -2,18 +2,18 @@
 
 IlluminateServerWorldListSys::IlluminateServerWorldListSys()
 {
-	dbWorldList = new IlluminateDBWorldListSys();
+	//dbWorldList = new IlluminateDBWorldListSys();
 }
 
 IlluminateServerWorldListSys::~IlluminateServerWorldListSys()
 {
-	delete dbWorldList;
-	worldList.clear();
+	/*delete dbWorldList;
+	worldList.clear();*/
 }
 
 bool IlluminateServerWorldListSys::initWorldList()
 {
-	LOG("Loading WorldList...", WARNING);
+	/*LOG("Loading WorldList...", WARNING);
 
 	if (!getGroupInfo())
 		return false;
@@ -22,24 +22,24 @@ bool IlluminateServerWorldListSys::initWorldList()
 
 	LOG("WorldList Loaded!", WARNING);
 
-	return true;
+	return true;*/
 }
 
 bool IlluminateServerWorldListSys::updateWorldList()
 {
-	worldList.clear();
+	/*worldList.clear();
 	if (!getGroupInfo())
 		return false;
 	if (!getWorldInfo())
 		return false;
 
-	return true;
+	return true;*/
 	//Is this the best way to do this?
 }
 
 string IlluminateServerWorldListSys::buildWorldInfoStr()
 {
-	stringstream worldListStr;
+	/*stringstream worldListStr;
 	if (worldList.size() == 0)
 	{
 		LOG("buildWorldInfoPkt : getWorldList() FAIL", FATAL);
@@ -60,12 +60,12 @@ string IlluminateServerWorldListSys::buildWorldInfoStr()
 		}
 	}
 
-	return worldListStr.str();
+	return worldListStr.str();*/
 }
 
 string IlluminateServerWorldListSys::getWorldAddress(string worldName)
 {
-	for (worldListGroupVec::iterator groupItr = worldList.begin(); groupItr != worldList.end(); groupItr++)
+	/*for (worldListGroupVec::iterator groupItr = worldList.begin(); groupItr != worldList.end(); groupItr++)
 	{
 		for (worldListWorldVec::iterator worldItr = (*groupItr)->worldVec.begin(); worldItr != (*groupItr)->worldVec.end(); worldItr++)
 		{
@@ -74,12 +74,12 @@ string IlluminateServerWorldListSys::getWorldAddress(string worldName)
 		}
 	}
 
-	return "ERROR";
+	return "ERROR";*/
 }
 
 bool IlluminateServerWorldListSys::getGroupInfo()
 {
-	SharedPtr<RecordSet> rs = dbWorldList->dbGetGroupInfo();
+	/*SharedPtr<RecordSet> rs = dbWorldList->dbGetGroupInfo();
 
 	if (!rs)
 		return false;
@@ -98,12 +98,12 @@ bool IlluminateServerWorldListSys::getGroupInfo()
 		worldList.push_back(group);
 	}
 
-	return true;
+	return true;*/
 }
 
 bool IlluminateServerWorldListSys::getWorldInfo()
 {
-	for (worldListGroupVec::iterator groupItr = worldList.begin(); groupItr != worldList.end(); groupItr++)
+	/*for (worldListGroupVec::iterator groupItr = worldList.begin(); groupItr != worldList.end(); groupItr++)
 	{
 		SharedPtr<RecordSet> rs = dbWorldList->dbGetWorldInfo((*groupItr)->groupID);
 
@@ -128,5 +128,5 @@ bool IlluminateServerWorldListSys::getWorldInfo()
 		}
 	}
 
-	return true;
+	return true;*/
 }

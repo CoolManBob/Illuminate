@@ -8,7 +8,7 @@ using std::endl;
 
 IlluminateLog* IlluminateLogger;
 IlluminateLoginConfig* loginConfig;
-IlluminatePacketInterface* pktInterface;
+//IlluminatePacketInterface* pktInterface;
 IlluminateDBInterface* dbInterface;
 
 int IlluminateLoginApp::main(const vector<string>& args)
@@ -21,7 +21,7 @@ int IlluminateLoginApp::main(const vector<string>& args)
 
 	IlluminateLogger = new IlluminateLog("IlluminateLogin.log", "IlluminateLogin");
 	loginConfig = new IlluminateLoginConfig("IlluminateLogin.ini");
-	pktInterface = new IlluminatePacketInterface();
+	//pktInterface = new IlluminatePacketInterface();
 	dbInterface = new IlluminateDBInterface();
 
 	cout << "ALEmu - IlluminateLogin v0.1" << endl;

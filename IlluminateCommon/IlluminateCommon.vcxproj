@@ -161,6 +161,8 @@ copy "$(SolutionDir)IlluminateDependencies\Bin\libmysql.dll" "$(SolutionDir)out"
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="IlluminateBDOCRC.h" />
+    <ClInclude Include="IlluminateBDOCrypt.h" />
     <ClInclude Include="IlluminateConfig.h" />
     <ClInclude Include="IlluminateConnectionFactory.h" />
     <ClInclude Include="IlluminateCrypto.h" />
@@ -175,7 +177,6 @@ copy "$(SolutionDir)IlluminateDependencies\Bin\libmysql.dll" "$(SolutionDir)out"
     <ClInclude Include="IlluminatePacketHandler.h" />
     <ClInclude Include="IlluminatePacketPool.h" />
     <ClInclude Include="IlluminatePacketProcessor.h" />
-    <ClInclude Include="IlluminatePacketInterface.h" />
     <ClInclude Include="IlluminatePool.h" />
     <ClInclude Include="IlluminatePoolStrategy.h" />
     <ClInclude Include="IlluminateServer.h" />
@@ -187,12 +188,13 @@ copy "$(SolutionDir)IlluminateDependencies\Bin\libmysql.dll" "$(SolutionDir)out"
     <ClInclude Include="IlluminateTypes.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IlluminateBDOCRC.cpp" />
+    <ClCompile Include="IlluminateBDOCrypt.cpp" />
     <ClCompile Include="IlluminateDatabase.cpp" />
     <ClCompile Include="IlluminateDBInterface.cpp" />
     <ClCompile Include="IlluminateLocalSys.cpp" />
     <ClCompile Include="IlluminateLog.cpp" />
     <ClCompile Include="IlluminatePacket.cpp" />
-    <ClCompile Include="IlluminatePacketInterface.cpp" />
     <ClCompile Include="IlluminatePacketPool.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -97,7 +97,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../IlluminateDependencies/Libs;../out</AdditionalLibraryDirectories>
-      <AdditionalDependencies>IlluminateCommonDebug_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>IlluminateCommonDebug_x64.lib;wolfssl-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../out/$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
@@ -133,13 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="IlluminateChannelAGSMCharMgr.cpp" />
     <ClCompile Include="IlluminateChannelApp.cpp" />
-    <ClCompile Include="IlluminateChannelCharacter.cpp" />
-    <ClCompile Include="IlluminateChannelOptimizedCharMove.cpp" />
     <ClCompile Include="IlluminateChannelServer.cpp" />
-    <ClCompile Include="IlluminateChannelStartupEncryption.cpp" />
-    <ClCompile Include="IlluminateChannelUIStatus.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

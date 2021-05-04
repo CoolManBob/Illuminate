@@ -58,6 +58,9 @@
     <Filter Include="Header Files\Shared Types\Client">
       <UniqueIdentifier>{11f82e21-3de8-417f-9205-246fa09f4624}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Crypto">
+      <UniqueIdentifier>{b976b4f8-950c-4a36-a7db-16031fb5a97a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IlluminateLog.h">
@@ -67,9 +70,6 @@
       <Filter>Header Files\Packet System</Filter>
     </ClInclude>
     <ClInclude Include="IlluminatePacketHandler.h">
-      <Filter>Header Files\Packet System</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminatePacketInterface.h">
       <Filter>Header Files\Packet System</Filter>
     </ClInclude>
     <ClInclude Include="IlluminatePacketProcessor.h">
@@ -132,15 +132,18 @@
     <ClInclude Include="IlluminateServerDataTypes.h">
       <Filter>Header Files\Shared Types\Client</Filter>
     </ClInclude>
+    <ClInclude Include="IlluminateBDOCrypt.h">
+      <Filter>Header Files\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateBDOCRC.h">
+      <Filter>Header Files\Crypto</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IlluminateLog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IlluminatePacket.cpp">
-      <Filter>Source Files\Packet System</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminatePacketInterface.cpp">
       <Filter>Source Files\Packet System</Filter>
     </ClCompile>
     <ClCompile Include="IlluminatePacketPool.cpp">
@@ -154,6 +157,12 @@
     </ClCompile>
     <ClCompile Include="IlluminateLocalSys.cpp">
       <Filter>Source Files\Local</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateBDOCRC.cpp">
+      <Filter>Source Files\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="IlluminateBDOCrypt.cpp">
+      <Filter>Source Files\Crypto</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

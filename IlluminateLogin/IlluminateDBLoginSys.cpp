@@ -12,7 +12,7 @@ IlluminateDBLoginSys::~IlluminateDBLoginSys()
 
 SharedPtr<RecordSet> IlluminateDBLoginSys::dbGetAccount(string username, string password)
 {
-	try
+	/*try
 	{
 		Session dbSession = dbInterface->getLoginDB();
 
@@ -28,5 +28,5 @@ SharedPtr<RecordSet> IlluminateDBLoginSys::dbGetAccount(string username, string 
 	{
 		LOG(ex.displayText(), FATAL);
 		return nullptr;
-	}
+	}*/
 }

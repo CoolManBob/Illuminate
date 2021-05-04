@@ -7,7 +7,6 @@ using std::endl;
 #include "IlluminateChannelServer.h"
 
 IlluminateLog* IlluminateLogger;
-IlluminatePacketInterface* pktInterface;
 
 int IlluminateChannelApp::main(const vector<string>& args)
 {
@@ -18,7 +17,6 @@ int IlluminateChannelApp::main(const vector<string>& args)
 	<<  "|----------------------------------------------------------------|" << endl;*/
 
 	IlluminateLogger = new IlluminateLog("IlluminateChannel.log", "IlluminateChannel");
-	pktInterface = new IlluminatePacketInterface();
 
 	cout << "IlluminateEmu - IlluminateChannel v0.1" << endl;
 	IlluminateChannelServer * ChannelServer = new IlluminateChannelServer();

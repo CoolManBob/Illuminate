@@ -4,8 +4,8 @@
 
 IlluminateServerLoginSys* serverLoginSys;
 IlluminateServerWorldListSys* serverListSys;
-IlluminateServerEncryptionSys* serverEncryptionSys;
-IlluminateServerDataSys* serverDataSys;
+//IlluminateServerEncryptionSys* serverEncryptionSys;
+//IlluminateServerDataSys* serverDataSys;
 
 IlluminateLoginServer::IlluminateLoginServer()
 {
@@ -86,7 +86,7 @@ bool IlluminateLoginServer::initServerSystems()
 {
 	serverLoginSys = new IlluminateServerLoginSys();
 	serverListSys = new IlluminateServerWorldListSys();
-	serverEncryptionSys = new IlluminateServerEncryptionSys();
+	//serverEncryptionSys = new IlluminateServerEncryptionSys();
 
 	if (!serverListSys->initWorldList())
 	{
@@ -94,13 +94,13 @@ bool IlluminateLoginServer::initServerSystems()
 		return false;
 	}
 
-	serverDataSys = new IlluminateServerDataSys();
+	/*serverDataSys = new IlluminateServerDataSys();
 
 	if (!serverDataSys->initData())
 	{
 		LOG("ERROR: initData FAIL!", FATAL);
 		return false;
-	}
+	}*/
 
 	LOG("Success: ServerSys Init");
 	return true;

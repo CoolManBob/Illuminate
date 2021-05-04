@@ -28,7 +28,7 @@ public:
 private:
 	bool packetProcessor(const localInfo &local)
 	{
-		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
+		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetOpCode());
 		if (Itr != processorMap.end())
 		{
 			return Itr->second->processPacket(local);

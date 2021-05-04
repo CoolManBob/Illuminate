@@ -6,13 +6,13 @@ using namespace Poco::Net;
 
 #include "IlluminateSocketImpl.h"
 #include "IlluminatePacket.h"
-#include "IlluminateCrypto.h"
+#include "IlluminateBDOCrypt.h"
 
 class IlluminateSocket : public StreamSocket
 {
 public:
-	IlluminateSocket() { /*cryptoSession = nullptr;*/ };
-	IlluminateSocket(const Socket& sock) : StreamSocket(sock) { /*cryptoSession = nullptr;*/ };
+	IlluminateSocket() { cryptoSession = nullptr; };
+	IlluminateSocket(const Socket& sock) : StreamSocket(sock) { cryptoSession = nullptr; };
 	virtual ~IlluminateSocket() {};
 
 	IlluminateSocket& operator = (const Socket& sock) 
@@ -21,74 +21,30 @@ public:
 			Socket::operator = (sock);
 	}
 
-	/*void setCryptoSession(blowfish_session* session) { cryptoSession = session; }
-	blowfish_session* getCryptoSession() { return cryptoSession; }*/
-	int sendPacket(IlluminatePacket* packet, bool encrypt = true) 
+	void setCryptoSession(BDOCrypt* session) { cryptoSession = session; }
+	BDOCrypt* getCryptoSession() { return cryptoSession; }
+	int sendPacket(IlluminatePacket* packet) 
 	{
-		/*if (encrypt)
-		{
-			UInt8 header[] = { 0xA1, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-			UInt8 * packetData = packet->getBuffer();
-			UInt32 packetSize = packet->getSize();
-
-			if (packetData[0] != 0xD6 || packetSize < 16)
-				return 0;
-			if (packetSize % 8)
-			{
-				UInt32 padding = 8 - (packetSize % 8);
-				packetSize += padding;
-			}
-
-			packet->Resize(packetSize);
-
-			for (UInt32 i = 0; i < (packetSize >> 3); i++)
-				blowfish_encrypt(cryptoSession->serverCtx, (UInt32*)(packet->getBuffer() + i * (__int64)8), (UInt32*)(packet->getBuffer() + i * (__int64)8 + (__int64)4));
-
-			packet->Resize(packetSize + 8);
-			memmove(packet->getBuffer() + 7, packet->getBuffer(), packetSize);
-			memcpy(packet->getBuffer(), header, 7);
-			packet->getBuffer()[packetSize + 7] = 0xAF; //Guard Footer Byte
-			*(UInt16*)(packet->getBuffer() + 1) = ((UInt16)packet->getSize()); //Encrypted Size
-			*(UInt32*)(packet->getBuffer() + 3) = ++cryptoSession->packetCounter;
-		}*/
+		if (!cryptoSession)
+			return -1;
+		
+		if (packet->GetCrypted())
+			cryptoSession->cryptoProcess(packet->getBufferAt(3), packet->getSize() - 3); //OpCode + body is encrypted
 		
 		return this->sendBytes(packet->getBuffer(), packet->getSize());
 	}
-	int receivePacket(IlluminatePacket * packet) 
+	bool receivePacket(IlluminatePacket * packet) 
 	{
-		/*unsigned char tempBuf[maxReceiveBytes + 1] = { 0 };
+		packet->acquirePacketHeader();
+		
+		if (packet->GetCrypted() && cryptoSession)
+			cryptoSession->cryptoProcess(packet->getBuffer(), packet->getSize() - 3);
 
-		int readBytes = receiveBytes(tempBuf, maxReceiveBytes);
+		packet->acquireOpCode(); //Get the OpCode after crypto is completed
 
-		if (readBytes <= 0)
-			return 0;
-
-		packet = new IlluminatePacket(tempBuf, readBytes);
-
-		UInt32 realSize = 0;
-		UInt8* packetData = packet->getBuffer();
-		int isServerPacket = (packetData[0] == 0xA1) ? 1 : 0;
-
-		if (packetData[0] == 0xD6 && packet->getSize() >= 16)
-			return readBytes;
-
-		if ((packetData[0] != 0xB1 && packetData[0] != 0xA1) || packet->getSize() < 24)
-			return false;
-
-		packet->setSize(packet->getSize() - 8);
-		memmove(packetData, packetData + 7, packet->getSize());
-
-		for (int i = 0; i < (packet->getSize() >> 3); ++i)
-			blowfish_decrypt((isServerPacket) ? cryptoSession->serverCtx : cryptoSession->clientCtx, (UInt32*)(packetData + i * 8), (UInt32*)(packetData + i * 8 + 4));
-
-		if (packetData[0] != 0xD6)
-			return false;
-
-		return readBytes;*/
+		return true;
 	}
 
-
-
 private:
-	//blowfish_session * cryptoSession;
+	BDOCrypt * cryptoSession;
 };

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IlluminateLocalInfo.h"
-#include "IlluminateCrypto.h"
+#include "IlluminateBDOCrypt.h"
 
 class IlluminatePacketProcessor
 {

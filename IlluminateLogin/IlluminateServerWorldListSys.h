@@ -30,7 +30,7 @@ public:
 
 private:
 	IlluminateDBWorldListSys* dbWorldList;
-	worldListGroupVec worldList;
+	//worldListGroupVec worldList;
 
 	bool getGroupInfo();
 	bool getWorldInfo();

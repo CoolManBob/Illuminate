@@ -15,7 +15,7 @@ using Poco::Exception;
 #include "IlluminateServerConnection.h"
 #include "IlluminateLoginPacketHandler.h"
 #include "IlluminateSocket.h"
-#include "IlluminateCrypto.h"
+#include "IlluminateBDOCrypt.h"
 
 #include "IlluminateLocalSys.h"
 
@@ -65,34 +65,34 @@ public:
 					}
 
 					localInfo info(localSys, sock);
-					bool success = pktInterface->setupPkt(packet);
+					/*bool success = pktInterface->setupPkt(packet);
 					if (!success)
 					{
 						LOG("ERROR: Could not find FlagLength!", FATAL);
 						delete packet;
 						continue;
-					}
+					}*/
 					info.packet = packet;
 					
-					stringstream outMsg;
+					/*stringstream outMsg;
 					outMsg << "numBytesRead: " << numBytesRead << " ";
 					outMsg << "PacketSize: " << packet->GetPacketSize() << " ";
 					outMsg << "Opcode " << (int)packet->GetPacketType();
-					LOG(outMsg.str());
+					LOG(outMsg.str());*/
 					ActiveResult<bool> res = handler->packetHandler(info);
 					res.wait();
 					if (res.data())
 					{
-						stringstream successMsg;
+						/*stringstream successMsg;
 						successMsg << "Opcode " << (int)packet->GetPacketType() << " handled successfully.";
-						LOG(successMsg.str());
+						LOG(successMsg.str());*/
 						delete packet;
 					}
 					else
 					{
-						stringstream errorMsg;
+						/*stringstream errorMsg;
 						errorMsg << "Error handling Opcode " << (int)packet->GetPacketType();
-						LOG(errorMsg.str(), FATAL);
+						LOG(errorMsg.str(), FATAL);*/
 						delete packet;
 					}
 				} 
@@ -107,7 +107,7 @@ public:
 private:
 	bool decryptPacket(IlluminatePacket * packet)
 	{
-		UInt32 realSize = 0;
+		/*UInt32 realSize = 0;
 		UInt8* packetData = packet->getBuffer();
 		int isServerPacket = (packetData[0] == 0xA1) ? 1 : 0;
 		
@@ -129,11 +129,11 @@ private:
 		if (packetData[0] != 0xD6)
 			return false;
 
-		return true;
+		return true;*/
 	}
 	IlluminateLoginPacketHandler * handler;
 	IlluminateSocket sock;
-	blowfish_session * cryptSession;
+	//blowfish_session * cryptSession;
 
 	//Internal data system
 	IlluminateLocalSys * localSys;

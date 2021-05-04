@@ -6,8 +6,10 @@
 using Poco::SharedPtr;
 
 #include <vector>
+#include <string>
 
 using std::vector;
+using std::string;
 
 #include "IlluminateTypes.h"
 
@@ -17,8 +19,7 @@ public:
 	IlluminatePacket();
 	IlluminatePacket(int initialSize);
 	IlluminatePacket(unsigned char* buffer, int bufSize);
-	IlluminatePacket(UInt16 PacketType, UInt8 FlagLen);
-	IlluminatePacket(UInt8 FlagLen);
+	IlluminatePacket(UInt16 OpCode);
 	
 	~IlluminatePacket();
 
@@ -26,13 +27,6 @@ public:
 	bool ResetFromPkt(IlluminatePacket* packet);
 
 	void WriteHeader();
-	void WriteMiniHeader();
-
-	void UpdatePacket(UInt16 newSize, bool doFlagUpd = true);
-	void UpdateMask(int newMask) { dwMask = newMask; }
-
-	void ClosePacket();
-	void CloseMiniPacket();
 
 	void WriteInt8(Int8 data);
 	void WriteInt16(Int16 data);
@@ -40,47 +34,39 @@ public:
 	void WriteInt64(Int64 data);
 
 	void WriteUInt8(UInt8 data);
-	void WriteUInt16(UInt16 data, bool flagUpd = true);
+	void WriteUInt16(UInt16 data);
 	void WriteUInt32(UInt32 data);
 	void WriteUInt64(UInt64 data);
 
 	void WriteFloat(float data);
 	void WriteDouble(double data);
-
-	void WriteMemoryBlock(UInt16 size, const UInt8* data, bool zero = false);
-	void WriteVec3F(Illuminate::IlluminateVec3F vec3F);
-	//void WriteMiniPacket(IlluminatePacket* packet);
+	void WriteBool(bool data);
 
 	void WriteByteArray(const char* array);
 	void WriteByteArray(const UInt8* array);
 
+	void WriteString(const string str);
+
 	void WriteArbitraryData(const void *data, int len);
 
-	void WritePacket(IlluminatePacket* packet);
-	void WritePacket(SharedPtr<IlluminatePacket> packet);
-
 	template<typename data>
-	void WriteGeneric(const data val);
+	void WriteGeneric(const data& val);
 
-	/*Public Header Operations*/
+	IlluminatePacket& operator<<(Int8 data);
+	IlluminatePacket& operator<<(Int16 data);
+	IlluminatePacket& operator<<(Int32 data);
+	IlluminatePacket& operator<<(Int64 data);
 
-	void	acquirePacketHeader();
-	UInt16	GetPacketType() { return packetType; }
-	UInt16	GetPacketSize() { return packetSize; }
-	UInt32	GetPacketSessionID() { return sessionID; }
-	UInt32	GetPacketTimestamp() { return timestamp; }
-	
-	UInt8	GetFlagLength() { return flagLength; }
-	UInt8	GetPacketFlag(UInt8 flagIndex) { if (flagIndex > flagLength) return 0xFF; return packetFlags[flagIndex]; }
-	UInt8*	GetPacketFlags() { return packetFlags; }
-	void setFlagLength(UInt8 flagLen) { flagLength = flagLen; };
-	bool setAndAcquireFlags(UInt8 flagLen);
+	IlluminatePacket& operator<<(UInt8 data);
+	IlluminatePacket& operator<<(UInt16 data);
+	IlluminatePacket& operator<<(UInt32 data);
+	IlluminatePacket& operator<<(UInt64 data);
 
-	vector<Illuminate::IlluminatePktField>& GetFieldVec() { return fields; }
-	/*End Public Header Operations*/
-
-	bool setFieldInfo(int types[], int typeSize, int sizes[], int sizeSz);
-	bool setFieldInfo(vector<Illuminate::IlluminatePktField> fieldVec);
+	IlluminatePacket& operator<<(float data);
+	IlluminatePacket& operator<<(double data);
+	IlluminatePacket& operator<<(bool data);
+	IlluminatePacket& operator<<(const string data);
+	IlluminatePacket& operator<<(const char* data);
 	
 	Int8 GetInt8();
 	Int16 GetInt16();
@@ -93,6 +79,7 @@ public:
 
 	float GetFloat();
 	double GetDouble();
+	bool GetBool();
 
 	void GetInt8(Int8& data);
 	void GetInt16(Int16& data);	
@@ -105,6 +92,7 @@ public:
 
 	void GetFloat(float& data);
 	void GetDouble(double& data);
+	void GetBool(bool& data);
 
 	void GetInt8(int position, Int8 &data);
 	void GetInt16(int position, Int16 &data);
@@ -118,11 +106,15 @@ public:
 
 	void GetFloat(int position, float &data);
 	void GetDouble(int position, double &data);
+	void GetBool(int position, bool& data);
 
-	void GetDataBlock(UInt16 blocksize, char* data);
-	void GetDataBlock(UInt16 blocksize, unsigned char* data);
-	void GetVec3F(Illuminate::IlluminateVec3F& vec3F);
-	Illuminate::IlluminateVec3F GetVec3F();
+	void GetString(std::string& str);
+	void GetString(std::string& str, int size);
+
+	//void GetDataBlock(UInt16 blocksize, char* data);
+	//void GetDataBlock(UInt16 blocksize, unsigned char* data);
+	//void GetVec3F(Illuminate::IlluminateVec3F& vec3F);
+	//Illuminate::IlluminateVec3F GetVec3F();
 	
 	template<typename data>
 	void GetGeneric(data& val);
@@ -133,12 +125,42 @@ public:
 	template<typename data>
 	void GetGeneric(int position, data &val, int size);
 
+	IlluminatePacket& operator>>(Int8& data);
+	IlluminatePacket& operator>>(Int16& data);
+	IlluminatePacket& operator>>(Int32& data);
+	IlluminatePacket& operator>>(Int64& data);
+
+	IlluminatePacket& operator>>(UInt8& data);
+	IlluminatePacket& operator>>(UInt16& data);
+	IlluminatePacket& operator>>(UInt32& data);
+	IlluminatePacket& operator>>(UInt64& data);
+
+	IlluminatePacket& operator>>(float& data);
+	IlluminatePacket& operator>>(double& data);
+	IlluminatePacket& operator>>(bool& data);
+	IlluminatePacket& operator>>(string& data);
+
+
 	/*template<typename data>
 	void SetDataAt(int position, const data val);*/
 
+	/*Public Header Operations*/
+
+	void	acquirePacketHeader();
+	void	acquireOpCode();
+	UInt16	GetPacketSize() { return packetSize; }
+	bool	GetCrypted() { return isEncrypted; }
+	UInt16	GetOpCode() { return opCode; }
+
+	void	SetPacketSz(UInt16 sz) { packetSize = sz; }
+	void	SetOpCode(UInt16 op) { opCode = op; }
+	void	SetCrypt(bool crypt) { isEncrypted = crypt; }
+
+	/*End Public Header Operations*/
+
 	//inline char* getBuffer() { return &buf[pos]; };
 	inline unsigned char*	getBuffer() { return buf; };
-	inline unsigned char*	getBufferAt(int pos) { return &buf[pos]; }
+	inline unsigned char*	getBufferAt(int pos) { if (pos == 0) return nullptr; else return &buf[pos - 1]; }
 	inline unsigned char*	getBufferAtCurPos() { return &buf[pos]; }
 	inline unsigned char	getSingleElement(int pos) { return buf[pos]; };
 	inline int				getPosition() { return pos; };
@@ -152,49 +174,21 @@ private:
 	unsigned char * buf;
 	int size;
 	int pos;
-	bool dynamic;
 
 	/*Packet Info*/
 
 	/*Header*/
 	
-	UInt8 guardByte;
+	//First 3 bytes are always cleartext
 	UInt16 packetSize;
-	UInt16 packetType;
-	UInt32 sessionID;
-	UInt32 timestamp;
-	UInt8* packetFlags; //Notes: Based on the PacketType, it will have some hardcoded "FlagLength" associated with it that defines the end of the header, the flaglength can be 1, 2, or 4 bytes.
+	bool isEncrypted;
+
+	//OpCode is Encrypted in transit
+	UInt16 opCode;
 	
 	/*End Header Info*/
 
-	Int32 numFields;
-	UInt8 flagLength;
-	vector<Illuminate::IlluminatePktField> fields;
-
-	int ulFlag;
-	int dwMask;
-	bool headerWritten;
-	bool isMini;
-
 	/*End Packet Info*/
-
-	/*void EnsureBufSize(int checkSize)
-	{
-		if (checkSize > size)
-		{
-			int newSize = size;
-			do
-			{
-				newSize <<= 1;
-			} while (newSize < size);
-
-			unsigned char *tmp = new unsigned char[newSize];
-			memcpy(tmp, buf, size);
-			delete[] buf;
-			buf = tmp;
-			size = newSize;
-		}
-	}*/
 
 	void EnsureBufSize(int checkSize)
 	{

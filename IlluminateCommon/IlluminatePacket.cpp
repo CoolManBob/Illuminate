@@ -5,12 +5,6 @@ IlluminatePacket::IlluminatePacket()
 	buf = nullptr; //Default settings
 	size = 0;
 	pos = 0;
-	dynamic = true;
-	numFields = 0;
-	flagLength = 0;
-	packetType = 0;
-	dwMask = 1;
-	ulFlag = 0;
 }
 
 IlluminatePacket::IlluminatePacket(int initialSize)
@@ -18,12 +12,6 @@ IlluminatePacket::IlluminatePacket(int initialSize)
 	buf = new unsigned char[initialSize];
 	size = initialSize;
 	pos = 0;
-	dynamic = false;
-	numFields = 0;
-	flagLength = 0;
-	packetType = 0;
-	dwMask = 1;
-	ulFlag = 0;
 }
 
 IlluminatePacket::IlluminatePacket(unsigned char *buffer, int bufSize) //Incoming Packets
@@ -32,176 +20,37 @@ IlluminatePacket::IlluminatePacket(unsigned char *buffer, int bufSize) //Incomin
 	memcpy(buf, buffer, bufSize);
 	size = bufSize;
 	pos = 0;
-	dynamic = false;
-	numFields = 0;
-	flagLength = 0;
-	packetType = 0;
-	dwMask = 1;
-	ulFlag = 0;
 }
 
-IlluminatePacket::IlluminatePacket(UInt16 PacketType, UInt8 FlagLen) //Outgoing Packets
+IlluminatePacket::IlluminatePacket(UInt16 OpCode) //Outgoing Packets
 {
-	if (FlagLen != 1 && FlagLen != 2 && FlagLen != 4)
-		throw "ERROR";
-	buf = new unsigned char[13+FlagLen]; //Allocate initial space for header
-	size = 13+FlagLen;
+	buf = nullptr; //Default settings
+	size = 0;
 	pos = 0;
-	dynamic = true;
-	numFields = 0;
-	flagLength = FlagLen;
-	packetType = PacketType;
-	dwMask = 1;
-	ulFlag = 0;
-	guardByte = 0xD6;
-	sessionID = 0;
-	timestamp = 0;
-	packetSize = 0;
-	packetFlags = new UInt8[FlagLen];
-	headerWritten = false;
-	isMini = false;
-
-	WriteHeader();
-}
-
-IlluminatePacket::IlluminatePacket(UInt8 FlagLen) //Mini(Internal) Packets
-{
-	if (FlagLen != 1 && FlagLen != 2 && FlagLen != 4)
-		throw "ERROR";
-	buf = new unsigned char[2 + FlagLen]; //Allocate initial space for header (UInt16(Size) + FlagLen)
-	size = 2 + FlagLen;
-	pos = 0;
-	dynamic = true;
-	numFields = 0;
-	flagLength = FlagLen;
-	packetType = 0;
-	dwMask = 1;
-	ulFlag = 0;
-	guardByte = 0xD6;
-	sessionID = 0;
-	timestamp = 0;
-	packetSize = 0;
-	packetFlags = new UInt8[FlagLen];
-	headerWritten = false;
-	isMini = true;
-
-	WriteMiniHeader();
+	isEncrypted = true;
 }
 
 IlluminatePacket::~IlluminatePacket()
 {		
-	if (packetFlags)
-		delete[] packetFlags;
-	if(buf)
+	if (buf)
 		delete[] buf;
-
-	fields.clear();
 }
 
 void IlluminatePacket::WriteHeader()
 {
-	WriteUInt8(0xD6); //GuardByte
 	WriteUInt16(size);
-	WriteUInt16(packetType);
-	WriteUInt32(sessionID);
-	WriteUInt32(timestamp);
-
-	/*Flag Setup*/
-	for (int i = 0; i < flagLength; i++)
-		WriteUInt8(0); //Temporary zero, will be overwritten when we close the packet.
-
-	headerWritten = true; //Flag UpdatePacket to start building flag information
-}
-
-void IlluminatePacket::WriteMiniHeader()
-{
-	WriteUInt16(size);
-
-	//Setup flag space for header, then flag the system to allow it to update flags
-	for (int i = 0; i < flagLength; i++)
-		WriteUInt8(0); //Temporary zero, will be overwritten when we close the packet.
-
-	headerWritten = true;
-}
-
-bool IlluminatePacket::setFieldInfo(int types[], int typeSize, int sizes[], int sizeSz)
-{
-	if (typeSize != sizeSz)
-		return false; //Type and Size Elements are not matched!
-
-	for (int i = 0; i < typeSize; i++)
-	{
-		Illuminate::IlluminatePktField field;
-		field.FieldType = types[i];
-		field.FieldSize = sizes[i];
-		fields.push_back(field);
-	}
-
-	return true;
-}
-
-bool IlluminatePacket::setFieldInfo(vector<Illuminate::IlluminatePktField> fieldVec)
-{
-	return false;
-}
-
-void IlluminatePacket::UpdatePacket(UInt16 newSize, bool doFlagUpd)
-{
-	if(dynamic && !isMini)
-		*(UInt16*)&buf[0x01] = newSize;
-	else if(dynamic && isMini)
-		*(UInt16*)&buf[0] = newSize - 2; //UInt16 packetSize is not counted for miniPackets
-
-	if (headerWritten && doFlagUpd)
-		ulFlag |= dwMask;
-}
-
-void IlluminatePacket::ClosePacket()
-{
-	//Write packetflags
-	if(flagLength == 1)
-		*(UInt8*)&buf[0x0D] = ulFlag;
-	else if(flagLength == 2)
-		*(UInt16*)&buf[0x0D] = ulFlag;
-	else if(flagLength == 4)
-		*(UInt32*)&buf[0x0D] = ulFlag;
-	//Write footer
-	WriteUInt8(0x6B);
-}
-
-void IlluminatePacket::CloseMiniPacket()
-{
-	//Write packetflags
-	if (flagLength == 1)
-		*(UInt8*)&buf[2] = ulFlag;
-	else if (flagLength == 2)
-		*(UInt16*)&buf[2] = ulFlag;
-	else if (flagLength == 4)
-		*(UInt32*)&buf[2] = ulFlag;
+	WriteBool(isEncrypted);
 }
 
 void IlluminatePacket::acquirePacketHeader()
 {
-	GetUInt8(guardByte);
 	GetUInt16(packetSize);
-	GetUInt16(packetType);
-	GetUInt32(sessionID);
-	GetUInt32(timestamp);
+	GetBool(isEncrypted);
 }
 
-bool IlluminatePacket::setAndAcquireFlags(UInt8 flagLen)
+void IlluminatePacket::acquireOpCode()
 {
-	if (flagLen != 1 && flagLen != 2 && flagLen != 4)
-		return false;
-
-	flagLength = flagLen;
-	
-	packetFlags = new UInt8[flagLen];
-
-	for (int i = 0; i < flagLen; i++)
-		GetUInt8(packetFlags[i]);
-
-	return true;
+	GetUInt16(opCode);
 }
 
 bool IlluminatePacket::ResetFromPkt(IlluminatePacket* pkt)
@@ -216,12 +65,9 @@ bool IlluminatePacket::ResetFromPkt(IlluminatePacket* pkt)
 		memcpy(buf, pkt->buf, pkt->size);
 		size = pkt->size;
 		pos = pkt->pos;
-		dynamic = pkt->dynamic;
-		numFields = pkt->numFields;
-		flagLength = pkt->flagLength;
-		packetType = pkt->packetType;
-		dwMask = pkt->dwMask;
-		ulFlag = pkt->ulFlag;
+		packetSize = pkt->packetSize;
+		isEncrypted = pkt->isEncrypted;
+		opCode = pkt->opCode;
 		return true;
 	}
 	else
@@ -232,7 +78,7 @@ void IlluminatePacket::Resize(int newSize)
 {
 	if (size == newSize)
 		return;
-	else if (size == 0 && buf == nullptr)
+	else if (size == 0 && buf == nullptr) //empty buffer
 	{
 		unsigned char* tmp = new unsigned char[newSize];
 		memset(tmp, 0, newSize);
@@ -242,7 +88,6 @@ void IlluminatePacket::Resize(int newSize)
 	else
 	{
 		unsigned char * tmp = new unsigned char[newSize];
-		//memset(tmp, 0, newSize);
 		memmove(tmp, buf, newSize);
 		delete[] buf;
 		buf = tmp;
@@ -255,7 +100,6 @@ void IlluminatePacket::WriteInt8(Int8 data)
 	EnsureBufSize(pos + sizeof(Int8));
 	*(Int8*)&buf[pos] = data;
 	pos += sizeof(Int8);
-	UpdatePacket(size);
 }
 
 void IlluminatePacket::WriteInt16(Int16 data)
@@ -263,7 +107,6 @@ void IlluminatePacket::WriteInt16(Int16 data)
 	EnsureBufSize(pos + sizeof(Int16));
 	*(Int16*)&buf[pos] = data;
 	pos += sizeof(Int16);
-	UpdatePacket(size);
 }
 
 void IlluminatePacket::WriteInt32(Int32 data)
@@ -271,7 +114,6 @@ void IlluminatePacket::WriteInt32(Int32 data)
 	EnsureBufSize(pos + sizeof(Int32));
 	*(Int32*)&buf[pos] = data;
 	pos += sizeof(Int32);
-	UpdatePacket(size);
 }
 
 void IlluminatePacket::WriteInt64(Int64 data)
@@ -279,7 +121,6 @@ void IlluminatePacket::WriteInt64(Int64 data)
 	EnsureBufSize(pos + sizeof(Int64));
 	*(Int64*)&buf[pos] = data;
 	pos += sizeof(Int64);
-	UpdatePacket(size);
 }
 
 void IlluminatePacket::WriteUInt8(UInt8 data)
@@ -287,15 +128,13 @@ void IlluminatePacket::WriteUInt8(UInt8 data)
 	EnsureBufSize(pos + sizeof(UInt8));
 	*(UInt8*)&buf[pos] = data;
 	pos += sizeof(UInt8);
-	UpdatePacket(size);
 }
 
-void IlluminatePacket::WriteUInt16(UInt16 data, bool flagUpd)
+void IlluminatePacket::WriteUInt16(UInt16 data)
 {
 	EnsureBufSize(pos + sizeof(UInt16));
 	*(UInt16*)&buf[pos] = data;
 	pos += sizeof(UInt16);
-	UpdatePacket(size, flagUpd);
 }
 
 void IlluminatePacket::WriteUInt32(UInt32 data)
@@ -303,7 +142,6 @@ void IlluminatePacket::WriteUInt32(UInt32 data)
 	EnsureBufSize(pos + sizeof(UInt32));
 	*(UInt32*)&buf[pos] = data;
 	pos += sizeof(UInt32);
-	UpdatePacket(size);
 }
 
 void IlluminatePacket::WriteUInt64(UInt64 data)
@@ -311,7 +149,6 @@ void IlluminatePacket::WriteUInt64(UInt64 data)
 	EnsureBufSize(pos + sizeof(UInt64));
 	*(UInt64*)&buf[pos] = data;
 	pos += sizeof(UInt64);
-	UpdatePacket(size);
 }
 
 void IlluminatePacket::WriteFloat(float data)
@@ -319,7 +156,6 @@ void IlluminatePacket::WriteFloat(float data)
 	EnsureBufSize(pos + sizeof(float));
 	*(float*)&buf[pos] = data;
 	pos += sizeof(float);
-	UpdatePacket(size);
 }
 
 void IlluminatePacket::WriteDouble(double data)
@@ -327,71 +163,21 @@ void IlluminatePacket::WriteDouble(double data)
 	EnsureBufSize(pos + sizeof(double));
 	*(double*)&buf[pos] = data;
 	pos += sizeof(double);
-	UpdatePacket(size);
 }
 
-void IlluminatePacket::WriteMemoryBlock(UInt16 blocksize, const UInt8* data, bool zero)
+void IlluminatePacket::WriteBool(bool data)
 {
-	EnsureBufSize(pos + sizeof(UInt16));
-	*(UInt16*)&buf[pos] = blocksize;
-	pos += sizeof(UInt16);
-
-	if (zero)
-	{
-		for (int i = 0; i < blocksize; i++)
-		{
-			EnsureBufSize(pos + sizeof(UInt8));
-			*(UInt8*)&buf[pos] = 0;
-			pos += sizeof(UInt8);
-		}
-	}
-	else
-	{
-		int datalen = (int)(strlen((char*)data));
-		EnsureBufSize(pos + datalen);
-		memcpy(&buf[pos], data, datalen);
-		pos += datalen;
-	}
-
-	UpdatePacket(size);
-}
-
-void IlluminatePacket::WriteVec3F(Illuminate::IlluminateVec3F vec3F)
-{
-	WriteFloat(vec3F.x);
-	WriteFloat(vec3F.y);
-	WriteFloat(vec3F.z);
+	EnsureBufSize(pos + sizeof(bool));
+	*(bool*)&buf[pos] = data;
+	pos += sizeof(bool);
 }
 
 void IlluminatePacket::WriteArbitraryData(const void *data, int len)
 {
 	EnsureBufSize(pos + len);
 	memset(&buf[pos], 0, len);
-	memcpy(&buf[pos], data, (int)(strlen((const char*)data)));
+	memcpy(&buf[pos], data, len);
 	pos += len;
-	UpdatePacket(size);
-}
-
-void IlluminatePacket::WritePacket(IlluminatePacket* packet)
-{
-	int pktSize = packet->getSize();
-	unsigned char* pktData = packet->getBuffer();
-	EnsureBufSize(pos + pktSize);
-	memset(&buf[pos], 0, pktSize);
-	memcpy(&buf[pos], pktData, pktSize);
-	pos += pktSize;
-	UpdatePacket(size);
-}
-
-void IlluminatePacket::WritePacket(SharedPtr<IlluminatePacket> packet)
-{
-	int pktSize = packet->getSize();
-	unsigned char* pktData = packet->getBuffer();
-	EnsureBufSize(pos + pktSize);
-	memset(&buf[pos], 0, pktSize);
-	memcpy(&buf[pos], pktData, pktSize);
-	pos += pktSize;
-	UpdatePacket(size);
 }
 
 void IlluminatePacket::WriteByteArray(const char* array)
@@ -402,6 +188,11 @@ void IlluminatePacket::WriteByteArray(const char* array)
 void IlluminatePacket::WriteByteArray(const UInt8* array)
 {
 	WriteArbitraryData(array, (int)(strlen((char*)array)));
+}
+
+void IlluminatePacket::WriteString(const string str)
+{
+	WriteArbitraryData(str.c_str(), str.size());
 }
 
 void IlluminatePacket::GetInt8(Int8& data)
@@ -472,6 +263,13 @@ void IlluminatePacket::GetDouble(double& data)
 	ValidateReadTo(pos + sizeof(double));
 	data = *(double*)&buf[pos];
 	pos += sizeof(double);
+}
+
+void IlluminatePacket::GetBool(bool& data)
+{
+	ValidateReadTo(pos + sizeof(bool));
+	data = *(bool*)&buf[pos];
+	pos += sizeof(bool);
 }
 
 Int8 IlluminatePacket::GetInt8()
@@ -564,6 +362,15 @@ double IlluminatePacket::GetDouble()
 	return temp;
 }
 
+bool IlluminatePacket::GetBool()
+{
+	bool temp = 0;
+	ValidateReadTo(pos + sizeof(bool));
+	temp = *(bool*)&buf[pos];
+	pos += sizeof(bool);
+	return temp;
+}
+
 void IlluminatePacket::GetInt8(int position, Int8 &data)
 {
 	ValidateReadTo(position + sizeof(Int8));
@@ -624,43 +431,42 @@ void IlluminatePacket::GetDouble(int position, double& data)
 	data = *(double*)&buf[position];
 }
 
-void IlluminatePacket::GetDataBlock(UInt16 blockSize, char* data)
+void IlluminatePacket::GetBool(int position, bool& data)
 {
-	ValidateReadTo(pos + blockSize);
-	memcpy(data, &buf[pos], blockSize);
-	pos += blockSize;
+	ValidateReadTo(position + sizeof(bool));
+	data = *(bool*)&buf[position];
 }
 
-void IlluminatePacket::GetDataBlock(UInt16 blockSize, unsigned char* data)
+void IlluminatePacket::GetString(std::string& str)
 {
-	ValidateReadTo(pos + blockSize);
-	memcpy(data, &buf[pos], blockSize);
-	pos += blockSize;
+	str.clear();
+	while (pos < size)
+	{
+		char c = GetInt8();
+		if (c == 0)
+			break;
+		str += c;
+	}
 }
 
-void IlluminatePacket::GetVec3F(Illuminate::IlluminateVec3F& vec3F)
+void IlluminatePacket::GetString(std::string& str, int len)
 {
-	GetFloat(vec3F.x);
-	GetFloat(vec3F.y);
-	GetFloat(vec3F.z);
-}
-
-Illuminate::IlluminateVec3F IlluminatePacket::GetVec3F()
-{
-	Illuminate::IlluminateVec3F vec3F;
-	GetFloat(vec3F.x);
-	GetFloat(vec3F.y);
-	GetFloat(vec3F.z);
-	return vec3F;
+	str.clear();
+	for (int i = 0; i < len; i++)
+	{
+		char c = GetInt8();
+		if (c == 0)
+			break;
+		str += c;
+	}
 }
 
 template <typename data>
-void IlluminatePacket::WriteGeneric(const data val)
+void IlluminatePacket::WriteGeneric(const data& val)
 {
 	EnsureBufSize(pos + sizeof(data));
 	*(data*)&buf[pos] = val;
 	pos += sizeof(data);
-	UpdatePacket(size);
 }
 
 template <typename data>
@@ -684,4 +490,148 @@ void IlluminatePacket::GetGeneric(int position, data &val, int size)
 {
 	ValidateReadTo(position + sizeof(data));
 	val = *(data*)&buf[position];
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(Int8 data)
+{
+	WriteInt8(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(Int16 data)
+{
+	WriteInt16(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(Int32 data)
+{
+	WriteInt32(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(Int64 data)
+{
+	WriteInt64(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(UInt8 data)
+{
+	WriteUInt8(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(UInt16 data)
+{
+	WriteUInt16(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(UInt32 data)
+{
+	WriteUInt32(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(UInt64 data)
+{
+	WriteUInt64(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(float data)
+{
+	WriteFloat(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(double data)
+{
+	WriteDouble(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(bool data)
+{
+	WriteBool(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator<<(const string data)
+{
+	WriteString(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(Int8& data)
+{
+	GetInt8(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(Int16& data)
+{
+	GetInt16(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(Int32& data)
+{
+	GetInt32(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(Int64& data)
+{
+	GetInt64(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(UInt8& data)
+{
+	GetUInt8(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(UInt16& data)
+{
+	GetUInt16(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(UInt32& data)
+{
+	GetUInt32(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(UInt64& data)
+{
+	GetUInt64(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(double& data)
+{
+	GetDouble(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(float& data)
+{
+	GetFloat(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(bool& data)
+{
+	GetBool(data);
+	return *this;
+}
+
+IlluminatePacket& IlluminatePacket::operator>>(std::string& str)
+{
+	GetString(str);
+	return *this;
 }

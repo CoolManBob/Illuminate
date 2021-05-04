@@ -39,21 +39,6 @@
     <ClCompile Include="IlluminateChannelServer.cpp">
       <Filter>Source Files\Networking</Filter>
     </ClCompile>
-    <ClCompile Include="IlluminateChannelStartupEncryption.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateChannelAGSMCharMgr.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateChannelCharacter.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateChannelUIStatus.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateChannelOptimizedCharMove.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IlluminateChannelApp.h">

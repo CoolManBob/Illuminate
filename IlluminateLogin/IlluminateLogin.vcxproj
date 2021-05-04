@@ -137,41 +137,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="IlluminateDBDataSys.cpp" />
     <ClCompile Include="IlluminateDBLoginSys.cpp" />
     <ClCompile Include="IlluminateDBWorldListSys.cpp" />
     <ClCompile Include="IlluminateLoginApp.cpp" />
-    <ClCompile Include="IlluminateLoginClientLogin.cpp" />
     <ClCompile Include="IlluminateLoginConfig.cpp" />
     <ClCompile Include="IlluminateLoginServer.cpp" />
-    <ClCompile Include="IlluminateLoginServerList.cpp" />
-    <ClCompile Include="IlluminateLoginStartupEncryption.cpp" />
-    <ClCompile Include="IlluminateServerDataSys.cpp" />
-    <ClCompile Include="IlluminateServerEncryptionSys.cpp" />
     <ClCompile Include="IlluminateServerLoginSys.cpp" />
     <ClCompile Include="IlluminateServerWorldListSys.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IlluminateDBDataSys.h" />
     <ClInclude Include="IlluminateDBWorldListSys.h" />
     <ClInclude Include="IlluminateLoginServerSystems.h" />
     <ClInclude Include="IlluminateLoginTypes.h" />
-    <ClInclude Include="IlluminateServerDataSys.h" />
     <ClInclude Include="IlluminateServerLoginSys.h" />
     <ClInclude Include="IlluminateDBLoginSys.h" />
     <ClInclude Include="IlluminateLoginApp.h" />
     <ClInclude Include="IlluminateLoginClientConnection.h" />
     <ClInclude Include="IlluminateLoginClientFactory.h" />
-    <ClInclude Include="IlluminateLoginClientLogin.h" />
     <ClInclude Include="IlluminateLoginConfig.h" />
     <ClInclude Include="IlluminateLoginGlobal.h" />
-    <ClInclude Include="IlluminateLoginPacketHandler.h" />
     <ClInclude Include="IlluminateLoginServer.h" />
-    <ClInclude Include="IlluminateLoginServerList.h" />
-    <ClInclude Include="IlluminateLoginStartupEncryption.h" />
     <ClInclude Include="IlluminateServerWorldListSys.h" />
-    <ClInclude Include="IlluminateServerEncryptionSys.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

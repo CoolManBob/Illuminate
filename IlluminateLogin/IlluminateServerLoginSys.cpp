@@ -12,7 +12,7 @@ IlluminateServerLoginSys::~IlluminateServerLoginSys()
 
 bool IlluminateServerLoginSys::checkLogin(string username, string password)
 {
-	SharedPtr<RecordSet> rs = dbLoginSys->dbGetAccount(username, password);
+	/*SharedPtr<RecordSet> rs = dbLoginSys->dbGetAccount(username, password);
 
 	if (!rs)
 		return false;
@@ -23,5 +23,5 @@ bool IlluminateServerLoginSys::checkLogin(string username, string password)
 		return false;
 	}
 
-	return true;
+	return true;*/
 }

@@ -12,7 +12,7 @@ IlluminateDBWorldListSys::~IlluminateDBWorldListSys()
 
 SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetGroupInfo()
 {
-	try 
+	/*try 
 	{
 		Session dbSession = dbInterface->getLoginDB();
 
@@ -28,12 +28,12 @@ SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetGroupInfo()
 	{
 		LOG(ex.displayText(), FATAL);
 		return nullptr;
-	}
+	}*/
 }
 
 SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetWorldInfo(int groupID)
 {
-	try
+	/*try
 	{
 		Session dbSession = dbInterface->getLoginDB();
 
@@ -48,5 +48,5 @@ SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetWorldInfo(int groupID)
 	{
 		LOG(ex.displayText(), FATAL);
 		return nullptr;
-	}
+	}*/
 }

@@ -10,7 +10,7 @@
 #include "IlluminateLocalInfo.h"
 
 #include "IlluminatePacketProcessor.h"
-#include "IlluminateCrypto.h"
+#include "IlluminateBDOCrypt.h"
 
 using namespace Poco;
 
@@ -24,11 +24,10 @@ private:
 
 	bool packetProcessor(const localInfo &local)
 	{
-		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
+		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetOpCode());
 		if (Itr != processorMap.end())
 		{
 			return Itr->second->processPacket(local);
-			//return Itr->second->processPacket(pktInfo.sock, pktInfo.packet);
 		}
 		else
 			return false;

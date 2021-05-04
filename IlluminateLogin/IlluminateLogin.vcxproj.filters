@@ -37,12 +37,6 @@
     <Filter Include="Source Files\Server Systems\Login">
       <UniqueIdentifier>{8668e362-7176-4c98-8689-21abd346f052}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Server Systems\StartupEncryption">
-      <UniqueIdentifier>{60fbf509-581f-40a2-8d9f-2a7307d5ecfc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Server Systems\StartupEncryption">
-      <UniqueIdentifier>{c3251f26-a6d4-4f16-a107-e4c6894b4b1b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Server Systems\Serverlist">
       <UniqueIdentifier>{f236096b-ff40-4ca5-bcdb-150de372563a}</UniqueIdentifier>
     </Filter>
@@ -63,15 +57,6 @@
     <ClCompile Include="IlluminateLoginApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IlluminateLoginClientLogin.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateLoginServerList.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateLoginStartupEncryption.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
-    </ClCompile>
     <ClCompile Include="IlluminateLoginServer.cpp">
       <Filter>Source Files\Networking</Filter>
     </ClCompile>
@@ -87,17 +72,8 @@
     <ClCompile Include="IlluminateServerWorldListSys.cpp">
       <Filter>Source Files\Server Systems\Serverlist</Filter>
     </ClCompile>
-    <ClCompile Include="IlluminateServerEncryptionSys.cpp">
-      <Filter>Source Files\Server Systems\StartupEncryption</Filter>
-    </ClCompile>
     <ClCompile Include="IlluminateDBWorldListSys.cpp">
       <Filter>Source Files\Server Systems\Serverlist</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateDBDataSys.cpp">
-      <Filter>Source Files\Server Systems\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="IlluminateServerDataSys.cpp">
-      <Filter>Source Files\Server Systems\Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,15 +83,6 @@
     <ClInclude Include="IlluminateLoginGlobal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IlluminateLoginClientLogin.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateLoginServerList.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateLoginStartupEncryption.h">
-      <Filter>Header Files\Packet Handlers</Filter>
-    </ClInclude>
     <ClInclude Include="IlluminateLoginClientConnection.h">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
@@ -124,9 +91,6 @@
     </ClInclude>
     <ClInclude Include="IlluminateLoginServer.h">
       <Filter>Header Files\Networking</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateLoginPacketHandler.h">
-      <Filter>Header Files\Packet Handlers</Filter>
     </ClInclude>
     <ClInclude Include="IlluminateLoginConfig.h">
       <Filter>Header Files</Filter>
@@ -140,9 +104,6 @@
     <ClInclude Include="IlluminateServerWorldListSys.h">
       <Filter>Header Files\Server Systems\Serverlist</Filter>
     </ClInclude>
-    <ClInclude Include="IlluminateServerEncryptionSys.h">
-      <Filter>Header Files\Server Systems\StartupEncryption</Filter>
-    </ClInclude>
     <ClInclude Include="IlluminateDBWorldListSys.h">
       <Filter>Header Files\Server Systems\Serverlist</Filter>
     </ClInclude>
@@ -151,12 +112,6 @@
     </ClInclude>
     <ClInclude Include="IlluminateLoginTypes.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateDBDataSys.h">
-      <Filter>Header Files\Server Systems\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="IlluminateServerDataSys.h">
-      <Filter>Header Files\Server Systems\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
