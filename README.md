@@ -3,4 +3,5 @@
 
 
 Illuminate is A BDO Emulator written in C++ using POCO & MySQL
+
 Development Discord: https://discord.gg/GCTaDUNFEU
