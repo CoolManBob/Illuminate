@@ -75,6 +75,9 @@
     <ClCompile Include="IlluminateDBWorldListSys.cpp">
       <Filter>Source Files\Server Systems\Serverlist</Filter>
     </ClCompile>
+    <ClCompile Include="PacketHandlers\CMGetCreateUserInformationToAuthenticServer.cpp">
+      <Filter>Source Files\Packet Handlers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IlluminateLoginApp.h">
@@ -112,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="IlluminateLoginTypes.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketHandlers\CMGetCreateUserInformationToAuthenticServer.h">
+      <Filter>Header Files\Packet Handlers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

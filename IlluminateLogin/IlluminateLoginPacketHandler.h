@@ -3,7 +3,7 @@
 #include "IlluminatePacketHandler.h"
 
 //Packet Handlers
-
+#include "PacketHandlers/CMGetCreateUserInformationToAuthenticServer.h"
 
 class IlluminateLoginPacketHandler : public IlluminatePacketHandler
 {
@@ -13,6 +13,8 @@ public:
 		/*processorMap[Illuminate::AGPMLOGIN_PACKET_TYPE]				= new IlluminateLoginClientLogin();
 		processorMap[Illuminate::AGPMWORLD_PACKET_TYPE]				= new IlluminateLoginServerList();
 		processorMap[Illuminate::AGPMSTARTUPENCRYPTION_PACKET_TYPE]	= new IlluminateLoginStartupEncryption();*/
+		processorMap[Illuminate::CMGetCreateUserInformationToAuthenticServer] = new CMGetCreateUserInformationToAuthenticServer();
+		
 	}
 	virtual ~IlluminateLoginPacketHandler() { processorMap.clear(); };
 

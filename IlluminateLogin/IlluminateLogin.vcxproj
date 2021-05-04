@@ -145,6 +145,7 @@
     <ClCompile Include="IlluminateServerLoginSys.cpp" />
     <ClCompile Include="IlluminateServerWorldListSys.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PacketHandlers\CMGetCreateUserInformationToAuthenticServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IlluminateDBWorldListSys.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="IlluminateLoginGlobal.h" />
     <ClInclude Include="IlluminateLoginServer.h" />
     <ClInclude Include="IlluminateServerWorldListSys.h" />
+    <ClInclude Include="PacketHandlers\CMGetCreateUserInformationToAuthenticServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

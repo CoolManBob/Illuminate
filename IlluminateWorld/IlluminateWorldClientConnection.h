@@ -17,59 +17,52 @@ using Poco::Exception;
 #include "IlluminateSocket.h"
 #include "IlluminateBDOCrypt.h"
 
-const int maxReceiveBytes = 4096;
+const int maxReceiveBytes = 0x4100;
 
 class IlluminateWorldClientConnection : public IlluminateServerConnection
 {
 public:
 	IlluminateWorldClientConnection(const IlluminateSocket& socket, IlluminateWorldPacketHandler* packetHandler) : IlluminateServerConnection(socket, handler), handler(packetHandler), sock(socket)
 	{
-		/*cryptSession = new blowfish_session;
-		cryptSession->serverCtx = new blowfish_context;
-		cryptSession->clientCtx = new blowfish_context;
-		cryptSession->packetCounter = 0;
-		blowfish_init(cryptSession->serverCtx);
-		blowfish_init(cryptSession->clientCtx);
-		sock.setCryptoSession(cryptSession);*/
+		cryptSession = new BDOCrypt;
+		cryptSession->cryptoHandshake();
+		sock.setCryptoSession(cryptSession);
 	};
 	virtual ~IlluminateWorldClientConnection()
 	{
-		/*delete cryptSession->serverCtx;
-		delete cryptSession->clientCtx;
-		delete cryptSession;*/
+		delete cryptSession;
 		LOG("Client disconnected");
 	};
 
 	virtual void run()
-	{ //TODO: Add updateSelfToMap
-		unsigned char tempBuf[maxReceiveBytes + 1] = { 0 };
+	{
+		//unsigned char tempBuf[maxReceiveBytes + 1] = { 0 };
+		unsigned char* tempBuf = new unsigned char[maxReceiveBytes + 1];
 		int numBytesRead = 1;
 		for (; numBytesRead;)
 		{
 			try
 			{
 				numBytesRead = sock.receiveBytes(tempBuf, maxReceiveBytes);
+
+				//Some security measures can be checked for here, mostly related to flooding.
+
 				if (numBytesRead)
 				{
+					//1 - Packet Creation
 					IlluminatePacket* packet = new IlluminatePacket(tempBuf, numBytesRead);
-					bool decryptRes = decryptPacket(packet);
+					delete[] tempBuf;
+
+					//2 - Decrypt Packet
+					bool decryptRes = sock.receivePacket(packet);
 					if (!decryptRes)
 					{
 						LOG("ERROR Decrypting Packet", FATAL);
 						continue;
 					}
 
+					//3 - Setup local information
 					localInfo info(sock);
-					/*bool success = pktInterface->setupPkt(packet);
-					if (!success)
-					{
-						stringstream errorMsg;
-
-						errorMsg << "ERROR: Could not find FlagLength! Type: " << (int)packet->GetPacketType();
-						LOG(errorMsg.str(), FATAL);
-						delete packet;
-						continue;
-					}*/
 					info.packet = packet;
 
 					/*stringstream outMsg;
@@ -77,6 +70,8 @@ public:
 					outMsg << "PacketSize: " << packet->GetPacketSize() << " ";
 					outMsg << "Opcode " << (int)packet->GetPacketType();
 					LOG(outMsg.str());*/
+
+					//4 - Handle Packet
 					ActiveResult<bool> res = handler->packetHandler(info);
 					res.wait();
 					if (res.data())
@@ -131,5 +126,5 @@ private:
 	}
 	IlluminateWorldPacketHandler * handler;
 	IlluminateSocket sock;
-	//blowfish_session * cryptSession;
+	BDOCrypt * cryptSession;
 };
