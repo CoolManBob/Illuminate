@@ -7,7 +7,6 @@ using std::endl;
 #include "IlluminateWorldServer.h"
 
 IlluminateLog* IlluminateLogger;
-IlluminatePacketInterface* pktInterface;
 
 int IlluminateWorldApp::main(const vector<string>& args)
 {
@@ -18,7 +17,6 @@ int IlluminateWorldApp::main(const vector<string>& args)
 	<<  "|----------------------------------------------------------------|" << endl;*/
 
 	IlluminateLogger = new IlluminateLog("IlluminateWorld.log", "IlluminateWorld");
-	pktInterface = new IlluminatePacketInterface();
 
 	cout << "IlluminateEmu - IlluminateWorld v0.1" << endl;
 	IlluminateWorldServer * worldServer = new IlluminateWorldServer();

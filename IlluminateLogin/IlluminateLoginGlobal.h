@@ -28,7 +28,6 @@ using Poco::SHA2Engine;
 
 #include "IlluminateLog.h"
 #include "IlluminateLoginConfig.h"
-#include "IlluminatePacketInterface.h"
 #include "IlluminateDBInterface.h"
 
 #define LOG IlluminateLogger->Log
@@ -41,5 +40,4 @@ using Poco::SHA2Engine;
 //Global Interfaces
 extern IlluminateLog* IlluminateLogger;
 extern IlluminateLoginConfig* loginConfig;
-extern IlluminatePacketInterface* pktInterface;
 extern IlluminateDBInterface* dbInterface;

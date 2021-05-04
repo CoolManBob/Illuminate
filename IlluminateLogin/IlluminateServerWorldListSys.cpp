@@ -23,6 +23,7 @@ bool IlluminateServerWorldListSys::initWorldList()
 	LOG("WorldList Loaded!", WARNING);
 
 	return true;*/
+	return false;
 }
 
 bool IlluminateServerWorldListSys::updateWorldList()
@@ -35,6 +36,7 @@ bool IlluminateServerWorldListSys::updateWorldList()
 
 	return true;*/
 	//Is this the best way to do this?
+	return false;
 }
 
 string IlluminateServerWorldListSys::buildWorldInfoStr()
@@ -61,6 +63,7 @@ string IlluminateServerWorldListSys::buildWorldInfoStr()
 	}
 
 	return worldListStr.str();*/
+	return "";
 }
 
 string IlluminateServerWorldListSys::getWorldAddress(string worldName)
@@ -75,6 +78,7 @@ string IlluminateServerWorldListSys::getWorldAddress(string worldName)
 	}
 
 	return "ERROR";*/
+	return "";
 }
 
 bool IlluminateServerWorldListSys::getGroupInfo()
@@ -99,6 +103,7 @@ bool IlluminateServerWorldListSys::getGroupInfo()
 	}
 
 	return true;*/
+	return false;
 }
 
 bool IlluminateServerWorldListSys::getWorldInfo()
@@ -129,4 +134,5 @@ bool IlluminateServerWorldListSys::getWorldInfo()
 	}
 
 	return true;*/
+	return false;
 }

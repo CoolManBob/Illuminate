@@ -24,4 +24,5 @@ bool IlluminateServerLoginSys::checkLogin(string username, string password)
 	}
 
 	return true;*/
+	return false;
 }

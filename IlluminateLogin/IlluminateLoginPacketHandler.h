@@ -3,9 +3,6 @@
 #include "IlluminatePacketHandler.h"
 
 //Packet Handlers
-#include "IlluminateLoginStartupEncryption.h"
-#include "IlluminateLoginClientLogin.h"
-#include "IlluminateLoginServerList.h"
 
 
 class IlluminateLoginPacketHandler : public IlluminatePacketHandler
@@ -13,9 +10,9 @@ class IlluminateLoginPacketHandler : public IlluminatePacketHandler
 public:
 	IlluminateLoginPacketHandler() : packetHandler(this, &IlluminateLoginPacketHandler::packetProcessor) 
 	{
-		processorMap[Illuminate::AGPMLOGIN_PACKET_TYPE]				= new IlluminateLoginClientLogin();
+		/*processorMap[Illuminate::AGPMLOGIN_PACKET_TYPE]				= new IlluminateLoginClientLogin();
 		processorMap[Illuminate::AGPMWORLD_PACKET_TYPE]				= new IlluminateLoginServerList();
-		processorMap[Illuminate::AGPMSTARTUPENCRYPTION_PACKET_TYPE]	= new IlluminateLoginStartupEncryption();
+		processorMap[Illuminate::AGPMSTARTUPENCRYPTION_PACKET_TYPE]	= new IlluminateLoginStartupEncryption();*/
 	}
 	virtual ~IlluminateLoginPacketHandler() { processorMap.clear(); };
 
@@ -24,7 +21,7 @@ public:
 private:
 	bool packetProcessor(const localInfo &local)
 	{
-		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetPacketType());
+		HashMap<Int16, IlluminatePacketProcessor*>::Iterator Itr = processorMap.find(local.packet->GetOpCode());
 		if (Itr != processorMap.end())
 		{
 			return Itr->second->processPacket(local);

@@ -11,7 +11,6 @@ using std::stringstream;
 #include <Poco/SharedPtr.h>
 using Poco::SharedPtr;
 
-#include "IlluminatePacketInterface.h"
 #include "IlluminateLog.h"
 
 #define LOG IlluminateLogger->Log
@@ -22,5 +21,4 @@ using Poco::SharedPtr;
 //namespace IlluminateGlobal
 //{
 extern IlluminateLog* IlluminateLogger;
-extern IlluminatePacketInterface* pktInterface;
 //}

@@ -130,6 +130,7 @@ private:
 			return false;
 
 		return true;*/
+		return false;
 	}
 	IlluminateLoginPacketHandler * handler;
 	IlluminateSocket sock;

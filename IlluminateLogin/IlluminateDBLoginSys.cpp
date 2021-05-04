@@ -29,4 +29,5 @@ SharedPtr<RecordSet> IlluminateDBLoginSys::dbGetAccount(string username, string 
 		LOG(ex.displayText(), FATAL);
 		return nullptr;
 	}*/
+	return nullptr;
 }

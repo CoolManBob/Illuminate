@@ -29,6 +29,7 @@ SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetGroupInfo()
 		LOG(ex.displayText(), FATAL);
 		return nullptr;
 	}*/
+	return nullptr;
 }
 
 SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetWorldInfo(int groupID)
@@ -49,4 +50,5 @@ SharedPtr<RecordSet> IlluminateDBWorldListSys::dbGetWorldInfo(int groupID)
 		LOG(ex.displayText(), FATAL);
 		return nullptr;
 	}*/
+	return nullptr;
 }
