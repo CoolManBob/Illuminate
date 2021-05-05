@@ -22,7 +22,11 @@ bool CMGetCreateUserInformationToAuthenticServer::processPacket(const localInfo&
 
 bool CMGetCreateUserInformationToAuthenticServer::extraPacketProcessing(localInfo& local, int& data)
 {
-	//do stuff
-	data = 2;
-	return true;
+	string data;
+	data.reserve(2050);
+	Int32 cookie, clientVer, unk;
+	*inPacket >> data;
+	*inPacket >> cookie;
+	*inPacket >> clientVer;
+	*inPacket >> unk;
 }
