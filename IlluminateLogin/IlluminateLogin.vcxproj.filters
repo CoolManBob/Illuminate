@@ -49,6 +49,18 @@
     <Filter Include="Source Files\Server Systems\Data">
       <UniqueIdentifier>{45a0aa29-0e04-4030-8e90-8dbdd3a71128}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Packet Handlers\CMSG">
+      <UniqueIdentifier>{a3f3ed0c-f8dc-4811-a6a4-f30e59828583}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Packet Handlers\SMSG">
+      <UniqueIdentifier>{f7a89cde-6c18-4308-bca1-ef0effa03a5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG">
+      <UniqueIdentifier>{30af7312-7e2a-4d33-b370-63b3bf4a74ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\SMSG">
+      <UniqueIdentifier>{4fc85b18-d768-4d85-b936-be6cbd323f14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,8 +87,17 @@
     <ClCompile Include="IlluminateDBWorldListSys.cpp">
       <Filter>Source Files\Server Systems\Serverlist</Filter>
     </ClCompile>
+    <ClCompile Include="PacketHandlers\CMRegisterNickNameToAuthenticServer.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
     <ClCompile Include="PacketHandlers\CMGetCreateUserInformationToAuthenticServer.cpp">
-      <Filter>Source Files\Packet Handlers</Filter>
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketHandlers\CMHeartBeat.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketHandlers\CMLoginUserToAuthenticServer.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,8 +137,17 @@
     <ClInclude Include="IlluminateLoginTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PacketHandlers\CMRegisterNickNameToAuthenticServer.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
     <ClInclude Include="PacketHandlers\CMGetCreateUserInformationToAuthenticServer.h">
-      <Filter>Header Files\Packet Handlers</Filter>
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketHandlers\CMHeartBeat.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketHandlers\CMLoginUserToAuthenticServer.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

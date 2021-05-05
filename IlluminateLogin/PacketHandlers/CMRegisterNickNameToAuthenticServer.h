@@ -10,7 +10,5 @@ public:
 	virtual ~CMRegisterNickNameToAuthenticServer() {};
 
 	virtual bool processPacket(const localInfo& local);
-
-	bool extraPacketProcessing(localInfo& local, int& data);
 };
 

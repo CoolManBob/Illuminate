@@ -492,6 +492,12 @@ void IlluminatePacket::GetGeneric(int position, data &val, int size)
 	val = *(data*)&buf[position];
 }
 
+void IlluminatePacket::Skip(int val)
+{
+	ValidateReadTo(pos + val);
+	pos += val;
+}
+
 IlluminatePacket& IlluminatePacket::operator<<(Int8 data)
 {
 	WriteInt8(data);

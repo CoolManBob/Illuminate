@@ -5,10 +5,16 @@ bool CMGetCreateUserInformationToAuthenticServer::processPacket(const localInfo&
 	localInfo& localObj = const_cast<localInfo&>(local);
 	IlluminatePacket* inPacket = localObj.packet;
 
-	int data;
+	string data;
+	data.reserve(2050);
+	Int32 cookie, clientVer, unk;
 	*inPacket >> data;
+	*inPacket >> cookie;
+	*inPacket >> clientVer;
+	*inPacket >> unk;
+	//data.replace()
 
-	extraPacketProcessing(localObj, data);
+	extraPacketProcessing(localObj, clientVer);
 
 	IlluminatePacket* outPacket = new IlluminatePacket(Illuminate::SMGetCreateUserInformationToAuthenticServer);
 	
@@ -22,11 +28,7 @@ bool CMGetCreateUserInformationToAuthenticServer::processPacket(const localInfo&
 
 bool CMGetCreateUserInformationToAuthenticServer::extraPacketProcessing(localInfo& local, int& data)
 {
-	string data;
-	data.reserve(2050);
-	Int32 cookie, clientVer, unk;
-	*inPacket >> data;
-	*inPacket >> cookie;
-	*inPacket >> clientVer;
-	*inPacket >> unk;
+	//do stuff
+	data = 2;
+	return true;
 }

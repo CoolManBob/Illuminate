@@ -1,5 +1,6 @@
 #pragma once
-#pragma once
+
+#include <string>
 
 #include "IlluminateTypes.h"
 #include "IlluminatePacketProcessor.h"
@@ -11,6 +12,4 @@ public:
 	virtual ~CMLoginUserToAuthenticServer() {};
 
 	virtual bool processPacket(const localInfo& local);
-
-	bool extraPacketProcessing(localInfo& local, int& data);
 };

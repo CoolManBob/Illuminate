@@ -125,6 +125,8 @@ public:
 	template<typename data>
 	void GetGeneric(int position, data &val, int size);
 
+	void Skip(int val);
+
 	IlluminatePacket& operator>>(Int8& data);
 	IlluminatePacket& operator>>(Int16& data);
 	IlluminatePacket& operator>>(Int32& data);
