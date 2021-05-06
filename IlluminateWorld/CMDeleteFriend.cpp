@@ -7,7 +7,7 @@ bool CMDeleteFriend::processPacket(const localInfo& local)
 
 	Int64 accountId;
 
-	*inPacket >> accountId; //Player who has sent the request accountId
+	*inPacket >> accountId; //Player account Id being unfriended
 
 	/* Implement Logic here */
 
@@ -18,7 +18,6 @@ bool CMDeleteFriend::processPacket(const localInfo& local)
 			player.getFriendHandler().onEvent(new DeleteFriendEvent(player, this.accountId));
 		}
 	}*/
-	IlluminatePacket* SMDeleteFriend = new IlluminatePacket(Illuminate::SMDeleteFriend);
 
 	return true;
 }

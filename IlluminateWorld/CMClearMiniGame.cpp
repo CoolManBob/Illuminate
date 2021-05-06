@@ -20,7 +20,6 @@ bool CMClearMiniGame::processPacket(const localInfo& local)
 			player.getObserveController().notifyObserver(EObserveType.clearMiniGame, this.miniGameId);
 		}
 	}*/
-	IlluminatePacket* SMClearMiniGamePkt = new IlluminatePacket(Illuminate::SMClearMiniGame); //We dont have a SM packet to send here
 
 	return true;
 }

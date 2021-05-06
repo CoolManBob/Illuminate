@@ -28,6 +28,45 @@
     <Filter Include="Header Files\Map System">
       <UniqueIdentifier>{1d8c8f86-180d-468a-b5e9-f53baf64bc7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Packet Handlers\CMSG">
+      <UniqueIdentifier>{5da0ef0c-6b73-41c4-b70d-953fcd534f65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Packet Handlers\SMSG">
+      <UniqueIdentifier>{414efea0-b5e2-4515-9a41-5056bf86d82f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG">
+      <UniqueIdentifier>{9fdc506b-03b8-4bc2-96b0-e888d6e1c90a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\SMSG">
+      <UniqueIdentifier>{41d1f335-2de1-45a2-91bd-5a502313e90f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\FriendSystem">
+      <UniqueIdentifier>{67c3315b-19d3-400b-b423-4b346cc9fd77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\AlchemyStones">
+      <UniqueIdentifier>{6fd718a4-469b-4115-bc54-aba8b0d503dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\MiniGames">
+      <UniqueIdentifier>{8604006c-4afc-42d1-b9c0-abe1aed6bce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\BlackSmith">
+      <UniqueIdentifier>{7c26e919-502c-4b6f-a853-d641c5b850e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\MailSystem">
+      <UniqueIdentifier>{d8294566-5e4c-4666-b30e-48b1e8923219}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\HouseHold">
+      <UniqueIdentifier>{0d8509b6-bd52-407b-9306-dd408d36c44b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Player">
+      <UniqueIdentifier>{a4f0d486-b522-4171-9138-80068fe0c517}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Player\Skills">
+      <UniqueIdentifier>{bcc8a1ef-13fb-4df7-aa93-3a202abafb11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Guild">
+      <UniqueIdentifier>{9dedca00-7ad1-44dd-a8dd-b831af14c30a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +77,42 @@
     </ClCompile>
     <ClCompile Include="IlluminateChannelServer.cpp">
       <Filter>Source Files\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IlluminateWorld\CMAcceptAddFriend.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\FriendSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IlluminateWorld\CMDeleteFriend.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\FriendSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IlluminateWorld\CMRenameFriendGroup.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\FriendSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IlluminateWorld\CMAlchemyUpgrade.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\AlchemyStones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IlluminateWorld\CMClearMiniGame.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\MiniGames</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IlluminateWorld\CMExtractBlackStone.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\BlackSmith</Filter>
+    </ClCompile>
+    <ClCompile Include="CMMailRemove.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\MailSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="CMMailGetItem.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\MailSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="CMHelpRewardMail.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\MailSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IlluminateWorld\CMGetBuffFromInstallation.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\HouseHold</Filter>
+    </ClCompile>
+    <ClCompile Include="CMLearnSkill.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Player\Skills</Filter>
+    </ClCompile>
+    <ClCompile Include="CMUseGuildSkill.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Guild</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +133,45 @@
     </ClInclude>
     <ClInclude Include="IlluminateChannelPacketHandler.h">
       <Filter>Header Files\Packet Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IlluminateWorld\CMRenameFriendGroup.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IlluminateWorld\CMAcceptAddFriend.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IlluminateWorld\CMAlchemyUpgrade.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IlluminateWorld\CMClearMiniGame.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IlluminateWorld\CMDeleteFriend.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IlluminateWorld\CMExtractBlackStone.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IlluminateWorld\CMGetBuffFromInstallation.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IlluminateWorld\IlluminateChannelTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CMLearnSkill.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMMailGetItem.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMHelpRewardMail.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMMailRemove.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMUseGuildSkill.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

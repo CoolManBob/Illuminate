@@ -24,7 +24,5 @@ bool CMAlchemyUpgrade::processPacket(const localInfo& local)
         }
     }*/
 
-	IlluminatePacket* SMAlchemyUpgradePkt = new IlluminatePacket(Illuminate::SMAlchemyUpgrade);
-
 	return true;
 }

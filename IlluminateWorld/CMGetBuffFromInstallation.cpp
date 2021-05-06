@@ -19,7 +19,6 @@ bool CMGetBuffFromInstallation::processPacket(const localInfo& local)
 			player.getHouseStorage().onEvent(new GetBuffFromHouseInstallationEvent(player, this.houseObjId, this.installationObjId));
 		}
 	}*/
-	IlluminatePacket* SMGetBuffFromInstallationPkt = new IlluminatePacket(Illuminate::SMGetBuffFromInstallation);
 
 	return true;
 }

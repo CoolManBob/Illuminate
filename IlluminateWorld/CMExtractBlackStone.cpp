@@ -20,7 +20,6 @@ bool CMExtractBlackStone::processPacket(const localInfo& local)
 			player.getPlayerBag().onEvent(new ExtractBlackStoneEvent(player, this.storageType, this.slotIndex));
 		}
 	}*/
-	IlluminatePacket* SMExtractBlackStonePkt = new IlluminatePacket(Illuminate::SMExtractBlackStone); //We dont have a SM packet to send here
 
 	return true;
 }

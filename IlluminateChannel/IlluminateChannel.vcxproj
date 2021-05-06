@@ -133,11 +133,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\IlluminateWorld\CMAcceptAddFriend.cpp" />
+    <ClCompile Include="..\IlluminateWorld\CMAlchemyUpgrade.cpp" />
+    <ClCompile Include="..\IlluminateWorld\CMClearMiniGame.cpp" />
+    <ClCompile Include="..\IlluminateWorld\CMDeleteFriend.cpp" />
+    <ClCompile Include="..\IlluminateWorld\CMExtractBlackStone.cpp" />
+    <ClCompile Include="..\IlluminateWorld\CMGetBuffFromInstallation.cpp" />
+    <ClCompile Include="..\IlluminateWorld\CMRenameFriendGroup.cpp" />
+    <ClCompile Include="CMHelpRewardMail.cpp" />
+    <ClCompile Include="CMLearnSkill.cpp" />
+    <ClCompile Include="CMMailGetItem.cpp" />
+    <ClCompile Include="CMMailRemove.cpp" />
+    <ClCompile Include="CMUseGuildSkill.cpp" />
     <ClCompile Include="IlluminateChannelApp.cpp" />
     <ClCompile Include="IlluminateChannelServer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\IlluminateWorld\CMAcceptAddFriend.h" />
+    <ClInclude Include="..\IlluminateWorld\CMAlchemyUpgrade.h" />
+    <ClInclude Include="..\IlluminateWorld\CMClearMiniGame.h" />
+    <ClInclude Include="..\IlluminateWorld\CMDeleteFriend.h" />
+    <ClInclude Include="..\IlluminateWorld\CMExtractBlackStone.h" />
+    <ClInclude Include="..\IlluminateWorld\CMGetBuffFromInstallation.h" />
+    <ClInclude Include="..\IlluminateWorld\CMRenameFriendGroup.h" />
+    <ClInclude Include="..\IlluminateWorld\IlluminateChannelTypes.h" />
+    <ClInclude Include="CMHelpRewardMail.h" />
+    <ClInclude Include="CMLearnSkill.h" />
+    <ClInclude Include="CMMailGetItem.h" />
+    <ClInclude Include="CMMailRemove.h" />
+    <ClInclude Include="CMUseGuildSkill.h" />
     <ClInclude Include="IlluminateChannelApp.h" />
     <ClInclude Include="IlluminateChannelClientConnection.h" />
     <ClInclude Include="IlluminateChannelClientFactory.h" />

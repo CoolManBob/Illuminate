@@ -21,7 +21,6 @@ bool CMRenameFriendGroup::processPacket(const localInfo& local)
 			player.getFriendHandler().onEvent(new RenameFriendGroupEvent(player, this.groupId, this.name));
 		}
 	}*/
-	IlluminatePacket* SMRenameFriendGroupPkt = new IlluminatePacket(Illuminate::SMRenameFriendGroup);
 
 	return true;
 }

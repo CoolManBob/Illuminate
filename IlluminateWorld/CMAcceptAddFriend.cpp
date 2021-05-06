@@ -18,7 +18,6 @@ bool CMAcceptAddFriend::processPacket(const localInfo& local)
 			player.getFriendHandler().onEvent(new AcceptAddFriendEvent(player, this.accountId));
 		}
 	}*/
-	IlluminatePacket* SMAcceptAddFriend = new IlluminatePacket(Illuminate::SMAcceptAddFriend);
 
 	return true;
 }

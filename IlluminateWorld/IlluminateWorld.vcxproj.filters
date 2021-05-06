@@ -51,27 +51,6 @@
     <ClCompile Include="IlluminateWorldServer.cpp">
       <Filter>Source Files\Networking</Filter>
     </ClCompile>
-    <ClCompile Include="CMAlchemyUpgrade.cpp">
-      <Filter>Source Files\Packet Handlers\CMSG</Filter>
-    </ClCompile>
-    <ClCompile Include="CMClearMiniGame.cpp">
-      <Filter>Source Files\Packet Handlers\CMSG</Filter>
-    </ClCompile>
-    <ClCompile Include="CMExtractBlackStone.cpp">
-      <Filter>Source Files\Packet Handlers\CMSG</Filter>
-    </ClCompile>
-    <ClCompile Include="CMGetBuffFromInstallation.cpp">
-      <Filter>Source Files\Packet Handlers\CMSG</Filter>
-    </ClCompile>
-    <ClCompile Include="CMAcceptAddFriend.cpp">
-      <Filter>Source Files\Packet Handlers\CMSG</Filter>
-    </ClCompile>
-    <ClCompile Include="CMDeleteFriend.cpp">
-      <Filter>Source Files\Packet Handlers\CMSG</Filter>
-    </ClCompile>
-    <ClCompile Include="CMRenameFriendGroup.cpp">
-      <Filter>Source Files\Packet Handlers\CMSG</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IlluminateWorldApp.h">
@@ -94,27 +73,6 @@
     </ClInclude>
     <ClInclude Include="IlluminateWorldTypes.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CMAlchemyUpgrade.h">
-      <Filter>Header Files\Packet Handlers\CMSG</Filter>
-    </ClInclude>
-    <ClInclude Include="CMClearMiniGame.h">
-      <Filter>Header Files\Packet Handlers\CMSG</Filter>
-    </ClInclude>
-    <ClInclude Include="CMExtractBlackStone.h">
-      <Filter>Header Files\Packet Handlers\CMSG</Filter>
-    </ClInclude>
-    <ClInclude Include="CMGetBuffFromInstallation.h">
-      <Filter>Header Files\Packet Handlers\CMSG</Filter>
-    </ClInclude>
-    <ClInclude Include="CMAcceptAddFriend.h">
-      <Filter>Header Files\Packet Handlers\CMSG</Filter>
-    </ClInclude>
-    <ClInclude Include="CMDeleteFriend.h">
-      <Filter>Header Files\Packet Handlers\CMSG</Filter>
-    </ClInclude>
-    <ClInclude Include="CMRenameFriendGroup.h">
-      <Filter>Header Files\Packet Handlers\CMSG</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
