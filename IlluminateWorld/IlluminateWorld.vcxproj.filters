@@ -28,6 +28,18 @@
     <Filter Include="Header Files\Map System">
       <UniqueIdentifier>{1d8c8f86-180d-468a-b5e9-f53baf64bc7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG">
+      <UniqueIdentifier>{6baff22a-3c47-4587-bde5-1a0e949a3322}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\SMSG">
+      <UniqueIdentifier>{90c06da7-0f33-4bb7-820c-f0dff3fb3e52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Packet Handlers\CMSG">
+      <UniqueIdentifier>{d0c7fa7d-2b54-496c-86cb-b1e405902b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Packet Handlers\SMSG">
+      <UniqueIdentifier>{4e932d17-17b4-4dac-99d9-a6920f6f13ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +50,27 @@
     </ClCompile>
     <ClCompile Include="IlluminateWorldServer.cpp">
       <Filter>Source Files\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="CMAlchemyUpgrade.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="CMClearMiniGame.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="CMExtractBlackStone.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="CMGetBuffFromInstallation.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="CMAcceptAddFriend.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="CMDeleteFriend.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="CMRenameFriendGroup.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +91,30 @@
     </ClInclude>
     <ClInclude Include="IlluminateWorldPacketHandler.h">
       <Filter>Header Files\Packet Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="IlluminateWorldTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CMAlchemyUpgrade.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMClearMiniGame.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMExtractBlackStone.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMGetBuffFromInstallation.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMAcceptAddFriend.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMDeleteFriend.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMRenameFriendGroup.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

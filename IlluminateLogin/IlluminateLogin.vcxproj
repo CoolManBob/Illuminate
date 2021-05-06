@@ -149,6 +149,11 @@
     <ClCompile Include="PacketHandlers\CMHeartBeat.cpp" />
     <ClCompile Include="PacketHandlers\CMLoginUserToAuthenticServer.cpp" />
     <ClCompile Include="PacketHandlers\CMRegisterNickNameToAuthenticServer.cpp" />
+    <ClCompile Include="SMFixedCharge.cpp" />
+    <ClCompile Include="SMGetContentServiceInfo.cpp" />
+    <ClCompile Include="SMGetCreateUserInformationToAuthenticServer.cpp" />
+    <ClCompile Include="SMLoginUserToAuthenticServer.cpp" />
+    <ClCompile Include="SMRegisterNickNameToAuthenticServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IlluminateDBWorldListSys.h" />
@@ -167,6 +172,11 @@
     <ClInclude Include="PacketHandlers\CMHeartBeat.h" />
     <ClInclude Include="PacketHandlers\CMLoginUserToAuthenticServer.h" />
     <ClInclude Include="PacketHandlers\CMRegisterNickNameToAuthenticServer.h" />
+    <ClInclude Include="SMFixedCharge.h" />
+    <ClInclude Include="SMGetContentServiceInfo.h" />
+    <ClInclude Include="SMGetCreateUserInformationToAuthenticServer.h" />
+    <ClInclude Include="SMLoginUserToAuthenticServer.h" />
+    <ClInclude Include="SMRegisterNickNameToAuthenticServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

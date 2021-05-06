@@ -99,6 +99,21 @@
     <ClCompile Include="PacketHandlers\CMLoginUserToAuthenticServer.cpp">
       <Filter>Source Files\Packet Handlers\CMSG</Filter>
     </ClCompile>
+    <ClCompile Include="SMFixedCharge.cpp">
+      <Filter>Source Files\Packet Handlers\SMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="SMRegisterNickNameToAuthenticServer.cpp">
+      <Filter>Source Files\Packet Handlers\SMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="SMLoginUserToAuthenticServer.cpp">
+      <Filter>Source Files\Packet Handlers\SMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="SMGetContentServiceInfo.cpp">
+      <Filter>Source Files\Packet Handlers\SMSG</Filter>
+    </ClCompile>
+    <ClCompile Include="SMGetCreateUserInformationToAuthenticServer.cpp">
+      <Filter>Source Files\Packet Handlers\SMSG</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IlluminateLoginApp.h">
@@ -148,6 +163,21 @@
     </ClInclude>
     <ClInclude Include="PacketHandlers\CMLoginUserToAuthenticServer.h">
       <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="SMFixedCharge.h">
+      <Filter>Header Files\Packet Handlers\SMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="SMRegisterNickNameToAuthenticServer.h">
+      <Filter>Header Files\Packet Handlers\SMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="SMLoginUserToAuthenticServer.h">
+      <Filter>Header Files\Packet Handlers\SMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="SMGetContentServiceInfo.h">
+      <Filter>Header Files\Packet Handlers\SMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="SMGetCreateUserInformationToAuthenticServer.h">
+      <Filter>Header Files\Packet Handlers\SMSG</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

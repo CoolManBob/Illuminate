@@ -134,17 +134,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CMAcceptAddFriend.cpp" />
+    <ClCompile Include="CMAlchemyUpgrade.cpp" />
+    <ClCompile Include="CMClearMiniGame.cpp" />
+    <ClCompile Include="CMDeleteFriend.cpp" />
+    <ClCompile Include="CMExtractBlackStone.cpp" />
+    <ClCompile Include="CMGetBuffFromInstallation.cpp" />
+    <ClCompile Include="CMRenameFriendGroup.cpp" />
     <ClCompile Include="IlluminateWorldApp.cpp" />
     <ClCompile Include="IlluminateWorldServer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CMAcceptAddFriend.h" />
+    <ClInclude Include="CMAlchemyUpgrade.h" />
+    <ClInclude Include="CMDeleteFriend.h" />
+    <ClInclude Include="CMExtractBlackStone.h" />
+    <ClInclude Include="CMGetBuffFromInstallation.h" />
+    <ClInclude Include="CMRenameFriendGroup.h" />
     <ClInclude Include="IlluminateWorldApp.h" />
     <ClInclude Include="IlluminateWorldClientConnection.h" />
     <ClInclude Include="IlluminateWorldClientFactory.h" />
     <ClInclude Include="IlluminateWorldGlobal.h" />
     <ClInclude Include="IlluminateWorldPacketHandler.h" />
     <ClInclude Include="IlluminateWorldServer.h" />
+    <ClInclude Include="IlluminateWorldTypes.h" />
+    <ClInclude Include="CMClearMiniGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
