@@ -1,0 +1,71 @@
+function spawnCharacter()
+        self._spawnLocation = (40974.1, 203593.0, -7330.2)
+        self._direction = (0.719493160788709)
+        self._characterKey = (20584)
+        self._spawnQuantity = (1)
+        self._actionIndex = (0)
+        self._DialogIndex = (0)
+        self._spawnRange = (0)
+end
+
+function spawnCharacter()
+        self._spawnLocation = (41112.2, 203661.0, -7318.08)
+        self._direction = (-0.392186155216746)
+        self._characterKey = (20584)
+        self._spawnQuantity = (1)
+        self._actionIndex = (0)
+        self._DialogIndex = (0)
+        self._spawnRange = (0)
+end
+
+function spawnCharacter()
+        self._spawnLocation = (41269.5, 203601.0, -7311.83)
+        self._direction = (-1.52116180644169)
+        self._characterKey = (20585)
+        self._spawnQuantity = (1)
+        self._actionIndex = (0)
+        self._DialogIndex = (0)
+        self._spawnRange = (0)
+end
+
+function spawnCharacter()
+        self._spawnLocation = (41105.8, 203871.0, -7333.65)
+        self._direction = (-1.59495319709485)
+        self._characterKey = (20587)
+        self._spawnQuantity = (1)
+        self._actionIndex = (0)
+        self._DialogIndex = (0)
+        self._spawnRange = (0)
+end
+
+function spawnCharacter()
+        self._spawnLocation = (41116.1, 203450.0, -7319.22)
+        self._direction = (-1.5707963267949)
+        self._characterKey = (24085)
+        self._spawnQuantity = (1)
+        self._function = (255)
+        self._actionIndex = (34)
+        self._DialogIndex = (0)
+        self._spawnRange = (0)
+end
+
+function spawnCharacter()
+        self._spawnLocation = (40973.4, 203299.0, -7337.78)
+        self._direction = (-2.3561942780603)
+        self._characterKey = (24086)
+        self._spawnQuantity = (1)
+        self._function = (39)
+        self._actionIndex = (35)
+        self._DialogIndex = (0)
+        self._spawnRange = (0)
+end
+
+function spawnCharacter()
+        self._spawnLocation = (41279.6, 203286.0, -7338.04)
+        self._direction = (-0.785398375529492)
+        self._characterKey = (24086)
+        self._spawnQuantity = (1)
+        self._actionIndex = (35)
+        self._DialogIndex = (0)
+        self._spawnRange = (0)
+end

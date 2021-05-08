@@ -1,6 +1,6 @@
-#include "CMLearnSkill.h"
+#include "CMEnchantItem.h"
 
-bool CMLearnSkill::processPacket(const localInfo& local)
+bool CMEnchantItem::processPacket(const localInfo& local)
 {
 	localInfo& localObj = const_cast<localInfo&>(local);
 	IlluminatePacket* inPacket = localObj.packet;
