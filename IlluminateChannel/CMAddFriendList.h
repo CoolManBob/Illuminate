@@ -1,17 +1,20 @@
 #pragma once
+
 #include <string>
 using std::string;
 
 #include "IlluminateTypes.h"
 #include "IlluminatePacketProcessor.h"
 
-class CMListLifeRank : public IlluminatePacketProcessor
+class CMAddFriendList : public IlluminatePacketProcessor
 {
 public:
-	CMListLifeRank() {};
-	virtual ~CMListLifeRank() {};
+	CMAddFriendList() {};
+	virtual ~CMAddFriendList() {};
 
 	virtual bool processPacket(const localInfo& local);
 
 	bool extraPacketProcessing(localInfo& local, int& data);
 };
+#pragma once
+#pragma once

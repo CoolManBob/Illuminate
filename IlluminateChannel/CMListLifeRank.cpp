@@ -1,6 +1,6 @@
-#include "CMLearnSkill.h"
+#include "CMListLifeRank.h"
 
-bool CMLearnSkill::processPacket(const localInfo& local)
+bool CMListLifeRank::processPacket(const localInfo& local)
 {
 	localInfo& localObj = const_cast<localInfo&>(local);
 	IlluminatePacket* inPacket = localObj.packet;

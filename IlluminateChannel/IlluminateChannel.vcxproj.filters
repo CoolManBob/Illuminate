@@ -67,6 +67,24 @@
     <Filter Include="Source Files\Packet Handlers\CMSG\Guild">
       <UniqueIdentifier>{9dedca00-7ad1-44dd-a8dd-b831af14c30a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Enchant">
+      <UniqueIdentifier>{0184c201-8fbd-43b4-8290-03adc40b7175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Ranking">
+      <UniqueIdentifier>{8b83e656-7b14-45d9-869e-45ba84945176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Rewards">
+      <UniqueIdentifier>{702ae269-4a37-4f94-8ea3-288a06ed42e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Pets">
+      <UniqueIdentifier>{3d4633a9-bae1-41bc-b2fb-c42c454ebc49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Party">
+      <UniqueIdentifier>{47d21a7b-b786-4291-9b10-528853059cee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Chat">
+      <UniqueIdentifier>{c9d01b0e-b29a-4407-b1b2-c2a1bf0f2f1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -113,6 +131,33 @@
     </ClCompile>
     <ClCompile Include="CMUseGuildSkill.cpp">
       <Filter>Source Files\Packet Handlers\CMSG\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="CMEnchantItem.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Enchant</Filter>
+    </ClCompile>
+    <ClCompile Include="CMListLifeRank.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Ranking</Filter>
+    </ClCompile>
+    <ClCompile Include="CMAddFriend.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\FriendSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="CMAddFriendGroup.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\FriendSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="CMAddFriendList.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\FriendSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="CMAttendanceReward.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Rewards</Filter>
+    </ClCompile>
+    <ClCompile Include="CMChangeLooting.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Pets</Filter>
+    </ClCompile>
+    <ClCompile Include="CMChangePartyLeader.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Party</Filter>
+    </ClCompile>
+    <ClCompile Include="CMChat.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Chat</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +216,33 @@
       <Filter>Header Files\Packet Handlers\CMSG</Filter>
     </ClInclude>
     <ClInclude Include="CMUseGuildSkill.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMEnchantItem.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMListLifeRank.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMAddFriend.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMAddFriendGroup.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMAddFriendList.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMChat.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMChangePartyLeader.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMChangeLooting.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMAttendanceReward.h">
       <Filter>Header Files\Packet Handlers\CMSG</Filter>
     </ClInclude>
   </ItemGroup>
