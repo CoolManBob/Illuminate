@@ -43,9 +43,6 @@
     <Filter Include="Source Files\Packet Handlers\CMSG\FriendSystem">
       <UniqueIdentifier>{67c3315b-19d3-400b-b423-4b346cc9fd77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Packet Handlers\CMSG\AlchemyStones">
-      <UniqueIdentifier>{6fd718a4-469b-4115-bc54-aba8b0d503dc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Packet Handlers\CMSG\MiniGames">
       <UniqueIdentifier>{8604006c-4afc-42d1-b9c0-abe1aed6bce8}</UniqueIdentifier>
     </Filter>
@@ -85,6 +82,21 @@
     <Filter Include="Source Files\Packet Handlers\CMSG\Chat">
       <UniqueIdentifier>{c9d01b0e-b29a-4407-b1b2-c2a1bf0f2f1a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Equipment">
+      <UniqueIdentifier>{6fd718a4-469b-4115-bc54-aba8b0d503dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Alchemy">
+      <UniqueIdentifier>{29d5bf81-c643-46b3-9b0e-96edbe4b1995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Loot">
+      <UniqueIdentifier>{36ba2563-7df9-4df4-ba6d-b127260b60ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Warehouse">
+      <UniqueIdentifier>{640cb9bf-eb25-4e82-b53a-ff662d0d5844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Installations">
+      <UniqueIdentifier>{40b98178-14f1-4533-b3bd-25e6c7065cb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -106,7 +118,7 @@
       <Filter>Source Files\Packet Handlers\CMSG\FriendSystem</Filter>
     </ClCompile>
     <ClCompile Include="..\IlluminateWorld\CMAlchemyUpgrade.cpp">
-      <Filter>Source Files\Packet Handlers\CMSG\AlchemyStones</Filter>
+      <Filter>Source Files\Packet Handlers\CMSG\Equipment</Filter>
     </ClCompile>
     <ClCompile Include="..\IlluminateWorld\CMClearMiniGame.cpp">
       <Filter>Source Files\Packet Handlers\CMSG\MiniGames</Filter>
@@ -158,6 +170,36 @@
     </ClCompile>
     <ClCompile Include="CMChat.cpp">
       <Filter>Source Files\Packet Handlers\CMSG\Chat</Filter>
+    </ClCompile>
+    <ClCompile Include="CMWhisper.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Chat</Filter>
+    </ClCompile>
+    <ClCompile Include="CMSuggestGuildContract.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="CMPickupDroppedItem.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Loot</Filter>
+    </ClCompile>
+    <ClCompile Include="CMPetUseSkill.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Pets</Filter>
+    </ClCompile>
+    <ClCompile Include="CMMailGetAllItem.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\MailSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="CMListWarehouseItem.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Warehouse</Filter>
+    </ClCompile>
+    <ClCompile Include="CMGetInstallationList.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Installations</Filter>
+    </ClCompile>
+    <ClCompile Include="CMGetDroppedItemList.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Loot</Filter>
+    </ClCompile>
+    <ClCompile Include="CMGetChallengeReward.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Rewards</Filter>
+    </ClCompile>
+    <ClCompile Include="CMGetBuffFromInstallation.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Installations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +285,36 @@
       <Filter>Header Files\Packet Handlers\CMSG</Filter>
     </ClInclude>
     <ClInclude Include="CMAttendanceReward.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMWhisper.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSuggestGuildContract.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMGetBuffFromInstallation.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMPetUseSkill.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMGetInstallationList.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMGetChallengeReward.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMGetDroppedItemList.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMMailGetAllItem.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMListWarehouseItem.h">
+      <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMPickupDroppedItem.h">
       <Filter>Header Files\Packet Handlers\CMSG</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,15 +1,14 @@
-#pragma once
-
 #include <string>
+using std::string;
 
 #include "IlluminateTypes.h"
 #include "IlluminatePacketProcessor.h"
 
-class SMGetCreateUserInformationToAuthenticServer : public IlluminatePacketProcessor
+class CMPetUseSkill : public IlluminatePacketProcessor
 {
 public:
-	SMGetCreateUserInformationToAuthenticServer() {};
-	virtual ~SMGetCreateUserInformationToAuthenticServer() {};
+	CMPetUseSkill() {};
+	virtual ~CMPetUseSkill() {};
 
 	virtual bool processPacket(const localInfo& local);
 

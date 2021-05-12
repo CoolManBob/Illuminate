@@ -9,7 +9,7 @@ bool CMLoginUserToAuthenticServer::processPacket(const localInfo& local)
     Int16 GPU;
     Int32 skipVal, RAM, ScreenW, ScreenH, cookie;
     Int64 pin, OperatingSystem, i64unk2;
-    std::string strData, CPU, GPU;
+    std::string strData, CPU, GPUstr;
     inPacket->Skip(62);        //skip(62); // auth token data, i presume we skip because we handle this on the nodejs server for token auth?
     *inPacket >> index;           //index = readC();
     skipVal = index * 8;
@@ -22,7 +22,7 @@ bool CMLoginUserToAuthenticServer::processPacket(const localInfo& local)
     *inPacket >> CPU;           //readS(42); // CPU name
     *inPacket >> spacer1;           //readC(); // 0 spacer? byte
     *inPacket >> RAM;           //readD(); // RAM amount //standard Int
-    *inPacket >> GPU;           //readS(42); // GPU name
+    *inPacket >> GPUstr;           //readS(42); // GPU name
     *inPacket >> i64unk2;            //readQ(); // 0 unknown
     *inPacket >> spacer2;           //readC(); // 0 spacer? byte
     *inPacket >> ScreenW; //readD(); // screen width

@@ -21,7 +21,7 @@ bool SMGetCreateUserInformationToAuthenticServer::processPacket(const localInfo&
 	return true;
 }
 
-bool SMGetCreateUserInformationToAuthenticServer::extraProcessPacket(localInfo& local, int& data)
+/*bool SMGetCreateUserInformationToAuthenticServer::extraProcessPacket(localInfo& local, int& data)
 {
 	Int8 i8unk1, i8unk2 = 0, i8unk3 = 0;
 	Int32 i = 20;
@@ -43,9 +43,9 @@ bool SMGetCreateUserInformationToAuthenticServer::extraProcessPacket(localInfo& 
 	if (i == b)
 	this.client.setPinTable(stringBuilder.toString()); 
       Long long_ = Long.valueOf(Long.parseLong(stringBuilder.toString()));
-	*/
+
 	
 	*outBound << longVal;
 
 	return true;
-}
+}*/

@@ -1,15 +1,16 @@
 #pragma once
 
 #include <string>
+using std::string;
 
 #include "IlluminateTypes.h"
 #include "IlluminatePacketProcessor.h"
 
-class SMGetCreateUserInformationToAuthenticServer : public IlluminatePacketProcessor
+class CMGetBuffFromInstallation : public IlluminatePacketProcessor
 {
 public:
-	SMGetCreateUserInformationToAuthenticServer() {};
-	virtual ~SMGetCreateUserInformationToAuthenticServer() {};
+	CMGetBuffFromInstallation() {};
+	virtual ~CMGetBuffFromInstallation() {};
 
 	virtual bool processPacket(const localInfo& local);
 
