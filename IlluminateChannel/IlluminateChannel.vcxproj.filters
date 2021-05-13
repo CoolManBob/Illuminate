@@ -97,6 +97,30 @@
     <Filter Include="Source Files\Packet Handlers\CMSG\Installations">
       <UniqueIdentifier>{40b98178-14f1-4533-b3bd-25e6c7065cb1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Trading">
+      <UniqueIdentifier>{a1d864d8-6ce5-4c61-979e-eba315492568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet Handlers\CMSG\Housing">
+      <UniqueIdentifier>{c05b4f8f-8ec9-4f39-84be-b08c6d458769}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums">
+      <UniqueIdentifier>{4a5370b9-e813-44b0-8869-87e58990cdb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Guild">
+      <UniqueIdentifier>{2120de8d-07d8-4612-891b-06b08a1c8866}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Party">
+      <UniqueIdentifier>{92f121e3-acaf-4fd7-8679-e9680fb894d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Misc">
+      <UniqueIdentifier>{3ba30ff8-9d3e-4064-b666-19cd293a2e28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Housing">
+      <UniqueIdentifier>{d4334c8e-5b49-467b-afeb-efaa12a550f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Items">
+      <UniqueIdentifier>{ef0c34a2-f8a9-4bcf-8420-095493a5fa1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -200,6 +224,45 @@
     </ClCompile>
     <ClCompile Include="CMGetBuffFromInstallation.cpp">
       <Filter>Source Files\Packet Handlers\CMSG\Installations</Filter>
+    </ClCompile>
+    <ClCompile Include="CMAddDeliveryItem.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Trading</Filter>
+    </ClCompile>
+    <ClCompile Include="CMBuyHouseForTownManagement.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Housing</Filter>
+    </ClCompile>
+    <ClCompile Include="CMChangeAwakenSkill.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Player\Skills</Filter>
+    </ClCompile>
+    <ClCompile Include="CMChangeGuildMemberGrade.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="CMChangeGuildJoinMode.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="CMFusionPet.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Pets</Filter>
+    </ClCompile>
+    <ClCompile Include="CMFeedingPet.cpp">
+      <Filter>Source Files\Packet Handlers\CMSG\Pets</Filter>
+    </ClCompile>
+    <ClCompile Include="EGuildType.h">
+      <Filter>Header Files\Enums\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="EGuildContractNotifyType.h">
+      <Filter>Header Files\Enums\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="EGuildMemberRankType.h">
+      <Filter>Header Files\Enums\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="EGuildNoticeType.h">
+      <Filter>Header Files\Enums\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="EGuildNotifyType.h">
+      <Filter>Header Files\Enums\Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="EGuildSize.h">
+      <Filter>Header Files\Enums\Guild</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -316,6 +379,138 @@
     </ClInclude>
     <ClInclude Include="CMPickupDroppedItem.h">
       <Filter>Header Files\Packet Handlers\CMSG</Filter>
+    </ClInclude>
+    <ClInclude Include="EPartyLootType.h">
+      <Filter>Header Files\Enums\Party</Filter>
+    </ClInclude>
+    <ClInclude Include="EAttackType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EAuctionType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EChangeNameType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ECompetitionFightState.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ECompetitionMatchType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EContentsRankType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EContentsServiceType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EDelivererType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EDialogButtonType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EDialogState.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EFishEncyclopediaCategory.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EGamePointType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EInstantCashType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EMoveItemToType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ENotifyItemMarketInfoType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ENpcWorkingState.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EPacketTaskType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EPlantType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EQuickSlotType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EServantToRewardType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EServantWhereType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EServerCustomMessageType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EServerShutdownType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ESpamFilterType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ESupportPointType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ETamingServantType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ETaxType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ETeleportType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ETradeCommerceType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EVillageSiegeType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EWorldMapNodeType.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EWorldMapState.h">
+      <Filter>Header Files\Enums\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EFixedHouseType.h">
+      <Filter>Header Files\Enums\Housing</Filter>
+    </ClInclude>
+    <ClInclude Include="EHouseReceipeType.h">
+      <Filter>Header Files\Enums\Housing</Filter>
+    </ClInclude>
+    <ClInclude Include="EAlchemyStoneType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ECashProductCategory.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EContentsEventType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EEnchantType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EInventoryBagType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemClassify.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemDropType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemGetType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemGradeType.h">
+      <Filter>Header Files\Enums\Items</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
