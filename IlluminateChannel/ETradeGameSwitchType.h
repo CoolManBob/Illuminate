@@ -1,1 +1,4 @@
-#pragma once
+enum class ETradeGameSwitchType {
+	Small,
+	Large
+};

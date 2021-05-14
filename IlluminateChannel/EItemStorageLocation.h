@@ -1,1 +1,22 @@
-#pragma once
+enum class EItemStorageLocation {
+    Inventory = (0),
+    Equipments = (1),
+    Warehouse = (2),
+    Unused3 = (3),
+    ServantInventory = (4),
+    ServantEquip = (5),
+    Unused6 = (6),
+    Unused7 = (7),
+    Unused8 = (8),
+    Unused9 = (9),
+    Unused10 = (10),
+    Unused11 = (11),
+    Unused12 = (12),
+    Unused13 = (13),
+    GuildWarehouse = (14),
+    Unused15 = (15),
+    Unused16 = (16),
+    CashInventory = (17),
+    Unused18 = (18),
+    None = (19)
+};

@@ -121,6 +121,39 @@
     <Filter Include="Header Files\Enums\Items">
       <UniqueIdentifier>{ef0c34a2-f8a9-4bcf-8420-095493a5fa1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Enums\Actions">
+      <UniqueIdentifier>{4be29be7-a979-43d3-adec-e1091cbe4971}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\AI">
+      <UniqueIdentifier>{3fb43e1e-0cee-447e-b00f-0dd39066a306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Alchemy">
+      <UniqueIdentifier>{c8cdae11-56a5-4d81-8cde-e13cd2a46bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Auction">
+      <UniqueIdentifier>{5220e0ab-4bec-4fd4-83ca-4325acd0ca45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Chat">
+      <UniqueIdentifier>{149cd92e-aa95-4421-96db-c046db739b67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Creature">
+      <UniqueIdentifier>{d2f7ff64-4e0a-4d7c-a1ce-e13cba6fd52b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Journal">
+      <UniqueIdentifier>{804cb2b0-2d75-43d9-8eef-72fe543c885a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Skills">
+      <UniqueIdentifier>{94a24d69-1729-4be0-b34a-2e429a110958}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Stats">
+      <UniqueIdentifier>{68298f7d-5d77-4da3-b786-78fb77db44ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\Weather">
+      <UniqueIdentifier>{21e0406c-0a9a-4792-8efd-7fd3b976c91c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums\World">
+      <UniqueIdentifier>{ca0b1c9b-3731-4074-b085-b440718798a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -511,6 +544,162 @@
     </ClInclude>
     <ClInclude Include="EItemGradeType.h">
       <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemMarketMainCategoryType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemMarketPartyVoteState.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemStorageLocation.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EItemVestedType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ENotifyItemMarketPartyInfoType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EPurchaseSubject.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ETradeGameResult.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ETradeGameSwitchType.h">
+      <Filter>Header Files\Enums\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EActionEffectType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EAdditionalDamageType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EApplySpeedBuffType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EAttachTerrainType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EAttackAbsorbType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EBattleAimedActionType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EGuardType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EMoveDirectionType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ENaviType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ERotateType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ESpUseType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EStatType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ETargetType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EWeaponType.h">
+      <Filter>Header Files\Enums\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EAIDestination.h">
+      <Filter>Header Files\Enums\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="EAIRotateMethod.h">
+      <Filter>Header Files\Enums\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="EAIState.h">
+      <Filter>Header Files\Enums\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="EAlchemyType.h">
+      <Filter>Header Files\Enums\Alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EAuctionRegisterType.h">
+      <Filter>Header Files\Enums\Auction</Filter>
+    </ClInclude>
+    <ClInclude Include="EChatNoticeType.h">
+      <Filter>Header Files\Enums\Chat</Filter>
+    </ClInclude>
+    <ClInclude Include="EChatResponseType.h">
+      <Filter>Header Files\Enums\Chat</Filter>
+    </ClInclude>
+    <ClInclude Include="EChatType.h">
+      <Filter>Header Files\Enums\Chat</Filter>
+    </ClInclude>
+    <ClInclude Include="ECharacterGradeType.h">
+      <Filter>Header Files\Enums\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="ECharKind.h">
+      <Filter>Header Files\Enums\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="EInstallationType.h">
+      <Filter>Header Files\Enums\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="EMainAttackType.h">
+      <Filter>Header Files\Enums\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="ERemoveActorType.h">
+      <Filter>Header Files\Enums\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="ESpawnType.h">
+      <Filter>Header Files\Enums\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="ETribeType.h">
+      <Filter>Header Files\Enums\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="EVehicleType.h">
+      <Filter>Header Files\Enums\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="EJournalEntryType.h">
+      <Filter>Header Files\Enums\Journal</Filter>
+    </ClInclude>
+    <ClInclude Include="EJournalType.h">
+      <Filter>Header Files\Enums\Journal</Filter>
+    </ClInclude>
+    <ClInclude Include="ESkillAwakeningType.h">
+      <Filter>Header Files\Enums\Skills</Filter>
+    </ClInclude>
+    <ClInclude Include="ESkillOwnerType.h">
+      <Filter>Header Files\Enums\Skills</Filter>
+    </ClInclude>
+    <ClInclude Include="ESkillType.h">
+      <Filter>Header Files\Enums\Skills</Filter>
+    </ClInclude>
+    <ClInclude Include="EElement.h">
+      <Filter>Header Files\Enums\Stats</Filter>
+    </ClInclude>
+    <ClInclude Include="StatEnum.h">
+      <Filter>Header Files\Enums\Stats</Filter>
+    </ClInclude>
+    <ClInclude Include="EWeatherActorType.h">
+      <Filter>Header Files\Enums\Weather</Filter>
+    </ClInclude>
+    <ClInclude Include="EWeatherFactorType.h">
+      <Filter>Header Files\Enums\Weather</Filter>
+    </ClInclude>
+    <ClInclude Include="EWeatherKind.h">
+      <Filter>Header Files\Enums\Weather</Filter>
+    </ClInclude>
+    <ClInclude Include="EExplorationNodeType.h">
+      <Filter>Header Files\Enums\World</Filter>
+    </ClInclude>
+    <ClInclude Include="EGameTimeType.h">
+      <Filter>Header Files\Enums\World</Filter>
+    </ClInclude>
+    <ClInclude Include="ETerritoryKeyType.h">
+      <Filter>Header Files\Enums\World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
